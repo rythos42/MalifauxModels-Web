@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-ui-1.10.3.js"></script>
+		<script type="text/javascript" src="js/lib/knockout-2.3.0.js"></script>
+		<script type="text/javascript" src="js/lib/underscore-min.js"></script>
+		
+		<script type="text/javascript" src="js/app/Model/Model.js"></script>
+		<script type="text/javascript" src="js/app/Model/SearchOption.js"></script>
+		<script type="text/javascript" src="js/app/Mappers/ModelList.js"></script>
+		<script type="text/javascript" src="js/app/Mappers/ModelListMapper.js"></script>
+		<script type="text/javascript" src="js/app/Managers/ModelListManager.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/IndexViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/ModelViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/AddedModelViewModel.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/AutoCompleteCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/PromptTextCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/SortHeaderCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/ClickToShowCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/DialogCustomBinder.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var viewModel = new IndexViewModel();
+				ko.applyBindings(viewModel);
+			});
+		</script>
+		
+		<link href="css/reset.css" rel="stylesheet"/>
+		<link href="css/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
+		<link href="css/shared.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div id="HeaderBar">
+			<span>Malifaux Cross-Reference/Crew Creator (kind of)</span>
+			<a href="#" data-bind="clickToOpenDialog: '#HelpDialog'">[Help]</a>
+		</div>
+		
+		<div id="HelpDialog" data-bind="dialog:{autoOpen: false, title: 'Help'}">
+			<div>I made this initially to help me find all of the Mercenaries. But after typing them all in, now I have them memorized...so...I made a mini crew creator as well.</div>
+			<div>There is no constraint checking here, just a list of models and their costs.</div>
+			<div>You can contact me at...
+			<ul>
+				<li>rythos42 at gmail dot com, or</li>
+				<li>rythos42 on wyrd-games.net</li>
+			</ul>
+			</div>
+		</div>
+	
+		<div id="Crew" data-bind="visible: hasCrew">
+			<table>
+				<thead>
+					<th class="name">Name</th>
+					<th class="number">Cost</th>
+					<th class="number">Cache</th>
+					<th class="leader">Leader</th>
+					<th></th>
+					<th class="action"></th>
+				</thead>
+				<tbody data-bind="foreach: crew">
+					<td class="name" data-bind="text: name"></td>
+					<td class="number" data-bind="text: cost"></td>
+					<td class="number" data-bind="text: cache"></td>
+					<td class="leader" data-bind="css: { 'is-leader': isLeader }"></td>
+					<td></td>
+					<td class="action">
+						<a href="#" data-bind="click: removeFromCrew">Remove</a>
+						
+						<a href="#" data-bind="visible: canBeLeader, click: setAsLeader">Set as Leader</a>
+					</td>
+				</tbody>
+			</table>
+			<div id="Total">
+				Total: <span data-bind="text: crewTotal"></span>
+				<div>
+					<label for="Soulstones">Soulstones: </label>
+					<input type="text" id="Soulstones" data-bind="value: availableSoulstones"></a>
+					<label for="RemainingSoulstones">Remaining: </label>
+					<span data-bind="text: remainingSoulstones"></span>
+				</div>
+			</div>
+		</div>
+	
+		<ul>
+			<li>
+				<label for="SearchField">Search: </label>
+				<select type="text" id="SearchField" class="search-field" data-bind="options: searchOptions, optionsText: 'displayName', value: selectedSearchOption"></select>
+			</li>
+			<li>
+				<label for="SearchText">Text: </label>
+				<input type="text" id="SearchText" data-bind="value: searchText, autocomplete: {source: searchTextSuggestions, textField: searchText}, promptText: 'Type search term...'" />
+			</li>
+			<li>
+				<input type="button" id="Search" value="Search" data-bind="click: search" />
+			</li>
+		</ul>
+				
+		<table>
+			<thead>
+				<tr data-bind="sortHeader: {}">
+					<th class="name">Name</th>
+					<th>Faction</th>
+					<th class="nosort">Characteristics</th>
+					<th class="number">Cost</th>
+					<th class="number">Cache</th>
+					<th class="action"></th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: searchList">
+				<tr>
+					<td class="name" data-bind="text: name"></td>
+					<td data-bind="text: faction"></td>
+					<td data-bind="text: characteristics"></td>
+					<td class="number" data-bind="text: cost"></td>
+					<td class="number" data-bind="text: cache"></td>
+					<td class="action">
+						<a href="#" data-bind="click: addToCrew">Add</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

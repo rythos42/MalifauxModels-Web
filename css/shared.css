@@ -1,0 +1,121 @@
+table {
+    border: solid 1px #dadada;
+    width: 100%;
+    clear: right;
+    table-layout: fixed;
+}
+
+thead {
+    background-color: #e5e5e5;
+    font-weight: bold;
+    color: #000000;
+}
+
+td, th {
+    padding: 5px 10px;
+    text-align: left;
+}
+
+td.number, th.number {
+	width: 75px;
+	text-align: right;
+}
+
+td.action, th.action {
+	width: 50px;
+}
+
+td.leader, th.leader {
+	width: 75px;
+}
+
+td.name, th.name {
+	width: 300px;
+}
+
+th {
+	cursor: pointer;
+}
+
+th.nosort {
+	cursor: text;
+}
+
+ul {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+ul li {
+    display: block;
+    margin-left: 10px;
+	margin-top: 5px;
+	position: relative;
+}
+
+label {
+    width: 148px;
+    text-align: right;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+input[type="text"], select {
+    border: 1px solid #ddd;
+    padding: 3px 2px 3px 3px;
+    width: 296px;
+}
+
+input[type="button"] {
+	margin-left: 387px;
+}
+
+.prompt-text {
+    font-style: italic;
+    color: #A7A7A7;
+    position: absolute;
+    padding-top: 4px;
+    padding-left: 13px;
+}
+
+#Crew {
+	margin-bottom: 20px;
+}
+
+.disabled {
+	font-style: italic;
+}
+
+#Total {
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+#Total label {
+	width: auto;
+}
+
+#Total #Soulstones {
+	width: 35px;
+}
+
+.is-leader {
+	background: url('../images/check.gif') no-repeat center center;
+}
+
+#HeaderBar {
+	background-color: #E5E5E5;
+	width: 100%;
+	height: 1em;
+	padding: 3px 3px 3px 3px;
+	border-bottom: solid black 2px;
+}
+
+#HeaderBar a {
+	margin-right: 10px;
+	float: right;
+}
+
+#HelpDialog div {
+	margin-bottom: 7px;
+}
