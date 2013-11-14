@@ -12,6 +12,6 @@ var ModelViewModel = function(model, crew) {
 	self.cache = model.cache;
 
 	self.addToCrew = function() {
-		crew.addToCrew(model);
+		crew.addToCrew(model.clone());
 	};
 }

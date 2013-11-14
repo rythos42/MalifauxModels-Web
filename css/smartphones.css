@@ -3,11 +3,11 @@ label {
 }
 
 input[type="button"] {
-	margin-left: 314px;
+	margin-left: 219px;
 }
 
-table {
-	width: 463px;
+table, #HeaderBar {
+	width: 344px;
 }
 
 td, th {
@@ -33,4 +33,12 @@ td.faction, th.faction {
 
 td.characteristics, th.characteristics {
 	width: 60px;
+}
+
+th.characteristics, th.number {
+	overflow: hidden;
+}
+
+#Crew td.number, #Crew th.number {
+	width: 40px;
 }

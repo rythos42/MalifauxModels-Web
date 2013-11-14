@@ -64,11 +64,11 @@ label {
 input[type="text"], select {
     border: 1px solid #ddd;
     padding: 3px 2px 3px 3px;
-    width: 296px;
+    width: 200px;
 }
 
 input[type="button"] {
-	margin-left: 387px;
+	margin-left: 291px;
 }
 
 .prompt-text {
@@ -137,6 +137,13 @@ input[type="button"] {
 
 .remove {
 	background: url('../images/minus_small.png') no-repeat right 2px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+.set-as-leader {
+	background: url('../images/crown.png') no-repeat right 2px;
 	width: 16px;
 	height: 16px;
 	display: inline-block;

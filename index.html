@@ -30,11 +30,11 @@
 		<link href="css/reset.css" rel="stylesheet"/>
 		<link href="css/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
 		<link href="css/shared.css" rel="stylesheet"/>
-		<link href="css/smartphones.css" rel="stylesheet" media="screen and (min-device-width: 320px) and (max-device-width: 540px)"/>
+		<link href="css/smartphones.css" rel="stylesheet" media="screen and (min-width: 320px) and (max-width: 480px)"/>
 	</head>
 	<body>
 		<div id="HeaderBar">
-			<span>Malifaux Cross-Reference/Crew Creator (kind of)</span>
+			<span>Malifaux Cross-Ref/Crew Creator</span>
 			<a href="#" data-bind="clickToOpenDialog: '#HelpDialog'">[Help]</a>
 		</div>
 		
@@ -67,8 +67,8 @@
 				</thead>
 				<tbody data-bind="foreach: crewViewModels">
 					<td class="action">
-						<a class="remove" href="#" data-bind="click: removeFromCrew"></a>
-						<a href="#" data-bind="visible: canBeLeader, click: setAsLeader">Set as Leader</a>
+						<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
+						<a class="set-as-leader" href="#" data-bind="visible: canBeLeader, click: setAsLeader" title="Set as leader."></a>
 					</td>
 					<td class="name" data-bind="text: name"></td>
 					<td class="number" data-bind="text: cost"></td>
@@ -108,7 +108,7 @@
 			<tbody data-bind="foreach: searchList">
 				<tr>
 					<td class="action">
-						<a class="add" href="#" data-bind="click: addToCrew"></a>
+						<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>
 					</td>
 					<td class="name" data-bind="text: name"></td>
 					<td class="faction" data-bind="text: faction"></td>

@@ -12,4 +12,8 @@ var Model = function(name, faction, characteristicList, cost, cache) {
 	self.canBeLeader = ko.computed(function() {
 		return !self.isLeader() && self.cache;
 	});
+	
+	self.clone = function() {
+		return new Model(name, faction, characteristicList, cost, cache);
+	};
 }

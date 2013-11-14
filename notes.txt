@@ -1,5 +1,2 @@
 - maybe just add the upgrades
-	
-Changes
-- refactoring of crewviewmodel and crew
-- media queries for mobile
+- check that it looks good on mobile...media queries were a pain.
