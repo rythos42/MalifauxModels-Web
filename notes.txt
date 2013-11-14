@@ -1,5 +1,4 @@
 - make crew creator a new viewmodel and pull out of IndexViewModel
-- creator section should not move the search panel around - make it a static height with scroll bars as necessary
-- leader check should be on the left side of the column
-- maybe just add the damn upgrades
-- does it work on mobile? Make buttons bigger?
+- maybe just add the upgrades
+- does it work on mobile?
+	- resize the table when on mobile to be as small as possible

@@ -47,37 +47,32 @@
 		</div>
 	
 		<div id="Crew" data-bind="visible: hasCrew">
+			<div id="Total">
+				Total: <span data-bind="text: crewTotal"></span>
+				Available: <input type="number" data-bind="value: availableSoulstones"></a>
+				Remaining: <span data-bind="text: remainingSoulstones"></span>
+			</div>
 			<table>
 				<thead>
+					<th class="action"></th>
 					<th class="name">Name</th>
 					<th class="number">Cost</th>
 					<th class="number">Cache</th>
 					<th class="leader">Leader</th>
 					<th></th>
-					<th class="action"></th>
 				</thead>
 				<tbody data-bind="foreach: crew">
+					<td class="action">
+						<a class="remove" href="#" data-bind="click: removeFromCrew"></a>
+						<a href="#" data-bind="visible: canBeLeader, click: setAsLeader">Set as Leader</a>
+					</td>
 					<td class="name" data-bind="text: name"></td>
 					<td class="number" data-bind="text: cost"></td>
 					<td class="number" data-bind="text: cache"></td>
 					<td class="leader" data-bind="css: { 'is-leader': isLeader }"></td>
 					<td></td>
-					<td class="action">
-						<a href="#" data-bind="click: removeFromCrew">Remove</a>
-						
-						<a href="#" data-bind="visible: canBeLeader, click: setAsLeader">Set as Leader</a>
-					</td>
 				</tbody>
 			</table>
-			<div id="Total">
-				Total: <span data-bind="text: crewTotal"></span>
-				<div>
-					<label for="Soulstones">Soulstones: </label>
-					<input type="text" id="Soulstones" data-bind="value: availableSoulstones"></a>
-					<label for="RemainingSoulstones">Remaining: </label>
-					<span data-bind="text: remainingSoulstones"></span>
-				</div>
-			</div>
 		</div>
 	
 		<ul>
@@ -97,24 +92,24 @@
 		<table>
 			<thead>
 				<tr data-bind="sortHeader: {}">
+					<th class="action"></th>
 					<th class="name">Name</th>
 					<th>Faction</th>
 					<th class="nosort">Characteristics</th>
 					<th class="number">Cost</th>
 					<th class="number">Cache</th>
-					<th class="action"></th>
 				</tr>
 			</thead>
 			<tbody data-bind="foreach: searchList">
 				<tr>
+					<td class="action">
+						<a class="add" href="#" data-bind="click: addToCrew"></a>
+					</td>
 					<td class="name" data-bind="text: name"></td>
 					<td data-bind="text: faction"></td>
 					<td data-bind="text: characteristics"></td>
 					<td class="number" data-bind="text: cost"></td>
 					<td class="number" data-bind="text: cache"></td>
-					<td class="action">
-						<a href="#" data-bind="click: addToCrew">Add</a>
-					</td>
 				</tr>
 			</tbody>
 		</table>
