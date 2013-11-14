@@ -1,7 +1,7 @@
 var IndexViewModel = function() {
 	var self = this,
 		crew = new Crew();
-	
+
 	self.searchText = ko.observable('');
 
 	self.searchList = ko.observableArray();
@@ -11,7 +11,7 @@ var IndexViewModel = function() {
 			return new ModelViewModel(model, crew);
 		}));
 	};
-	
+
 	self.selectedSearchOption = ko.observable(null);
 	self.searchOptions = [
 		new SearchOption('Any', ''),
@@ -21,16 +21,16 @@ var IndexViewModel = function() {
 		new SearchOption('Cost', 'cost'),
 		new SearchOption('Cache', 'cache')
 	];
-	
+
 	self.searchTextSuggestions = ModelListManager.searchTextList();
-	
+
 	self.getFieldNameForDisplayName = function(displayName) {
 		var option = _.find(self.searchOptions, function(option) { return option.displayName === displayName; });
 		if(option === undefined)
 			return null;
 		return option.fieldName;
 	};
-	
+
 	var currentSort = null;
 	self.sortBy = function(fieldName) {
 		var list = self.searchList();
@@ -42,6 +42,6 @@ var IndexViewModel = function() {
 			
 		currentSort = fieldName;
 	};
-	
+
 	self.crewViewModel = new CrewViewModel(crew);
 };
