@@ -1,0 +1,36 @@
+label {
+	width: 75px;
+}
+
+input[type="button"] {
+	margin-left: 314px;
+}
+
+table {
+	width: 463px;
+}
+
+td, th {
+	padding: 5px;
+}
+
+td.action, th.action {
+	padding: 0;
+}
+
+td.name, th.name {
+	width: 80px;
+}
+
+td.number, th.number {
+	width: 20px;
+}
+
+td.faction, th.faction {
+	overflow: hidden;
+	width: 40px;
+}
+
+td.characteristics, th.characteristics {
+	width: 60px;
+}

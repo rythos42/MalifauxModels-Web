@@ -1,4 +1,5 @@
-- make crew creator a new viewmodel and pull out of IndexViewModel
 - maybe just add the upgrades
-- does it work on mobile?
-	- resize the table when on mobile to be as small as possible
+	
+Changes
+- refactoring of crewviewmodel and crew
+- media queries for mobile

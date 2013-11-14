@@ -7,12 +7,14 @@
 		
 		<script type="text/javascript" src="js/app/Model/Model.js"></script>
 		<script type="text/javascript" src="js/app/Model/SearchOption.js"></script>
+		<script type="text/javascript" src="js/app/Model/Crew.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelListMapper.js"></script>
 		<script type="text/javascript" src="js/app/Managers/ModelListManager.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/IndexViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/ModelViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddedModelViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/CrewViewModel.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/AutoCompleteCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/PromptTextCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/SortHeaderCustomBinder.js"></script>
@@ -28,6 +30,7 @@
 		<link href="css/reset.css" rel="stylesheet"/>
 		<link href="css/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
 		<link href="css/shared.css" rel="stylesheet"/>
+		<link href="css/smartphones.css" rel="stylesheet" media="(min-device-width: 320px) and (max-device-width: 480px)"/>
 	</head>
 	<body>
 		<div id="HeaderBar">
@@ -46,6 +49,7 @@
 			</div>
 		</div>
 	
+		<!-- ko with: crewViewModel -->
 		<div id="Crew" data-bind="visible: hasCrew">
 			<div id="Total">
 				Total: <span data-bind="text: crewTotal"></span>
@@ -61,7 +65,7 @@
 					<th class="leader">Leader</th>
 					<th></th>
 				</thead>
-				<tbody data-bind="foreach: crew">
+				<tbody data-bind="foreach: crewViewModels">
 					<td class="action">
 						<a class="remove" href="#" data-bind="click: removeFromCrew"></a>
 						<a href="#" data-bind="visible: canBeLeader, click: setAsLeader">Set as Leader</a>
@@ -74,6 +78,7 @@
 				</tbody>
 			</table>
 		</div>
+		<!-- /ko -->
 	
 		<ul>
 			<li>
@@ -94,8 +99,8 @@
 				<tr data-bind="sortHeader: {}">
 					<th class="action"></th>
 					<th class="name">Name</th>
-					<th>Faction</th>
-					<th class="nosort">Characteristics</th>
+					<th class="faction">Faction</th>
+					<th class="characteristics nosort">Characteristics</th>
 					<th class="number">Cost</th>
 					<th class="number">Cache</th>
 				</tr>
@@ -106,8 +111,8 @@
 						<a class="add" href="#" data-bind="click: addToCrew"></a>
 					</td>
 					<td class="name" data-bind="text: name"></td>
-					<td data-bind="text: faction"></td>
-					<td data-bind="text: characteristics"></td>
+					<td class="faction" data-bind="text: faction"></td>
+					<td class="characteristics" data-bind="text: characteristics"></td>
 					<td class="number" data-bind="text: cost"></td>
 					<td class="number" data-bind="text: cache"></td>
 				</tr>

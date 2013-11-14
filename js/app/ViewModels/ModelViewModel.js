@@ -1,4 +1,4 @@
-var ModelViewModel = function(model, indexViewModel) {
+var ModelViewModel = function(model, crew) {
 	var self = this;
 	
 	self.name = model.name;
@@ -12,6 +12,6 @@ var ModelViewModel = function(model, indexViewModel) {
 	self.cache = model.cache;
 	
 	self.addToCrew = function() {
-		indexViewModel.addToCrew(model);
+		crew.addToCrew(model);
 	};
 }

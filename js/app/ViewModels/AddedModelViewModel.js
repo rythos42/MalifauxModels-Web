@@ -1,22 +1,17 @@
-var AddedModelViewModel = function(model, indexViewModel) {
+var AddedModelViewModel = function(model, crew) {
 	var self = this;
 	
 	self.name = model.name;
 	self.cost = model.cost;
 	self.cache = model.cache;
-	
-	self.isLeader = ko.observable(false);
+	self.isLeader = model.isLeader;
+	self.canBeLeader = model.canBeLeader;
 	
 	self.removeFromCrew = function() {
-		indexViewModel.removeFromCrew(self);
+		crew.removeFromCrew(model);
 	};
 	
-	self.canBeLeader = ko.computed(function() {
-		return !self.isLeader() && self.cache;
-	});
-	
 	self.setAsLeader = function() {
-		indexViewModel.clearLeader();
-		self.isLeader(true);
+		crew.setAsLeader(model);
 	};
 };
