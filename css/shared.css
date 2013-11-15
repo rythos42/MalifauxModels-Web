@@ -102,11 +102,6 @@ input[type="button"] {
 	width: 35px;
 }
 
-.is-leader {
-	background: url('../images/check.gif') no-repeat 10px center;
-	margin-left: 3px;
-}
-
 #HeaderBar {
 	background-color: #E5E5E5;
 	width: 100%;
@@ -147,5 +142,11 @@ input[type="button"] {
 	width: 16px;
 	height: 16px;
 	display: inline-block;
+	margin-left: 3px;
+}
+
+.is-leader {
+	background: url('../images/check.gif') no-repeat 13px 5px;
+	margin-left: 3px;
 }
 

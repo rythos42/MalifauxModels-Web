@@ -1,2 +1,1 @@
 - maybe just add the upgrades
-- check that it looks good on mobile...media queries were a pain.

@@ -1,5 +1,7 @@
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width">
+	
 		<script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-ui-1.10.3.js"></script>
 		<script type="text/javascript" src="js/lib/knockout-2.3.0.js"></script>
@@ -38,7 +40,7 @@
 			<a href="#" data-bind="clickToOpenDialog: '#HelpDialog'">[Help]</a>
 		</div>
 		
-		<div id="HelpDialog" data-bind="dialog:{autoOpen: false, title: 'Help'}">
+		<div id="HelpDialog" data-bind="dialog:{autoOpen: false, title: 'Help', position: {my: 'top', at: 'top', of: window}}">
 			<div>I made this initially to help me find all of the Mercenaries. But after typing them all in, now I have them memorized...so...I made a mini crew creator as well.</div>
 			<div>There is no constraint checking here, just a list of models and their costs.</div>
 			<div>You can contact me at...
@@ -68,12 +70,13 @@
 				<tbody data-bind="foreach: crewViewModels">
 					<td class="action">
 						<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
-						<a class="set-as-leader" href="#" data-bind="visible: canBeLeader, click: setAsLeader" title="Set as leader."></a>
 					</td>
 					<td class="name" data-bind="text: name"></td>
 					<td class="number" data-bind="text: cost"></td>
 					<td class="number" data-bind="text: cache"></td>
-					<td class="leader" data-bind="css: { 'is-leader': isLeader }"></td>
+					<td class="leader" data-bind="css: { 'is-leader': isLeader }">
+						<a class="set-as-leader" href="#" data-bind="visible: canBeLeader, click: setAsLeader" title="Set as leader."></a>
+					</td>
 					<td></td>
 				</tbody>
 			</table>

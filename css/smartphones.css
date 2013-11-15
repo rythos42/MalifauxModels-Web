@@ -6,10 +6,6 @@ input[type="button"] {
 	margin-left: 219px;
 }
 
-table, #HeaderBar {
-	width: 344px;
-}
-
 td, th {
 	padding: 5px;
 }
