@@ -27,11 +27,11 @@ td.faction, th.faction {
 	width: 40px;
 }
 
-td.characteristics, th.characteristics {
+td.extras, th.extras {
 	width: 60px;
 }
 
-th.characteristics, th.number {
+th.extras, th.number {
 	overflow: hidden;
 }
 

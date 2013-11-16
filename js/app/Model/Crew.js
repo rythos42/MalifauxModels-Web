@@ -2,39 +2,49 @@ var Crew = function() {
 	var self = this;
 	
 	self.availableSoulstones = ko.observable(50);
-	self.models = ko.observableArray();
+	self.added = ko.observableArray();
 	
 	self.getLeader = function() {
-		return _.find(self.models(), function(model) {
-			return model.isLeader();
+		return _.find(self.added(), function(addable) {
+			if(!addable.isLeader)
+				return;
+				
+			return addable.isLeader();
 		});
 	};
 	
-	self.removeFromCrew = function(model) {
-		self.models.remove(model);
+	self.hasLeader = function() {
+		return self.getLeader() !== undefined;
 	};
 	
-	self.setAsLeader = function(model) {
-		_.each(self.models(), function(model) {
-			model.isLeader(false);
+	self.removeFromCrew = function(addable) {
+		self.added.remove(addable);
+	};
+	
+	self.setAsLeader = function(addable) {
+		_.each(self.added(), function(addable) {
+			if(!addable.isLeader)
+				return;
+				
+			addable.isLeader(false);
 		});
-		model.isLeader(true);
+		addable.isLeader(true);
 	};
 	
-	self.addToCrew = function(model) {
-		if(self.getLeader() === undefined && model.cache)
-			model.isLeader(true);
+	self.addToCrew = function(addable) {
+		if(!self.hasLeader() && addable.canBeLeader && addable.canBeLeader())
+			addable.isLeader(true);
 	
-		self.models.push(model);
+		self.added.push(addable);
 	};
 		
 	self.totalCost = ko.computed(function() {
-		return _.reduce(self.models(), function(currentTotal, model) {
-			if(model.isLeader())
+		return _.reduce(self.added(), function(currentTotal, addable) {
+			if(addable.isLeader && addable.isLeader())
 				return currentTotal;
 		
-			return (model.cost 
-				? currentTotal + model.cost 
+			return (addable.cost 
+				? currentTotal + addable.cost 
 				: currentTotal);
 		}, 0);
 	});

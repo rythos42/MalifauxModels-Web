@@ -1,1 +1,14 @@
-- maybe just add the upgrades
+Changed:
+	- dual faction models added
+	- added ability to add upgrades
+		- refactored a lot of things to support this
+	- can sort "Extras"
+	- added upgrades
+		
+
+- check cost of:
+	Crystal Ball
+	Lenny
+- can't search specifically by Upgrade "Extras"
+- change search to be like WowHead search
+	- adding "Ands" to a list

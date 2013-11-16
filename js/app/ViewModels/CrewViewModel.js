@@ -5,24 +5,24 @@ var CrewViewModel = function(crew) {
 	self.crewTotal = crew.totalCost;
 	
 	self.crewViewModels = ko.computed(function() {
-		return _.map(crew.models(), function(model) {
-			return new AddedModelViewModel(model, crew);
+		return _.map(crew.added(), function(addable) {
+			return new AddedViewModel(addable, crew);
 		});
 	});
 
-	self.removeFromCrew = function(model) {
-		crew.models.remove(model);
+	self.removeFromCrew = function(addable) {
+		crew.added.remove(addable);
 
-		if(model.isLeader()) {
-			_.each(crew.models(), function(crewModel) {
-				if(crewModel.canBeLeader())
+		if(addable.isLeader && addable.isLeader()) {
+			_.each(crew.added(), function(crewModel) {
+				if(crewModel.canBeLeader && crewModel.canBeLeader())
 					crewModel.isLeader(true);
 			});
 		}	
 	};
 	
 	self.hasCrew = ko.computed(function() {
-		return crew.models().length > 0;
+		return crew.added().length > 0;
 	});
 		
 	self.remainingSoulstones = ko.computed(function() {

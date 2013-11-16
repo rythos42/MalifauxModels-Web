@@ -1,8 +1,8 @@
-var Model = function(name, faction, characteristicList, cost, cache) {
+var Model = function(name, factionList, characteristicList, cost, cache) {
 	var self = this;
 	
 	self.name = name;
-	self.faction = faction;
+	self.factionList = factionList;
 	self.characteristicList = characteristicList;
 	self.cost = cost;
 	self.cache = cache;
@@ -14,6 +14,6 @@ var Model = function(name, faction, characteristicList, cost, cache) {
 	});
 	
 	self.clone = function() {
-		return new Model(name, faction, characteristicList, cost, cache);
+		return new Model(name, factionList, characteristicList, cost, cache);
 	};
 }

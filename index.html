@@ -10,12 +10,15 @@
 		<script type="text/javascript" src="js/app/Model/Model.js"></script>
 		<script type="text/javascript" src="js/app/Model/SearchOption.js"></script>
 		<script type="text/javascript" src="js/app/Model/Crew.js"></script>
+		<script type="text/javascript" src="js/app/Model/Upgrade.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelList.js"></script>
+		<script type="text/javascript" src="js/app/Mappers/UpgradeList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelListMapper.js"></script>
-		<script type="text/javascript" src="js/app/Managers/ModelListManager.js"></script>
+		<script type="text/javascript" src="js/app/Mappers/UpgradeListMapper.js"></script>
+		<script type="text/javascript" src="js/app/Managers/AddableListManager.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/IndexViewModel.js"></script>
-		<script type="text/javascript" src="js/app/ViewModels/ModelViewModel.js"></script>
-		<script type="text/javascript" src="js/app/ViewModels/AddedModelViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/AddableViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/AddedViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/CrewViewModel.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/AutoCompleteCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/PromptTextCustomBinder.js"></script>
@@ -101,11 +104,11 @@
 			<thead>
 				<tr data-bind="sortHeader: {}">
 					<th class="action"></th>
-					<th class="name">Name</th>
-					<th class="faction">Faction</th>
-					<th class="characteristics nosort">Characteristics</th>
-					<th class="number">Cost</th>
-					<th class="number">Cache</th>
+					<th data-fieldName="name" class="name">Name</th>
+					<th data-fieldName="factions" class="faction">Faction</th>
+					<th data-fieldName="extras" class="extras">Extras</th>
+					<th data-fieldName="cost" class="number">Cost</th>
+					<th data-fieldName="cache" class="number">Cache</th>
 				</tr>
 			</thead>
 			<tbody data-bind="foreach: searchList">
@@ -114,8 +117,8 @@
 						<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>
 					</td>
 					<td class="name" data-bind="text: name"></td>
-					<td class="faction" data-bind="text: faction"></td>
-					<td class="characteristics" data-bind="text: characteristics"></td>
+					<td class="faction" data-bind="text: factions"></td>
+					<td class="extras" data-bind="text: extras"></td>
 					<td class="number" data-bind="text: cost"></td>
 					<td class="number" data-bind="text: cache"></td>
 				</tr>
