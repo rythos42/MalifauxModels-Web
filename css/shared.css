@@ -64,7 +64,7 @@ label {
 input[type="text"], select {
     border: 1px solid #ddd;
     padding: 3px 2px 3px 3px;
-    width: 200px;
+    width: 150px;
 }
 
 input[type="button"] {
@@ -148,5 +148,12 @@ input[type="button"] {
 .is-leader {
 	background: url('../images/check.gif') no-repeat 13px 5px;
 	margin-left: 3px;
+}
+
+.delete {
+	background: url('../images/delete_16x16.gif') no-repeat center center;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
 }
 

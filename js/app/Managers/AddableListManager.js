@@ -18,9 +18,10 @@ var AddableListManager = {
 			});
 		}
 		
-		return _.filter(data, function(addable) {
+		var list = _.filter(data, function(addable) {
 			return isMatch(addable);
 		});
+		return list;
 	},
 	
 	_searchTextList: null,	

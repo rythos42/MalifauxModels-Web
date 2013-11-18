@@ -1,18 +1,16 @@
-var SearchOption = function(displayName, fieldName) {
-	var self = this;
-	
-	self.displayName = displayName;
-	self.fieldName = fieldName;
-};
+var SearchOption = {};
 
-SearchOption.Default = new SearchOption('Any', '');
+SearchOption.Default = new MultipleTextFieldSearchOption('Any', ['name', 'factionList', 'characteristicList', 'restrictionsList', 'cost', 'cache']);
 
 SearchOption.List = [
 	SearchOption.Default,
-	new SearchOption('Name', 'name'),
-	new SearchOption('Faction', 'factionList'),
-	new SearchOption('Extras', 'characteristicList'),
-	new SearchOption('Cost', 'cost'),
-	new SearchOption('Cache', 'cache')
+	new TextFieldSearchOption('Name', 'name'),
+	new TextFieldSearchOption('Faction', 'factionList'),
+	new MultipleTextFieldSearchOption('Extras', ['characteristicList', 'restrictionsList']),
+	new TextFieldSearchOption('Cost', 'cost'),
+	new TextFieldSearchOption('Cache', 'cache'),
+	new BooleanSearchOption('Is Upgrade', function(addable) {
+		return addable.restrictionsList !== undefined;
+	})
 ];
 

@@ -9,6 +9,9 @@
 		<script type="text/javascript" src="js/lib/underscore-min.js"></script>
 		
 		<script type="text/javascript" src="js/app/Model/Model.js"></script>
+		<script type="text/javascript" src="js/app/Model/TextFieldSearchOption.js"></script>
+		<script type="text/javascript" src="js/app/Model/BooleanSearchOption.js"></script>
+		<script type="text/javascript" src="js/app/Model/MultipleTextFieldSearchOption.js"></script>
 		<script type="text/javascript" src="js/app/Model/SearchOption.js"></script>
 		<script type="text/javascript" src="js/app/Model/Crew.js"></script>
 		<script type="text/javascript" src="js/app/Model/Upgrade.js"></script>
@@ -96,8 +99,12 @@
 			</li>
 			<!-- ko foreach: searchCriteriaList -->
 			<li>
-				<select type="text" class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
-				<input type="text" data-bind="hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: 'select'}" />
+				<select class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
+				<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: 'select'}" />
+				<select data-bind="visible: isBooleanSearch, value: searchBoolean">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</select>
 			</li>
 			<!-- /ko -->
 			<li>

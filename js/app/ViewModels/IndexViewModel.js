@@ -17,17 +17,20 @@ var IndexViewModel = function() {
 	search();
 	
 	
-	self.addCriteria = function() {
+	self.addCriteria = function(setFocus) {
 		var newCriteria = new SearchCriteria(),
 			newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria);		
 		
 		newCriteria.selectedSearchOption.subscribe(search);
 		newCriteria.searchText.subscribe(search);
-		newCriteriaViewModel.hasFocus(true);
+		newCriteria.searchBoolean.subscribe(search);
+		
+		if(setFocus)
+			newCriteriaViewModel.hasFocus(true);
 	
 		self.searchCriteriaList.push(newCriteriaViewModel);
 	};
-	self.addCriteria();
+	self.addCriteria(false);
 
 	
 	self.searchTextSuggestions = AddableListManager.searchTextList();

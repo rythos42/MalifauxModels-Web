@@ -1,4 +1,4 @@
 - check cost of:
 	Crystal Ball
 	Lenny
-- can't search specifically by Upgrade "Extras"
+- ensure looks good on mobile still
