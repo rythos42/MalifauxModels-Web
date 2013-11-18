@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="js/app/Model/SearchOption.js"></script>
 		<script type="text/javascript" src="js/app/Model/Crew.js"></script>
 		<script type="text/javascript" src="js/app/Model/Upgrade.js"></script>
+		<script type="text/javascript" src="js/app/Model/SearchCriteria.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/UpgradeList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelListMapper.js"></script>
@@ -20,6 +21,7 @@
 		<script type="text/javascript" src="js/app/ViewModels/AddableViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddedViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/CrewViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/SearchCriteriaViewModel.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/AutoCompleteCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/PromptTextCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/SortHeaderCustomBinder.js"></script>
@@ -85,21 +87,23 @@
 			</table>
 		</div>
 		<!-- /ko -->
-	
+		
+		<div></div>
 		<ul>
 			<li>
-				<label for="SearchField">Search: </label>
-				<select type="text" id="SearchField" class="search-field" data-bind="options: searchOptions, optionsText: 'displayName', value: selectedSearchOption"></select>
+				Filter criteria:
 			</li>
+			<!-- ko foreach: searchCriteriaList -->
 			<li>
-				<label for="SearchText">Text: </label>
-				<input type="text" id="SearchText" data-bind="value: searchText, autocomplete: {source: searchTextSuggestions, textField: searchText}, promptText: 'Type search term...'" />
+				<select type="text" class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
+				<input type="text" data-bind="hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: 'select'}" />
 			</li>
+			<!-- /ko -->
 			<li>
-				<input type="button" id="Search" value="Search" data-bind="click: search" />
+				<input type="button" id="AddCriteria" value="Add Criteria" data-bind="click: addCriteria" />
 			</li>
 		</ul>
-				
+			
 		<table>
 			<thead>
 				<tr data-bind="sortHeader: {}">
@@ -111,7 +115,7 @@
 					<th data-fieldName="cache" class="number">Cache</th>
 				</tr>
 			</thead>
-			<tbody data-bind="foreach: searchList">
+			<tbody data-bind="foreach: addableList">
 				<tr>
 					<td class="action">
 						<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>

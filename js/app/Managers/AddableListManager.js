@@ -6,49 +6,21 @@ var AddableListManager = {
 		this._searchData.push.apply(this._searchData, data);
 	},
 
-	search: function(searchText, searchField) {
+	search: function(searchCriteriaList) {
 		var searchList = [],
 			data = this._searchData;
 			
-		function isMatch(value, searchText) {
-			switch(typeof(value)) {
-				case 'number':
-					if(value === parseInt(searchText, 10))
-						return true;
-					break;
-				case 'string':
-					if(value.toLowerCase().indexOf(searchText.toLowerCase()) >= 0)
-						return true;
-					break;
-				case 'object':
-					var isSubMatch = false;
-					_.each(value, function(arrayItem) {
-						if(isMatch(arrayItem, searchText)) {
-							isSubMatch = true;
-							return false;
-						}
-						return true;
-					});
-					return isSubMatch;
-			}
-			return false;
-		}
-	
-		if(searchField !== '') {
-			_.each(data, function(addable) {
-				var value = addable[searchField];
-				if(isMatch(value, searchText))
-					searchList.push(addable);
-			});
-		}
-		else {
-			_.each(data, function(addable) {
-				if(_.find(addable, function(value, fieldName) { return isMatch(value, searchText); }))
-					searchList.push(addable);
+		function isMatch(addable) {
+			// if we ever return a truthy value from the find, it is NOT a match
+			return !_.find(searchCriteriaList, function(searchCriteria) {
+				// if it matches, return false to continue through criteria list
+				return !searchCriteria.isMatch(addable);
 			});
 		}
 		
-		return searchList;
+		return _.filter(data, function(addable) {
+			return isMatch(addable);
+		});
 	},
 	
 	_searchTextList: null,	
