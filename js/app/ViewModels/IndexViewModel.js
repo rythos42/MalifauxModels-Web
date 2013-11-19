@@ -5,25 +5,20 @@ var IndexViewModel = function() {
 	AddableListManager.addSearchData(ModelListMapper.get());
 	AddableListManager.addSearchData(UpgradeListMapper.get());
 	
-	self.addableList = ko.observableArray();
 	self.searchCriteriaList = ko.observableArray();
-
-	function search() {
-		var list = AddableListManager.search(self.searchCriteriaList());
-		self.addableList(_.map(list, function(addable) {
-			return new AddableViewModel(addable, crew);
-		}));
-	};
-	search();
 	
+	function criteriaListHasChanged() {
+		self.searchCriteriaList.valueHasMutated();
+	}
 	
 	self.addCriteria = function(setFocus) {
-		var newCriteria = new SearchCriteria(),
-			newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria);		
+		var criteriaList = self.searchCriteriaList,
+			newCriteria = new SearchCriteria(),
+			newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria, criteriaList().length === 0, criteriaList);		
 		
-		newCriteria.selectedSearchOption.subscribe(search);
-		newCriteria.searchText.subscribe(search);
-		newCriteria.searchBoolean.subscribe(search);
+		newCriteria.selectedSearchOption.subscribe(criteriaListHasChanged);
+		newCriteria.searchText.subscribe(criteriaListHasChanged);
+		newCriteria.searchBoolean.subscribe(criteriaListHasChanged);
 		
 		if(setFocus)
 			newCriteriaViewModel.hasFocus(true);
@@ -32,6 +27,14 @@ var IndexViewModel = function() {
 	};
 	self.addCriteria(false);
 
+		
+	self.addableList = ko.computed(function() {
+		var list = AddableListManager.search(self.searchCriteriaList());
+		return _.map(list, function(addable) {
+			return new AddableViewModel(addable, crew);
+		});
+	}).extend({throttle: 1});
+	
 	
 	self.searchTextSuggestions = AddableListManager.searchTextList();
 

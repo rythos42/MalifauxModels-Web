@@ -1,4 +1,4 @@
-var SearchCriteriaViewModel = function(searchCriteria) {
+var SearchCriteriaViewModel = function(searchCriteria, isFirst, criteriaList) {
 	var self = this;
 	
 	self.selectedSearchOption = searchCriteria.selectedSearchOption;
@@ -19,4 +19,10 @@ var SearchCriteriaViewModel = function(searchCriteria) {
 	self.isMatch = function(addable) {
 		return self.selectedSearchOption().isMatch(addable, searchCriteria);
 	};	
+	
+	self.notFirstCriteria = !isFirst;
+	
+	self.removeCriteria = function() {
+		criteriaList.remove(self);
+	};
 };

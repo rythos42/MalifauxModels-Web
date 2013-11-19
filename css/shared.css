@@ -54,13 +54,6 @@ ul li {
 	position: relative;
 }
 
-label {
-    width: 148px;
-    text-align: right;
-    display: inline-block;
-    margin-right: 5px;
-}
-
 input[type="text"], select {
     border: 1px solid #ddd;
     padding: 3px 2px 3px 3px;
@@ -68,7 +61,7 @@ input[type="text"], select {
 }
 
 input[type="button"] {
-	margin-left: 311px;
+	margin-left: 212px;
 }
 
 .prompt-text {
@@ -150,10 +143,10 @@ input[type="button"] {
 	margin-left: 3px;
 }
 
-.delete {
-	background: url('../images/delete_16x16.gif') no-repeat center center;
+.remove-filter {
+	background: url('../images/delete_16x16.png') no-repeat center 6px;
 	width: 16px;
-	height: 16px;
+	height: 21px;
 	display: inline-block;
 }
 

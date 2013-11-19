@@ -1,4 +1,3 @@
 - check cost of:
 	Crystal Ball
 	Lenny
-- ensure looks good on mobile still
