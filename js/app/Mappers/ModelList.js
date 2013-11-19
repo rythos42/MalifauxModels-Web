@@ -115,7 +115,7 @@ var ModelList = {
 		new Model('The Brewmaster', ['Gremlin', 'Ten Thunders'], ['Master', 'Living', 'Gremlin', 'Tri-chi'], undefined, 3),
 		new Model('Francois LaCroix', ['Gremlin'], ['Henchman', 'Living', 'Rare 1', 'Gremlin', 'Kin'], 7, 6),
 		new Model('Fingers', ['Gremlin'], ['Henchman', 'Living', 'Rare 1', 'Gremlin', 'Tri-chi'], 10, 3),
-		new Model('Lenny', ['Gremlin'], ['Enforcer', 'Living', 'Rare 1', 'Gremlin'], 10),
+		new Model('Lenny', ['Gremlin'], ['Enforcer', 'Living', 'Rare 1', 'Gremlin'], 9),
 		new Model('Whisky Golem', ['Gremlin'], ['Enforcer', 'Construct', 'Rare 1', 'Tri-chi'], 10),
 		new Model('Skeeter', ['Gremlin'], ['Peon', 'Living', 'Totem (Som\er Teeth Jones)'], 2),
 		new Model('Young LaCroix', ['Gremlin'], ['Peon', 'Living', 'Totem (Ophelia LaCroix)', 'Gremlin', 'Kin'], 2),
