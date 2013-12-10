@@ -21,7 +21,7 @@ ko.bindingHandlers.promptText = {
         promptTextElement = $('<span></span>')
             .addClass('prompt-text')
             .insertAfter(inputElement)
-            .css('left', labelElement.width())
+			.css('left', labelElement.width() + labelElement.position().left)
             .css('top', 0)
             .text(options.text)
             .click(hidePrompt);

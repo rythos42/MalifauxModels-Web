@@ -26,9 +26,16 @@ var CrewViewModel = function(crew) {
 	});
 		
 	self.remainingSoulstones = ko.computed(function() {
-		var leader = crew.getLeader();
-		var cache = (leader ? leader.cache : 0);
+		
 	
-		return parseInt(crew.availableSoulstones(), 10) - crew.totalCost() + cache;
+		return parseInt(crew.availableSoulstones(), 10) - crew.totalCost();
+	});
+	
+	self.soulstonePool = ko.computed(function() {
+		var leader = crew.getLeader(),
+			cache = (leader ? leader.cache : 0),
+			remaining = self.remainingSoulstones();
+		
+		return Math.min(remaining + cache, 7);
 	});
 };

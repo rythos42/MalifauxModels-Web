@@ -4,6 +4,7 @@ var SearchCriteriaViewModel = function(searchCriteria, isFirst, criteriaList) {
 	self.selectedSearchOption = searchCriteria.selectedSearchOption;
 	self.searchText = searchCriteria.searchText;
 	self.searchBoolean = searchCriteria.searchBoolean;
+	self.notOrIs = searchCriteria.notOrIs;
 		
 	self.isTextFieldSearch = ko.computed(function() {
 		var searchOption = self.selectedSearchOption();

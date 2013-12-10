@@ -8,8 +8,19 @@ var MultipleTextFieldSearchOption = function(displayName, multipleFieldsList) {
 	});
 	
 	self.isMatch = function(addable, searchCriteria) {
-		return _.find(textSearchList, function(textSearch) {
-			return textSearch.isMatch(addable, searchCriteria);
-		});
+		if(searchCriteria.isNot()) {
+			var foundNotTextExists = false;
+			_.each(textSearchList, function(textSearch) {
+				if(!textSearch.isMatch(addable, searchCriteria))
+					foundNotTextExists = true;
+			});
+			return !foundNotTextExists;
+		}
+		else {
+			return _.find(textSearchList, function(textSearch) {
+				return textSearch.isMatch(addable, searchCriteria);
+			});
+		}
+	
 	};
 };

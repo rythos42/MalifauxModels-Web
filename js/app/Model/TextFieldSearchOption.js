@@ -28,6 +28,7 @@ var TextFieldSearchOption = function(displayName, fieldName) {
 	}
 	
 	self.isMatch = function(addable, searchCriteria) {
-		return isSingleValueMatch(addable[fieldName], searchCriteria.searchText());
+		var isTextMatch = isSingleValueMatch(addable[fieldName], searchCriteria.searchText());
+		return searchCriteria.isIs() ? isTextMatch : !isTextMatch;
 	};	
 };

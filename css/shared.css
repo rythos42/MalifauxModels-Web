@@ -54,6 +54,10 @@ ul li {
 	position: relative;
 }
 
+span.label {
+	font-weight: bold;
+}
+
 input[type="text"], select {
     border: 1px solid #ddd;
     padding: 3px 2px 3px 3px;
@@ -61,7 +65,15 @@ input[type="text"], select {
 }
 
 input[type="button"] {
-	margin-left: 212px;
+	margin-left: 247px;
+}
+
+select.notOrIs {
+	width: 60px;
+}
+
+select.search-field {
+	width: 122px;
 }
 
 .prompt-text {

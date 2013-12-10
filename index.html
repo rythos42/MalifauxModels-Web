@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="js/app/Model/Crew.js"></script>
 		<script type="text/javascript" src="js/app/Model/Upgrade.js"></script>
 		<script type="text/javascript" src="js/app/Model/SearchCriteria.js"></script>
+		<script type="text/javascript" src="js/app/Model/NotOrIs.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/UpgradeList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelListMapper.js"></script>
@@ -63,9 +64,10 @@
 		<!-- ko with: crewViewModel -->
 		<div id="Crew" data-bind="visible: hasCrew">
 			<div id="Total">
-				Total: <span data-bind="text: crewTotal"></span>
-				Available: <input type="number" data-bind="value: availableSoulstones"></a>
-				Remaining: <span data-bind="text: remainingSoulstones"></span>
+				<span class="label">Total: </span><span data-bind="text: crewTotal"></span>
+				<span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a>
+				<span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span>
+				<span class="label">Pool: </span><span data-bind="text: soulstonePool"></span>
 			</div>
 			<table>
 				<thead>
@@ -100,7 +102,11 @@
 			<!-- ko foreach: searchCriteriaList -->
 			<li>
 				<select class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
-				<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: 'select'}" />
+				<select class="notOrIs" data-bind="value: notOrIs">
+					<option value="is">Is</option>
+					<option value="not">Not</option>
+				</select>
+				<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: '.notOrIs'}" />
 				<select data-bind="visible: isBooleanSearch, value: searchBoolean">
 					<option value="true">Yes</option>
 					<option value="false">No</option>

@@ -105,7 +105,6 @@ var UpgradeList = {
 		new Upgrade('Survivivalist', ['Outcast'], ['Upgrade', 'Leader'], 1),
 		new Upgrade('Oath Keeper', ['Outcast'], ['Upgrade', 'Rare 3'], 1),
 		new Upgrade('Paid in Blood', ['Outcast'], ['Upgrade', 'Von Schill'], 2),
-		new Upgrade('Paid in Blood', ['Outcast'], ['Upgrade', 'Von Schill'], 2),
 		new Upgrade('Engage at Will', ['Outcast'], ['Upgrade', 'Von Schill'], 1),
 		new Upgrade('The Shirt Comes Off', ['Outcast'], ['Upgrade', 'Von Schill'], 1),
 		new Upgrade('Ancient Tomes', ['Outcast'], ['Upgrade', 'Hannah'], 2),
