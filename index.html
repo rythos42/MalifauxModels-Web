@@ -5,8 +5,10 @@
 	
 		<script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-ui-1.10.3.js"></script>
-		<script type="text/javascript" src="js/lib/knockout-2.3.0.js"></script>
+		<script type="text/javascript" src="js/lib/knockout-3.0.0.js"></script>
 		<script type="text/javascript" src="js/lib/underscore-min.js"></script>
+		<script type="text/javascript" src="js/lib/knockout-sortable.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.ui.touch-punch.min.js"></script>
 		
 		<script type="text/javascript" src="js/app/Model/Model.js"></script>
 		<script type="text/javascript" src="js/app/Model/TextFieldSearchOption.js"></script>
@@ -32,9 +34,12 @@
 		<script type="text/javascript" src="js/app/CustomBinders/PromptTextCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/SortHeaderCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/DialogCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/HighlightTableRowCustomBinder.js"></script>
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
+				$('#Tabs').tabs();
+
 				var viewModel = new IndexViewModel();
 				ko.applyBindings(viewModel);
 			});
@@ -61,88 +66,107 @@
 			</ul>
 			</div>
 		</div>
-	
-		<!-- ko with: crewViewModel -->
-		<div id="Crew" data-bind="visible: hasCrew">
-			<div id="Total">
-				<span class="label">Total: </span><span data-bind="text: crewTotal"></span>
-				<span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a>
-				<span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span>
-				<span class="label">Pool: </span><span data-bind="text: soulstonePool"></span>
-			</div>
-			<table>
-				<thead>
-					<th class="action"></th>
-					<th class="name">Name</th>
-					<th class="number">Cost</th>
-					<th class="number">Cache</th>
-					<th class="leader">Leader</th>
-					<th></th>
-				</thead>
-				<tbody data-bind="foreach: crewViewModels">
-					<td class="action">
-						<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
-					</td>
-					<td class="name" data-bind="text: name"></td>
-					<td class="number" data-bind="text: cost"></td>
-					<td class="number" data-bind="text: cache"></td>
-					<td class="leader" data-bind="css: { 'is-leader': isLeader }">
-						<a class="set-as-leader" href="#" data-bind="visible: canBeLeader, click: setAsLeader" title="Set as leader."></a>
-					</td>
-					<td></td>
-				</tbody>
-			</table>
-		</div>
-		<!-- /ko -->
 		
-		<div></div>
-		<ul>
-			<li>
-				Filter criteria:
-			</li>
-			<!-- ko foreach: searchCriteriaList -->
-			<li>
-				<select class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
-				<select class="notOrIs" data-bind="value: notOrIs">
-					<option value="is">Is</option>
-					<option value="not">Not</option>
-				</select>
-				<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: '.notOrIs'}" />
-				<select data-bind="visible: isBooleanSearch, value: searchBoolean">
-					<option value="true">Yes</option>
-					<option value="false">No</option>
-				</select>
-				<div class="remove-filter" data-bind="visible: notFirstCriteria, click: removeCriteria"></div>
-			</li>
-			<!-- /ko -->
-			<li>
-				<input type="button" id="AddCriteria" value="Add Criteria" data-bind="click: addCriteria" />
-			</li>
-		</ul>
+		<div id="Tabs">
+			<ul>
+				<li><a href="#full-list">Models</a></li>
+				<li><a href="#crew-list">Crew</a></li>
+			</ul>
+									
+			<div id="full-list">
+				<ul>
+					<li>
+						Filter criteria:
+					</li>
+					<!-- ko foreach: searchCriteriaList -->
+					<li>
+						<select class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
+						<select class="notOrIs" data-bind="value: notOrIs">
+							<option value="is">Is</option>
+							<option value="not">Not</option>
+						</select>
+						<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: '.notOrIs'}" />
+						<select data-bind="visible: isBooleanSearch, value: searchBoolean">
+							<option value="true">Yes</option>
+							<option value="false">No</option>
+						</select>
+						<div class="remove-filter" data-bind="visible: notFirstCriteria, click: removeCriteria"></div>
+					</li>
+					<!-- /ko -->
+					<li>
+						<input type="button" id="AddCriteria" value="Add Criteria" data-bind="click: addCriteria" />
+					</li>
+				</ul>
+					
+				<table>
+					<thead>
+						<tr data-bind="sortHeader: {}">
+							<th class="action"></th>
+							<th data-fieldName="name" class="name">Name</th>
+							<th data-fieldName="factions" class="faction">Faction</th>
+							<th data-fieldName="extras" class="extras">Extras</th>
+							<th data-fieldName="cost" class="number">Cost</th>
+							<th data-fieldName="cache" class="number">Cache</th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: addableList">
+						<tr data-bind="highlight: shouldHighlight">
+							<td class="action">
+								<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>
+							</td>
+							<td class="name" data-bind="text: name"></td>
+							<td class="faction" data-bind="text: factions"></td>
+							<td class="extras" data-bind="text: extras"></td>
+							<td class="number" data-bind="text: cost"></td>
+							<td class="number" data-bind="text: cache"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			
-		<table>
-			<thead>
-				<tr data-bind="sortHeader: {}">
-					<th class="action"></th>
-					<th data-fieldName="name" class="name">Name</th>
-					<th data-fieldName="factions" class="faction">Faction</th>
-					<th data-fieldName="extras" class="extras">Extras</th>
-					<th data-fieldName="cost" class="number">Cost</th>
-					<th data-fieldName="cache" class="number">Cache</th>
-				</tr>
-			</thead>
-			<tbody data-bind="foreach: addableList">
-				<tr>
-					<td class="action">
-						<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>
-					</td>
-					<td class="name" data-bind="text: name"></td>
-					<td class="faction" data-bind="text: factions"></td>
-					<td class="extras" data-bind="text: extras"></td>
-					<td class="number" data-bind="text: cost"></td>
-					<td class="number" data-bind="text: cache"></td>
-				</tr>
-			</tbody>
-		</table>
+			<div id="crew-list">
+				<!-- ko with: crewViewModel -->
+				<div id="Crew" data-bind="visible: hasCrew">
+					<div id="Total">
+						<span class="label">Total: </span><span data-bind="text: crewTotal"></span>
+						<span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a>
+						<span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span>
+						<span class="label">Pool: </span><span data-bind="text: soulstonePool"></span>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th class="action"></th>
+								<th class="name">Name</th>
+								<th class="number">Cost</th>
+								<th class="number">Cache</th>
+								<th class="leader">Leader</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody data-bind="sortable: crewViewModels">
+							<tr>
+								<td class="action">
+									<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
+								</td>
+								<td class="name">
+									<span data-bind="text: name, css: {'upgrade': isUpgrade}"></span>
+								</td>
+								<td class="number" data-bind="text: cost"></td>
+								<td class="number" data-bind="text: cache"></td>
+								<td class="leader" data-bind="css: { 'is-leader': isLeader }">
+									<a class="set-as-leader" href="#" data-bind="visible: canBeLeader, click: setAsLeader" title="Set as leader."></a>
+								</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div data-bind="visible: !hasCrew()">
+					Add models from the Models tab!
+				</div>
+				<!-- /ko -->
+			</div>
+		</div>
 	</body>
 </html>

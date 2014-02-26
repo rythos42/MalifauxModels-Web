@@ -314,7 +314,7 @@ var ModelList = {
 		new Model('Wastel', [C.TenThunders, C.Guild], [C.Minion, C.Living, C.BlackSheep], 4),
 		new Model('Yan Lo', [C.TenThunders, C.Resurrectionist], [C.Master, C.Living, C.Ancestor], undefined, 4),
 		new Model('Soul Porter', [C.TenThunders, C.Resurrectionist], [C.Peon, C.TotemFor('Yan Lo'), C.Spirit], 3),
-		new Model('Chiako the Niece', [C.TenThunders, C.Resurrectionist], [C.Enforcer, C.Living, C.Rare1, C.Ancestor], 6),
+		new Model('Chiaki the Niece', [C.TenThunders, C.Resurrectionist], [C.Enforcer, C.Living, C.Rare1, C.Ancestor], 6),
 		new Model('Izamu the Armor', [C.TenThunders, C.Resurrectionist], [C.Enforcer, C.Undead, C.Rare1, C.Ancestor, C.Spirit], 10),
 		new Model('Toshiro the Daimyo', [C.TenThunders, C.Resurrectionist], [C.Henchman, C.Undead, C.Rare1, C.Ancestor], 9, 4),
 		new Model('Yin the Penangalan', [C.TenThunders, C.Resurrectionist], [C.Enforcer, C.Undead, C.Rare1, C.Ancestor, C.Horror], 8),

@@ -6,6 +6,7 @@ var AddedViewModel = function(addable, crew) {
 	self.cache = addable.cache;
 	self.isLeader = addable.isLeader;
 	self.canBeLeader = addable.canBeLeader;
+	self.isUpgrade = (addable instanceof Upgrade);
 	
 	self.removeFromCrew = function() {
 		crew.removeFromCrew(addable);

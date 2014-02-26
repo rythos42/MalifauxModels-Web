@@ -3,12 +3,26 @@ var CrewViewModel = function(crew) {
 	
 	self.availableSoulstones = crew.availableSoulstones;
 	self.crewTotal = crew.totalCost;
+	self.crewViewModels = ko.observableArray();
 	
-	self.crewViewModels = ko.computed(function() {
-		return _.map(crew.added(), function(addable) {
-			return new AddedViewModel(addable, crew);
+	crew.added.subscribe(function(changes) {
+		_.each(changes, function(change) {
+			switch(change.status) {
+				case 'added':
+					// We always add to the end of the array.
+					var crewList = crew.added();
+					var addedModel = crewList[crewList.length - 1];
+					self.crewViewModels.push(new AddedViewModel(addedModel, crew));
+					break;
+				case 'deleted':
+					var removedModel = self.crewViewModels()[change.index];
+					self.crewViewModels.remove(removedModel);
+					break;
+			}
 		});
-	});
+	
+
+	}, null, "arrayChange");
 
 	self.removeFromCrew = function(addable) {
 		crew.added.remove(addable);
@@ -26,8 +40,6 @@ var CrewViewModel = function(crew) {
 	});
 		
 	self.remainingSoulstones = ko.computed(function() {
-		
-	
 		return parseInt(crew.availableSoulstones(), 10) - crew.totalCost();
 	});
 	

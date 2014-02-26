@@ -1,0 +1,2 @@
+- add touch events and test!
+- copy to clipboard option

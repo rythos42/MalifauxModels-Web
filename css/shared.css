@@ -34,12 +34,23 @@ td.name, th.name {
 	width: 300px;
 }
 
+td.name span.upgrade {
+	padding-left: 30px;
+	display: inline-block;
+}
+
 th {
 	cursor: pointer;
 }
 
 th.nosort {
 	cursor: text;
+}
+
+tr.highlight {
+	background-color: red;
+	filter: alpha(opacity=40);
+	opacity: 0.4;
 }
 
 ul {
@@ -84,10 +95,8 @@ select.search-field {
     padding-left: 13px;
 }
 
-#Crew {
-	margin-bottom: 20px;
-	height: 250px;
-	overflow: auto;
+#Crew tr {
+	cursor: move;
 }
 
 .disabled {
@@ -122,6 +131,10 @@ select.search-field {
 
 #HeaderBar span {
 	padding-left: 10px;
+}
+
+#HelpDialog {
+	display: none;
 }
 
 #HelpDialog div {

@@ -18,8 +18,11 @@ var AddableViewModel = function(addable, crew) {
 
 	self.cost = addable.cost;
 	self.cache = addable.cache;
+	
+	self.shouldHighlight = ko.observable(false);
 
 	self.addToCrew = function() {
+		self.shouldHighlight(true);
 		crew.addToCrew(addable.clone());
 	};
 }
