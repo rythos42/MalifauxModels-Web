@@ -38,3 +38,11 @@ th.extras, th.number {
 ul li {
 	margin-left: 0;
 }
+
+input[type="text"], select {
+    width: 139px;
+}
+
+input[type="button"] {
+	margin-left: 208px;
+}

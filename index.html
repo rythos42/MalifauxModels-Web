@@ -35,6 +35,7 @@
 		<script type="text/javascript" src="js/app/CustomBinders/SortHeaderCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/DialogCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/HighlightTableRowCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/LoadMoreCustomBinder.js"></script>
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -85,7 +86,7 @@
 							<option value="is">Is</option>
 							<option value="not">Not</option>
 						</select>
-						<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: '.notOrIs'}" />
+						<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Type search term...', leftElementSelector: '.notOrIs', visibleCheck: isTextFieldSearch}" />
 						<select data-bind="visible: isBooleanSearch, value: searchBoolean">
 							<option value="true">Yes</option>
 							<option value="false">No</option>
@@ -109,7 +110,7 @@
 							<th data-fieldName="cache" class="number">Cache</th>
 						</tr>
 					</thead>
-					<tbody data-bind="foreach: addableList">
+					<tbody data-bind="foreach: addableList, loadMore: {}">
 						<tr data-bind="highlight: shouldHighlight">
 							<td class="action">
 								<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>

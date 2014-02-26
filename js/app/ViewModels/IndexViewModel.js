@@ -20,22 +20,38 @@ var IndexViewModel = function() {
 		newCriteria.searchText.subscribe(criteriaListHasChanged);
 		newCriteria.searchBoolean.subscribe(criteriaListHasChanged);
 		
+		self.searchCriteriaList.push(newCriteriaViewModel);
+
 		if(setFocus)
 			newCriteriaViewModel.hasFocus(true);
-	
-		self.searchCriteriaList.push(newCriteriaViewModel);
+
 	};
 	self.addCriteria(false);
-
+	
+	self.addableList = ko.observableArray();
+	
+	var currentModelList = [];
+	self.searchCriteriaList.subscribe(function(criteria) {
+		currentModelList = AddableListManager.search(criteria)
 		
-	self.addableList = ko.computed(function() {
-		var list = AddableListManager.search(self.searchCriteriaList());
-		return _.map(list, function(addable) {
+		var viewModelList = _.first(currentModelList, 100);
+		self.addableList(_.map(viewModelList, function(addable) {
 			return new AddableViewModel(addable, crew);
-		});
-	}).extend({throttle: 1});
+		}));
+	});
 	
-	
+	self.addNextModelItems = function() {
+		var start = self.addableList().length + 1;
+		if(start >= currentModelList.length)
+			return;
+		
+		var nextViewModelList = currentModelList.slice(start, start+100);
+		
+		self.addableList.push.apply(self.addableList, _.map(nextViewModelList, function(addable) {
+			return new AddableViewModel(addable, crew);
+		}));
+	};
+		
 	self.searchTextSuggestions = AddableListManager.searchTextList();
 
 	var currentSort = null;

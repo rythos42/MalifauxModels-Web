@@ -49,8 +49,8 @@ th.nosort {
 
 tr.highlight {
 	background-color: red;
-	filter: alpha(opacity=40);
-	opacity: 0.4;
+	filter: alpha(opacity=20);
+	opacity: 0.2;
 }
 
 ul {
@@ -69,7 +69,6 @@ fieldset {
     border: 2px solid #004f7b;
     margin: 10px 0 20px;
     padding: 3px;
-	
 }
 
 .title {
