@@ -127,12 +127,14 @@
 			<div id="crew-list">
 				<!-- ko with: crewViewModel -->
 				<div id="Crew" data-bind="visible: hasCrew">
-					<div id="Total">
-						<span class="label">Total: </span><span data-bind="text: crewTotal"></span>
-						<span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a>
-						<span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span>
-						<span class="label">Pool: </span><span data-bind="text: soulstonePool"></span>
-					</div>
+					<fieldset id="Total">
+						<legend class="title">Soulstones</legend>
+						<div><span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a></div>
+						<div><span class="label">Total: </span><span data-bind="text: crewTotal"></span></div>
+						<div><span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span></div>
+						<div><span class="label">Pool: </span><span data-bind="text: soulstonePool"></span></div>
+					</fieldset>
+
 					<table>
 						<thead>
 							<tr>

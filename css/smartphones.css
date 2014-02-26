@@ -30,3 +30,11 @@ th.extras, th.number {
 #Crew td.number, #Crew th.number {
 	width: 40px;
 }
+
+.ui-tabs-panel {
+	padding: 0.5em !important;
+}
+
+ul li {
+	margin-left: 0;
+}

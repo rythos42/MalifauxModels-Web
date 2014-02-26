@@ -1,2 +1,3 @@
-- add touch events and test!
 - copy to clipboard option
+- slow loading
+- slow to click into input

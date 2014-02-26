@@ -65,6 +65,18 @@ ul li {
 	position: relative;
 }
 
+fieldset {
+    border: 2px solid #004f7b;
+    margin: 10px 0 20px;
+    padding: 3px;
+	
+}
+
+.title {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 span.label {
 	font-weight: bold;
 }
@@ -76,15 +88,15 @@ input[type="text"], select {
 }
 
 input[type="button"] {
-	margin-left: 247px;
+	margin-left: 219px;
 }
 
 select.notOrIs {
-	width: 60px;
+	width: 55px;
 }
 
 select.search-field {
-	width: 122px;
+	width: 98px;
 }
 
 .prompt-text {
@@ -103,9 +115,9 @@ select.search-field {
 	font-style: italic;
 }
 
-#Total {
-	margin-top: 5px;
-	margin-left: 5px;
+#Total div {
+	margin-bottom: 5px;
+	margin-left: 10px;
 }
 
 #Total label {
@@ -114,6 +126,7 @@ select.search-field {
 
 #Total input {
 	width: 35px;
+	margin-bottom: 0;
 }
 
 #HeaderBar {
