@@ -50,4 +50,36 @@ var CrewViewModel = function(crew) {
 		
 		return Math.min(remaining + cache, 7);
 	});
+	
+	
+	
+	/*
+	Code used for PhoneGap implementation
+	*/
+	self.canShare = ko.computed(function() {
+		return window._cordovaNative;
+	});
+	
+	self.shareCrew = function() {
+		var crewText = '';
+		
+		_.each(self.crewViewModels(), function(addedViewModel) {
+			if(addedViewModel.isUpgrade)
+				crewText += '\t';
+		
+			crewText += addedViewModel.name;
+			
+			if(addedViewModel.cost)
+				crewText += ', ' + addedViewModel.cost + 'SS';
+			
+			crewText += '\r\n';
+		});
+		
+		crewText += '\r\n';
+		crewText += 'Available Soulstones: ' + self.availableSoulstones() + '\r\n';
+		crewText += 'Total: ' + self.crewTotal() + '\r\n';
+		crewText += 'Pool: ' + self.soulstonePool() + '\r\n';
+		
+		window.plugins.socialsharing.share(crewText);
+	};
 };

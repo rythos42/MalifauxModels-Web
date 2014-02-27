@@ -5,9 +5,9 @@ ko.bindingHandlers.highlight = {
             shouldHighlight = ko.utils.unwrapObservable(valueAccessor());
 			
 		if(shouldHighlight) {
-			element.addClass('highlight');
+			element.switchClass('', 'highlight', 250);
 			setTimeout(function() {
-				element.switchClass('highlight', '', 150);
+				element.switchClass('highlight', '', 250);
 			}, 1);
 			shouldHighlightObs(false);
 		}

@@ -2,7 +2,14 @@
 	<head>
 		<meta name="viewport" content="width=device-width">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	
+
+		<script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" src="js/lib/SocialSharing.js"></script>
+        <script type="text/javascript">
+			if(typeof(app) !== 'undefined')
+				app.initialize();
+        </script>
+		
 		<script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-ui-1.10.3.js"></script>
 		<script type="text/javascript" src="js/lib/knockout-3.0.0.js"></script>
@@ -36,7 +43,7 @@
 		<script type="text/javascript" src="js/app/CustomBinders/DialogCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/HighlightTableRowCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/LoadMoreCustomBinder.js"></script>
-		
+				
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#Tabs').tabs();
@@ -168,6 +175,7 @@
 				<div data-bind="visible: !hasCrew()">
 					Add models from the Models tab!
 				</div>
+				<button data-bind="visible: canShare, click: shareCrew">Share</button>
 				<!-- /ko -->
 			</div>
 		</div>
