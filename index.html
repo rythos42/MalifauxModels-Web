@@ -32,6 +32,7 @@
 		<script type="text/javascript" src="js/app/Mappers/ModelListMapper.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/UpgradeListMapper.js"></script>
 		<script type="text/javascript" src="js/app/Managers/AddableListManager.js"></script>
+		<script type="text/javascript" src="js/app/Managers/DeviceManager.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/IndexViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddableViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddedViewModel.js"></script>
@@ -47,6 +48,8 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#Tabs').tabs();
+
+				DeviceManager.instance = new DeviceManager();
 
 				var viewModel = new IndexViewModel();
 				ko.applyBindings(viewModel);
@@ -111,10 +114,13 @@
 						<tr data-bind="sortHeader: {}">
 							<th class="action"></th>
 							<th data-fieldName="name" class="name">Name</th>
-							<th data-fieldName="factions" class="faction">Faction</th>
+							<th data-fieldName="factions" class="faction" data-bind="visible: DeviceManager.instance.isFullScreenDevice()">Faction</th>
 							<th data-fieldName="extras" class="extras">Extras</th>
 							<th data-fieldName="cost" class="number">Cost</th>
-							<th data-fieldName="cache" class="number">Cache</th>
+							<th data-fieldName="cache" class="number">
+								<span data-bind="visible: DeviceManager.instance.isFullScreenDevice()">Cache</span>
+								<span data-bind="visible: !DeviceManager.instance.isFullScreenDevice()">Cch</span>
+							</th>
 						</tr>
 					</thead>
 					<tbody data-bind="foreach: addableList, loadMore: {}">
@@ -123,7 +129,7 @@
 								<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>
 							</td>
 							<td class="name" data-bind="text: name"></td>
-							<td class="faction" data-bind="text: factions"></td>
+							<td class="faction" data-bind="text: factions, visible: DeviceManager.instance.isFullScreenDevice()"></td>
 							<td class="extras" data-bind="text: extras"></td>
 							<td class="number" data-bind="text: cost"></td>
 							<td class="number" data-bind="text: cache"></td>

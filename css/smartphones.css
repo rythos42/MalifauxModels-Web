@@ -3,7 +3,7 @@ td, th {
 }
 
 td.action, th.action {
-	padding: 0;
+	padding: 5px 5px;
 }
 
 td.name, th.name {

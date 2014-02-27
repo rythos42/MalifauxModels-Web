@@ -1,11 +1,20 @@
 var AddableViewModel = function(addable, crew) {
 	var self = this;
-
-	self.name = addable.name;
+	
 	self.factions = ko.computed(function() {
 		return addable.factionList.join(', ');
 	});
 
+	self.name = ko.computed(function() {
+		var name = addable.name,
+			factions = self.factions();
+	
+		if(DeviceManager.instance.isFullScreenDevice()) 
+			return name;
+			
+		return name + ' (' + factions + ')';
+	});
+	
 	self.extras = ko.computed(function() {
 		if(addable.characteristicList)
 			return addable.characteristicList.join(', ');
