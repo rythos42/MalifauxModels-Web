@@ -1,1 +1,3 @@
-- copy to clipboard option
+- app icon
+- look into better backgrounds
+- 
