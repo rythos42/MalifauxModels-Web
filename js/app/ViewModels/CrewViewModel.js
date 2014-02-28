@@ -48,6 +48,9 @@ var CrewViewModel = function(crew) {
 		return Math.min(remaining + cache, 7);
 	});
 	
+	self.clearCrew = function() {
+		crew.added.removeAll();
+	};	
 	
 	
 	/*

@@ -181,7 +181,10 @@
 				<div data-bind="visible: !hasCrew()">
 					Add models from the Models tab!
 				</div>
-				<button data-bind="visible: canShare, click: shareCrew">Share</button>
+				<div id="CrewButtons">
+					<button data-bind="visible: canShare, click: shareCrew">Share</button>
+					<button data-bind="click: clearCrew">Clear</button>
+				</div>
 				<!-- /ko -->
 			</div>
 		</div>

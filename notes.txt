@@ -1,0 +1,4 @@
+- save and load rosters
+- ability to track wounds
+- ability to track schemes, announced or not, track points gained on them
+- ability to track conditions
