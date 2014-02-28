@@ -6,35 +6,32 @@ var CrewViewModel = function(crew) {
 	self.crewViewModels = ko.observableArray();
 	
 	crew.added.subscribe(function(changes) {
+		var crewList = crew.added();
+		
 		_.each(changes, function(change) {
 			switch(change.status) {
 				case 'added':
 					// We always add to the end of the array.
-					var crewList = crew.added();
 					var addedModel = crewList[crewList.length - 1];
 					self.crewViewModels.push(new AddedViewModel(addedModel, crew));
 					break;
 				case 'deleted':
-					var removedModel = self.crewViewModels()[change.index];
-					self.crewViewModels.remove(removedModel);
+					var addable = change.value;
+					var removedViewModel = _.findWhere(self.crewViewModels(), {addable: addable});
+					self.crewViewModels.remove(removedViewModel);
+					
+					// Set a new leader if we just removed one
+					if(addable.isLeader && addable.isLeader()) {
+						_.each(crewList, function(crewModel) {
+							if(crewModel.canBeLeader && crewModel.canBeLeader())
+								crewModel.isLeader(true);
+						});
+					}	
 					break;
 			}
 		});
-	
-
 	}, null, "arrayChange");
 
-	self.removeFromCrew = function(addable) {
-		crew.added.remove(addable);
-
-		if(addable.isLeader && addable.isLeader()) {
-			_.each(crew.added(), function(crewModel) {
-				if(crewModel.canBeLeader && crewModel.canBeLeader())
-					crewModel.isLeader(true);
-			});
-		}	
-	};
-	
 	self.hasCrew = ko.computed(function() {
 		return crew.added().length > 0;
 	});
