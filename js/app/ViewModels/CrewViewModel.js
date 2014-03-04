@@ -50,7 +50,7 @@ var CrewViewModel = function(crew) {
 	
 	self.clearCrew = function() {
 		crew.added.removeAll();
-	};	
+	};
 	
 	
 	/*
