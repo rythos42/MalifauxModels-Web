@@ -68,6 +68,8 @@ var C = {
 	Upgrade: 'Upgrade',
 	WitchHunter: 'Witch Hunter',
 	Vermin: 'Vermin',
+	Wave1: 'Wave 1',
+	Wave2: 'Wave 2',
 	Woe: 'Woe',
 	
 	TotemFor: function(name) {
