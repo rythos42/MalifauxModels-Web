@@ -19,6 +19,7 @@ var IndexViewModel = function() {
 		newCriteria.selectedSearchOption.subscribe(criteriaListHasChanged);
 		newCriteria.searchText.subscribe(criteriaListHasChanged);
 		newCriteria.searchBoolean.subscribe(criteriaListHasChanged);
+		newCriteria.notOrIs.subscribe(criteriaListHasChanged);
 		
 		self.searchCriteriaList.push(newCriteriaViewModel);
 
