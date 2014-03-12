@@ -14,6 +14,11 @@ var IndexViewModel = function(crew, criteriaList) {
 		criteriaList.push(new SearchCriteria());
 	};
 	
+	self.clearCriteria = function() {
+		criteriaList.removeAll();
+		self.addBlankCriteria();
+	};
+	
 	criteriaList.subscribe(function(changes) {
 		var crewList = crew.added();
 		

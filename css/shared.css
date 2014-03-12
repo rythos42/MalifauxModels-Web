@@ -86,8 +86,8 @@ input[type="text"], select {
     width: 150px;
 }
 
-input[type="button"] {
-	margin-left: 219px;
+.criteria-buttons {
+	margin-left: 170px;
 }
 
 select.notOrIs {

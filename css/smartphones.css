@@ -47,6 +47,6 @@ input[type="text"], select {
     width: 139px;
 }
 
-input[type="button"] {
-	margin-left: 208px;
+.criteria-buttons {
+	margin-left: 149px;
 }
