@@ -1,6 +1,5 @@
-var IndexViewModel = function() {
-	var self = this,
-		crew = new Crew();
+var IndexViewModel = function(crew, criteriaList) {
+	var self = this;
 		
 	AddableListManager.addSearchData(ModelListMapper.get());
 	AddableListManager.addSearchData(UpgradeListMapper.get());
@@ -11,23 +10,43 @@ var IndexViewModel = function() {
 		self.searchCriteriaList.valueHasMutated();
 	}
 	
-	self.addCriteria = function(setFocus) {
-		var criteriaList = self.searchCriteriaList,
-			newCriteria = new SearchCriteria(),
-			newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria, criteriaList().length === 0, criteriaList);		
-		
-		newCriteria.selectedSearchOption.subscribe(criteriaListHasChanged);
-		newCriteria.searchText.subscribe(criteriaListHasChanged);
-		newCriteria.searchBoolean.subscribe(criteriaListHasChanged);
-		newCriteria.notOrIs.subscribe(criteriaListHasChanged);
-		
-		self.searchCriteriaList.push(newCriteriaViewModel);
-
-		if(setFocus)
-			newCriteriaViewModel.hasFocus(true);
-
+	self.addBlankCriteria = function() {
+		criteriaList.push(new SearchCriteria());
 	};
-	self.addCriteria(false);
+	
+	criteriaList.subscribe(function(changes) {
+		var crewList = crew.added();
+		
+		_.each(changes, function(change) {
+			switch(change.status) {
+				case 'added':
+					var newCriteria = change.value;
+					
+					newCriteria.selectedSearchOption.subscribe(criteriaListHasChanged);
+					newCriteria.searchText.subscribe(criteriaListHasChanged);
+					newCriteria.searchBoolean.subscribe(criteriaListHasChanged);
+					newCriteria.notOrIs.subscribe(criteriaListHasChanged);
+					
+					newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria, criteriaList);
+					
+					self.searchCriteriaList.push(newCriteriaViewModel);
+
+					// If not the first item, set the focus to the text box.
+					if(self.searchCriteriaList().length !== 1)
+						newCriteriaViewModel.hasFocus(true);
+						
+					break;
+
+				case 'deleted':
+					var deletingCriteria = change.value;
+					var removedViewModel = _.findWhere(self.searchCriteriaList(), {searchCriteria: deletingCriteria});
+					self.searchCriteriaList.remove(removedViewModel);
+					break;
+			}
+		});
+	}, null, "arrayChange");
+
+	self.addBlankCriteria();
 	
 	self.addableList = ko.observableArray();
 	

@@ -12,7 +12,7 @@ var CrewViewModel = function(crew) {
 			switch(change.status) {
 				case 'added':
 					// We always add to the end of the array.
-					var addedModel = crewList[crewList.length - 1];
+					var addedModel = change.value;
 					self.crewViewModels.push(new AddedViewModel(addedModel, crew));
 					break;
 				case 'deleted':
@@ -57,7 +57,7 @@ var CrewViewModel = function(crew) {
 	Code used for PhoneGap implementation
 	*/
 	self.canShare = ko.computed(function() {
-		return window._cordovaNative;
+		return DeviceManager.instance.isCordova();
 	});
 	
 	self.shareCrew = function() {

@@ -9,4 +9,6 @@ var Upgrade = function(name, factionList, restrictionsList, cost) {
 	self.clone = function() {
 		return new Upgrade(name, factionList, restrictionsList, cost);
 	};
+	
+	self.type = "Upgrade";
 };

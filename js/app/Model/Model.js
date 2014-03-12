@@ -16,4 +16,6 @@ var Model = function(name, factionList, characteristicList, cost, cache) {
 	self.clone = function() {
 		return new Model(name, factionList, characteristicList, cost, cache);
 	};
+	
+	self.type = "Model";
 }

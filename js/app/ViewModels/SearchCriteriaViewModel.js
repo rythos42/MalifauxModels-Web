@@ -1,10 +1,15 @@
-var SearchCriteriaViewModel = function(searchCriteria, isFirst, criteriaList) {
+var SearchCriteriaViewModel = function(searchCriteria, criteriaList) {
 	var self = this;
 	
+	self.searchCriteria = searchCriteria;
 	self.selectedSearchOption = searchCriteria.selectedSearchOption;
 	self.searchText = searchCriteria.searchText;
 	self.searchBoolean = searchCriteria.searchBoolean;
 	self.notOrIs = searchCriteria.notOrIs;
+	self.hasFocus = ko.observable(false);
+	self.notFirstCriteria = ko.computed(function() {
+		return _.indexOf(criteriaList(), searchCriteria) !== 0;
+	});
 		
 	self.isTextFieldSearch = ko.computed(function() {
 		var searchOption = self.selectedSearchOption();
@@ -15,15 +20,11 @@ var SearchCriteriaViewModel = function(searchCriteria, isFirst, criteriaList) {
 		return self.selectedSearchOption() instanceof BooleanSearchOption;
 	});
 	
-	self.hasFocus = ko.observable(false);
-	
 	self.isMatch = function(addable) {
 		return self.selectedSearchOption().isMatch(addable, searchCriteria);
 	};	
 	
-	self.notFirstCriteria = !isFirst;
-	
 	self.removeCriteria = function() {
-		criteriaList.remove(self);
+		criteriaList.remove(searchCriteria);
 	};
 };

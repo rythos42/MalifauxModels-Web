@@ -33,6 +33,7 @@
 		<script type="text/javascript" src="js/app/Mappers/UpgradeListMapper.js"></script>
 		<script type="text/javascript" src="js/app/Managers/AddableListManager.js"></script>
 		<script type="text/javascript" src="js/app/Managers/DeviceManager.js"></script>
+		<script type="text/javascript" src="js/app/Managers/PersistenceManager.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/IndexViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddableViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddedViewModel.js"></script>
@@ -47,12 +48,24 @@
 				
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$('#Tabs').tabs();
+				var crew = new Crew();
+				var searchCriteriaList = ko.observableArray();
 
 				DeviceManager.instance = new DeviceManager();
+				PersistenceManager.instance = new PersistenceManager(crew, searchCriteriaList);
 
-				var viewModel = new IndexViewModel();
+				if(document.addEventListener) {
+					document.addEventListener("deviceready", DeviceManager.instance.onCordovaReady, false);
+					document.addEventListener("deviceready", PersistenceManager.instance.onCordovaReady, false);
+				}
+				
+				$('#Tabs').tabs();
+
+				var viewModel = new IndexViewModel(crew, searchCriteriaList);
 				ko.applyBindings(viewModel);
+
+				$(window).bind("beforeunload", PersistenceManager.instance.save);
+				PersistenceManager.instance.load();
 			});
 		</script>
 		
@@ -105,7 +118,7 @@
 					</li>
 					<!-- /ko -->
 					<li>
-						<input type="button" id="AddCriteria" value="Add Criteria" data-bind="click: addCriteria" />
+						<input type="button" id="AddCriteria" value="Add Criteria" data-bind="click: addBlankCriteria" />
 					</li>
 				</ul>
 					
