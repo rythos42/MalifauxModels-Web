@@ -1,6 +1,6 @@
 table {
     border: solid 1px #dadada;
-    width: 100%;
+	width: 100%;
     clear: right;
     table-layout: fixed;
 }
@@ -27,7 +27,7 @@ td.action, th.action {
 }
 
 td.leader, th.leader {
-	width: 75px;
+	width: 48px;
 }
 
 td.name, th.name {

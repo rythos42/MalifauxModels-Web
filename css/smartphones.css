@@ -27,6 +27,10 @@ th.extras, th.number {
 	overflow: hidden;
 }
 
+#Crew table {
+	width: auto;
+}
+
 #Crew td.number, #Crew th.number {
 	width: 40px;
 }
