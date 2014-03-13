@@ -58,6 +58,10 @@ ul {
 	margin-bottom: 20px;
 }
 
+#FilterList {
+	max-width: 310px;
+}
+
 ul li {
     display: block;
     margin-left: 10px;
@@ -83,11 +87,7 @@ span.label {
 input[type="text"], select {
     border: 1px solid #ddd;
     padding: 3px 2px 3px 3px;
-    width: 150px;
-}
-
-.criteria-buttons {
-	margin-left: 170px;
+	width: 139px;
 }
 
 select.notOrIs {
@@ -112,6 +112,10 @@ select.search-field {
 
 .disabled {
 	font-style: italic;
+}
+
+.criteria-buttons {
+	text-align: right;
 }
 
 #Total div {
@@ -189,6 +193,9 @@ select.search-field {
 	width: 16px;
 	height: 21px;
 	display: inline-block;
+	position: absolute;
+	top: 5px;
+	right: -20px;
 }
 
 #CrewButtons {

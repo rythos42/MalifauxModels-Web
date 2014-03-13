@@ -43,10 +43,6 @@ ul li {
 	margin-left: 0;
 }
 
-input[type="text"], select {
-    width: 139px;
-}
-
-.criteria-buttons {
-	margin-left: 149px;
+#FilterList {
+	max-width: 301px;
 }
