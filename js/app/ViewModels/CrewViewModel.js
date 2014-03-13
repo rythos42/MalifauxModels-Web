@@ -61,6 +61,9 @@ var CrewViewModel = function(crew) {
 	});
 	
 	self.shareCrew = function() {
+		// Ran into a problem where in the app, the crew was an older version compared to what was shared.
+		PersistenceManager.instance.save();
+	
 		var crewText = '';
 		
 		_.each(self.crewViewModels(), function(addedViewModel) {
