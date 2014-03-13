@@ -11,5 +11,7 @@ var DeviceManager = function() {
 	
 	self.onCordovaReady = function() {
 		self.isCordova(true);
+		
+		navigator.splashscreen.hide()
 	};
 };
