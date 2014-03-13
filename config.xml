@@ -28,6 +28,10 @@
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/arcanist-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/arcanist-72-hdpi.png" />
     <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/arcanist-96-xhdpi.png" />
+	<gap:splash src="res/screens/android/screen-xhpdi-portrait.9.png" gap:platform="android" gap:density="xhdpi" />
+	<gap:splash src="res/screens/android/screen-hpdi-portrait.9.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="res/screens/android/screen-mpdi-portrait.9.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="res/screens/android/screen-lpdi-portrait.9.png" gap:platform="android" gap:density="ldpi" />
     <access origin="http://127.0.0.1*" />
 	<!-- for Android -->
 	<feature name="SocialSharing">
