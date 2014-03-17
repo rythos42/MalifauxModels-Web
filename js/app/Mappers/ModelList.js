@@ -195,7 +195,7 @@ var ModelList = {
 		new Model('Von Schill', [C.Outcast], [C.Master, C.Living, C.Freikorps, C.Wave1], undefined, 1),
 		new Model('Tara', [C.Outcast, C.Resurrectionist], [C.Master, C.Undead, C.Wave1], undefined, 4),
 		new Model('Viktoria of Ashes', [C.Outcast], [C.Master, C.Living, C.Sister, C.Wave1], undefined, 1),
-		new Model('Hannah', [C.Outcast], [C.Henchman, C.Living, C.Rare1, C.Mercenary, C.Wave1], 10, 3),
+		new Model('Hannah', [C.Outcast], [C.Henchman, C.Living, C.Rare1, C.Mercenary, C.Freikorps, C.Wave1], 10, 3),
 		new Model('The Nothing Beast', [C.Outcast], [C.Enforcer, C.Rare1, C.Wave1], 10),
 		new Model('Viktoria of Blood', [C.Outcast], [C.Henchman, C.Living, C.Rare1, C.Sister, C.Wave1], 0, 3),
 		new Model('Taelor', [C.Outcast], [C.Henchman, C.Living, C.Mercenary, C.Rare1, C.Wave1], 10, 3),
