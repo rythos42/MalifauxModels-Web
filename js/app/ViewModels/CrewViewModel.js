@@ -40,6 +40,15 @@ var CrewViewModel = function(crew) {
 		return parseInt(crew.availableSoulstones(), 10) - crew.totalCost();
 	});
 	
+	self.remainingSoulstonesWithMaximumPool = ko.computed(function() {
+		var leader = crew.getLeader(),
+			cache = (leader ? leader.cache : 0),
+			remaining = self.remainingSoulstones();
+			
+		var available = parseInt(crew.availableSoulstones(), 10);
+		return available - crew.totalCost() - (7 - cache)
+	});
+	
 	self.soulstonePool = ko.computed(function() {
 		var leader = crew.getLeader(),
 			cache = (leader ? leader.cache : 0),
