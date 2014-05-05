@@ -2,3 +2,15 @@
 - ability to track wounds
 - ability to track schemes, announced or not, track points gained on them
 - ability to track conditions
+
+
+Done:
+- fixed 2 typos
+- reloading now saves new position of moved models
+
+
+TODO:
+- middle of adding "crew lists"
+	- AddableViewModel.addToCrew needs to add to a different tab (set to [0] presently)
+- update PhoneGap and release changes to GPlay
+	

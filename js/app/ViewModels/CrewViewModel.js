@@ -5,32 +5,42 @@ var CrewViewModel = function(crew) {
 	self.crewTotal = crew.totalCost;
 	self.crewViewModels = ko.observableArray();
 	
-	crew.added.subscribe(function(changes) {
+	function updateAddedCrewList(change) {
 		var crewList = crew.added();
-		
-		_.each(changes, function(change) {
-			switch(change.status) {
-				case 'added':
-					// We always add to the end of the array.
-					var addedModel = change.value;
-					self.crewViewModels.push(new AddedViewModel(addedModel, crew));
-					break;
-				case 'deleted':
-					var addable = change.value;
-					var removedViewModel = _.findWhere(self.crewViewModels(), {addable: addable});
-					self.crewViewModels.remove(removedViewModel);
-					
-					// Set a new leader if we just removed one
-					if(addable.isLeader && addable.isLeader()) {
-						_.each(crewList, function(crewModel) {
-							if(crewModel.canBeLeader && crewModel.canBeLeader())
-								crewModel.isLeader(true);
-						});
-					}	
-					break;
-			}
-		});
+		switch(change.status) {
+			case 'added':
+				// We always add to the end of the array.
+				var addedModel = change.value;
+				self.crewViewModels.push(new AddedViewModel(addedModel, crew));
+				break;
+			case 'deleted':
+				var addable = change.value;
+				var removedViewModel = _.findWhere(self.crewViewModels(), {addable: addable});
+				self.crewViewModels.remove(removedViewModel);
+				
+				// Set a new leader if we just removed one
+				if(addable.isLeader && addable.isLeader()) {
+					_.each(crewList, function(crewModel) {
+						if(crewModel.canBeLeader && crewModel.canBeLeader())
+							crewModel.isLeader(true);
+					});
+				}	
+				break;
+		}
+	}
+	
+	crew.added.subscribe(function(changes) {
+		_.each(changes, updateAddedCrewList);
 	}, null, "arrayChange");
+	
+	if(crew.added().length !== 0) {
+		_.each(crew.added(), function(member) {
+			updateAddedCrewList({
+				status: 'added',
+				value: member
+			});			
+		});
+	}
 
 	self.hasCrew = ko.computed(function() {
 		return crew.added().length > 0;
@@ -59,6 +69,13 @@ var CrewViewModel = function(crew) {
 	
 	self.clearCrew = function() {
 		crew.added.removeAll();
+	};
+	
+	self.updateModel = function(arg) {
+		var sourceIndex = arg.sourceIndex,
+			targetIndex = arg.targetIndex;
+	
+		crew.added.splice(targetIndex, 0, crew.added.splice(sourceIndex, 1)[0]);
 	};
 	
 	

@@ -1,36 +1,51 @@
-var PersistenceManager = function(crew, criteriaList) {
+var PersistenceManager = function(crewList, criteriaList) {
 	var self = this,
 		crewKey = 'CREW',
 		criteriaListKey = 'CRITERIALIST';
 	
 	self.save = function() {
-		window.localStorage.setItem(crewKey, ko.toJSON(crew));
+		window.localStorage.setItem(crewKey, ko.toJSON(crewList));
 		window.localStorage.setItem(criteriaListKey, ko.toJSON(criteriaList()));
 	};
 	
 	self.load = function() {
-		var crewFromStorageJson = window.localStorage.getItem(crewKey);
-		if(crewFromStorageJson) {
-			var crewFromStorage = JSON.parse(crewFromStorageJson);
-			crew.availableSoulstones(crewFromStorage.availableSoulstones);
+		var crewListFromStorageJson = window.localStorage.getItem(crewKey);
+		if(crewListFromStorageJson) {
+			var crewListFromStorage = JSON.parse(crewListFromStorageJson);
 			
-			var newCrew = [];
-			_.each(crewFromStorage.added, function(modelOrUpgrade) {
-				switch(modelOrUpgrade.type) {
-					case "Model":
-						var model = new Model(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.characteristicList, modelOrUpgrade.cost, modelOrUpgrade.cache);
-						model.isLeader(modelOrUpgrade.isLeader);
-						newCrew.push(model);
-						break;
-					case "Upgrade":
-						var upgrade = new Upgrade(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.restrictionsList, modelOrUpgrade.cost);
-						newCrew.push(upgrade);
-						break;
-				}
-				
+			// Clear localstorage if using an older version
+			if(crewListFromStorage.availableSoulstones) {
+				window.localStorage.setItem(crewKey, ko.toJSON(crewList));
+				return;
+			}
+			
+			var newCrewList = [];
+			_.each(crewListFromStorage, function(crewFromStorage) {
+				var crew = new Crew();
+				crew.availableSoulstones(crewFromStorage.availableSoulstones);
+			
+				var newCrew = [];
+				_.each(crewFromStorage.added, function(modelOrUpgrade) {
+					switch(modelOrUpgrade.type) {
+						case "Model":
+							var model = new Model(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.characteristicList, modelOrUpgrade.cost, modelOrUpgrade.cache);
+							model.isLeader(modelOrUpgrade.isLeader);
+							newCrew.push(model);
+							break;
+						case "Upgrade":
+							var upgrade = new Upgrade(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.restrictionsList, modelOrUpgrade.cost);
+							newCrew.push(upgrade);
+							break;
+					}
+					
+				});
+				crew.added.removeAll();
+				crew.added.push.apply(crew.added, newCrew);
+				newCrewList.push(crew);
 			});
-			crew.added.removeAll();
-			crew.added.push.apply(crew.added, newCrew);
+
+			crewList.removeAll();
+			crewList.push.apply(crewList, newCrewList);
 		}
 		
 		var criteriaFromStorageJson = window.localStorage.getItem(criteriaListKey);

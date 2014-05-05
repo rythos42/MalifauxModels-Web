@@ -1,5 +1,10 @@
+body {
+	background: #EFF5EE
+}
+
 table {
     border: solid 1px #dadada;
+	background: #EFF5EE;
 	width: 100%;
     clear: right;
     table-layout: fixed;

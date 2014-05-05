@@ -38,6 +38,7 @@
 		<script type="text/javascript" src="js/app/ViewModels/AddableViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/AddedViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/CrewViewModel.js"></script>
+		<script type="text/javascript" src="js/app/ViewModels/MultipleCrewsViewModel.js"></script>
 		<script type="text/javascript" src="js/app/ViewModels/SearchCriteriaViewModel.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/AutoCompleteCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/PromptTextCustomBinder.js"></script>
@@ -48,11 +49,13 @@
 				
 		<script type="text/javascript">
 			$(document).ready(function() {
-				var crew = new Crew();
+				var crewList = ko.observableArray([
+					new Crew()
+				]);
 				var searchCriteriaList = ko.observableArray();
 
 				DeviceManager.instance = new DeviceManager();
-				PersistenceManager.instance = new PersistenceManager(crew, searchCriteriaList);
+				PersistenceManager.instance = new PersistenceManager(crewList, searchCriteriaList);
 
 				if(document.addEventListener) {
 					document.addEventListener("deviceready", DeviceManager.instance.onCordovaReady, false);
@@ -61,7 +64,7 @@
 				
 				$('#Tabs').tabs();
 
-				var viewModel = new IndexViewModel(crew, searchCriteriaList);
+				var viewModel = new IndexViewModel(crewList, searchCriteriaList);
 				ko.applyBindings(viewModel);
 
 				$(window).bind("beforeunload", PersistenceManager.instance.save);
@@ -162,6 +165,7 @@
 				</table>
 			</div>
 			
+			<!-- ko with: multipleCrewsViewModel -->
 			<div id="crew-list">
 				<!-- ko with: crewViewModel -->
 				<div id="Crew" data-bind="visible: hasCrew">
@@ -185,7 +189,7 @@
 								<th></th>
 							</tr>
 						</thead>
-						<tbody data-bind="sortable: crewViewModels">
+						<tbody data-bind="sortable: { data: crewViewModels, afterMove: updateModel }">
 							<tr>
 								<td class="action">
 									<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
@@ -212,6 +216,7 @@
 				</div>
 				<!-- /ko -->
 			</div>
+			<!-- /ko -->
 		</div>
 	</body>
 </html>

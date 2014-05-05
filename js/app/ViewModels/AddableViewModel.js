@@ -1,4 +1,4 @@
-var AddableViewModel = function(addable, crew) {
+var AddableViewModel = function(addable, crewList) {
 	var self = this;
 	
 	self.factions = ko.computed(function() {
@@ -32,6 +32,6 @@ var AddableViewModel = function(addable, crew) {
 
 	self.addToCrew = function() {
 		self.shouldHighlight(true);
-		crew.addToCrew(addable.clone());
+		crewList()[0].addToCrew(addable.clone());
 	};
 }
