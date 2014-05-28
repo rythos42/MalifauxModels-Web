@@ -45,7 +45,13 @@ var MultipleCrewsViewModel = function(crewList) {
 			switch(change.status) {
 				case 'added':
 					var addedCrew = change.value;
-					var crewViewModel = new CrewViewModel(addedCrew, 'crew-list-' + (++lastAddedIndex));
+					lastAddedIndex++;
+					
+					var currentName = addedCrew.name();
+					if(currentName === '' || currentName === undefined || currentName === null)
+						addedCrew.name('Crew ' + lastAddedIndex);
+					
+					var crewViewModel = new CrewViewModel(addedCrew, 'crew-list-' + lastAddedIndex);
 					
 					crewViewModel.isDefault.subscribe(function(isDefault) {
 						setOtherTabsAsNotDefault(isDefault, crewViewModel);
@@ -55,7 +61,7 @@ var MultipleCrewsViewModel = function(crewList) {
 						setOtherMenusAsNotOpen(isMenuOpen, crewViewModel);
 					});
 			
-					crewViewModel.onDeleteTab.subscribe(function(deleting) {
+					crewViewModel.onDeleteCrew.subscribe(function(deleting) {
 						if(!deleting)
 							return;
 							

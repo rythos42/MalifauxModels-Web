@@ -20,9 +20,10 @@ var PersistenceManager = function(crewList, criteriaList) {
 			}
 			
 			var newCrewList = [];
-			_.each(crewListFromStorage, function(crewFromStorage) {
+			_.each(crewListFromStorage, function(crewFromStorage, index) {
 				var crew = new Crew();
 				crew.availableSoulstones(crewFromStorage.availableSoulstones);
+				crew.name(crewFromStorage.name);
 			
 				var newCrew = [];
 				_.each(crewFromStorage.added, function(modelOrUpgrade) {

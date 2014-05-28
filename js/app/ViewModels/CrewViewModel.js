@@ -4,12 +4,10 @@ var CrewViewModel = function(crew, crewTabId) {
 	self.crew = crew;
 	self.availableSoulstones = crew.availableSoulstones;
 	self.crewTotal = crew.totalCost;
+	self.crewName = crew.name;
 	self.crewMemberViewModels = ko.observableArray();
 	self.crewTabId = ko.observable(crewTabId);
 	self.hrefCrewTabId = ko.computed(function() { return '#' + self.crewTabId(); });
-	
-	var thisTabIndex = crewTabId.substring(crewTabId.lastIndexOf('-') + 1);
-	self.crewName = ko.observable('Crew ' + thisTabIndex);
 	
 	self.isMenuOpen = ko.observable(false);
 	self.openMenu = function() {
@@ -22,9 +20,25 @@ var CrewViewModel = function(crew, crewTabId) {
 		self.isMenuOpen(false);
 	};
 	
-	self.onDeleteTab = ko.observable(false);
-	self.deleteTab = function() {
-		self.onDeleteTab(true);
+	self.onDeleteCrew = ko.observable(false);
+	self.deleteCrew = function() {
+		self.onDeleteCrew(true);
+	};
+	
+	function doRenameCrew(results) {
+		self.crewName(results.input1);
+		self.isMenuOpen(false);
+	}
+	
+	self.renameCrew = function() {
+		if(DeviceManager.instance.isCordova()) {
+			navigator.notification.prompt('New name:', doRenameCrew, 'Rename Crew', ['Ok','Cancel']);
+		} 
+		else {
+			var newName = prompt('New name:');
+			if(newName)
+				doRenameCrew({buttonIndex: 1, input1: newName});
+		}
 	};
 	
 	function updateAddedCrewList(change) {
@@ -101,13 +115,12 @@ var CrewViewModel = function(crew, crewTabId) {
 		crew.added.splice(targetIndex, 0, crew.added.splice(sourceIndex, 1)[0]);
 	};
 	
+	self.plainTextCrew = ko.observable('');
+	self.showPlainText = ko.computed(function() { return self.plainTextCrew() !== ''; } );
 	
-	/*
-	Code used for PhoneGap implementation
-	*/
-	self.canShare = ko.computed(function() {
-		return DeviceManager.instance.isCordova();
-	});
+	self.hidePlainText = function() {
+		self.plainTextCrew('');
+	};
 	
 	self.shareCrew = function() {
 		// Ran into a problem where in the app, the crew was an older version compared to what was shared.
@@ -134,6 +147,12 @@ var CrewViewModel = function(crew, crewTabId) {
 		crewText += '\r\n';
 		crewText += 'Shared from MalifauxModels (geeksong.com/Malifaux, or Google Play).\r\n';
 
-		window.plugins.socialsharing.share(crewText);
+		if(DeviceManager.instance.isCordova()) {
+			// Use the Share mobile feature
+			window.plugins.socialsharing.share(crewText);
+		} 
+		else {
+			self.plainTextCrew(crewText);
+		}
 	};
 };

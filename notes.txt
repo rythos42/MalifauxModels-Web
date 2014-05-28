@@ -3,13 +3,11 @@ Done:
 - Reloading now saves new position of moved models
 - Can now keep multiple crews going at once
 - Nexus 7 is treated as a mobile device
+- Can share from web
 
 
 TODO:
-- rename tabs
-	- will need to save and restore names when reloading
-		
-	
 - uncomment GAnalytics code - commented out because it was to slow to load while testing
 - update PhoneGap and release changes to GPlay
+	- test rename for PhoneGap
 	

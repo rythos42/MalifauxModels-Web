@@ -1,6 +1,7 @@
 var Crew = function() {
 	var self = this;
 	
+	self.name = ko.observable('');
 	self.availableSoulstones = ko.observable(50);
 	self.added = ko.observableArray();
 	
