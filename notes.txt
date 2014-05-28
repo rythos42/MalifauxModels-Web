@@ -7,6 +7,8 @@ Done:
 
 
 TODO:
+- moving stuff around is broken
+
 - uncomment GAnalytics code - commented out because it was to slow to load while testing
 - update PhoneGap and release changes to GPlay
 	- test rename for PhoneGap

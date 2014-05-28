@@ -65,8 +65,10 @@ var CrewViewModel = function(crew, crewTabId) {
 		}
 	}
 	
+	var preventCrewAddedSubscription = false;
 	crew.added.subscribe(function(changes) {
-		_.each(changes, updateAddedCrewList);
+		if(!preventCrewAddedSubscription)
+			_.each(changes, updateAddedCrewList);
 	}, null, "arrayChange");
 	
 	if(crew.added().length !== 0) {
@@ -112,7 +114,9 @@ var CrewViewModel = function(crew, crewTabId) {
 		var sourceIndex = arg.sourceIndex,
 			targetIndex = arg.targetIndex;
 	
+		preventCrewAddedSubscription = true;
 		crew.added.splice(targetIndex, 0, crew.added.splice(sourceIndex, 1)[0]);
+		preventCrewAddedSubscription = false;
 	};
 	
 	self.plainTextCrew = ko.observable('');
