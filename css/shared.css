@@ -111,7 +111,7 @@ select.search-field {
     padding-left: 13px;
 }
 
-#Crew tr {
+.crew-list tr {
 	cursor: move;
 }
 
@@ -123,19 +123,19 @@ select.search-field {
 	text-align: right;
 }
 
-#Total div {
+.crew-list .total div {
 	margin-bottom: 5px;
 	margin-left: 10px;
 }
 
-#Total span.label {
+.crew-list .total span.label {
 	width: 90px;
 	text-align: right;
 	display: inline-block;
 	padding-right: 5px;
 }
 
-#Total input {
+.crew-list .total input {
 	width: 40px;
 	padding: 2px;
 	margin-bottom: 0;
@@ -203,7 +203,55 @@ select.search-field {
 	right: -20px;
 }
 
-#CrewButtons {
+.crew-Buttons {
 	margin-top: 5px;
+}
+
+.menu {
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	position: absolute;
+	top: 16px;
+	background-color: white;
+	z-index: 1;
+}
+
+.menu li {
+	width: 100%;
+}
+
+.menu li:hover {
+	background-color: #aaaaaa;
+	cursor: pointer;
+}
+
+.menu li a:hover {
+	cursor: pointer !important;
+}
+
+.menu li span.disabled {
+	float: left;
+	padding: 0.5em 1em;
+	cursor: not-allowed !important;
+}
+
+.open-menu-button {
+	margin-top: 4px;
+	background: url('../images/down_arrow_24x24.png') no-repeat center;
+	padding: 0 !important;
+	margin-right: 5px;
+	width: 24px;
+	height: 24px;
+	cursor: pointer !important;
+}
+
+.default-crew {
+	margin-top: 4px;
+	background: url('../images/green_check_24x24.png') no-repeat center;
+	width: 24px;
+	height: 24px;
+	float: left;
+	display: inline-block;
 }
 

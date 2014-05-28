@@ -11,6 +11,7 @@ var AddedViewModel = function(addable, crew) {
 	
 	self.removeFromCrew = function() {
 		crew.removeFromCrew(addable);
+		TabsManager.refresh();
 	};
 	
 	self.setAsLeader = function() {

@@ -5,6 +5,8 @@ var IndexViewModel = function(crewList, criteriaList) {
 	AddableListManager.addSearchData(UpgradeListMapper.get());
 	
 	self.searchCriteriaList = ko.observableArray();
+	self.multipleCrewsViewModel = new MultipleCrewsViewModel(crewList);
+
 	
 	function criteriaListHasChanged() {
 		self.searchCriteriaList.valueHasMutated();
@@ -59,7 +61,7 @@ var IndexViewModel = function(crewList, criteriaList) {
 		
 		var viewModelList = _.first(currentModelList, 100);
 		self.addableList(_.map(viewModelList, function(addable) {
-			return new AddableViewModel(addable, crewList);
+			return new AddableViewModel(addable, self.multipleCrewsViewModel.defaultCrew);
 		}));
 	});
 	
@@ -71,7 +73,7 @@ var IndexViewModel = function(crewList, criteriaList) {
 		var nextViewModelList = currentModelList.slice(start, start+100);
 		
 		self.addableList.push.apply(self.addableList, _.map(nextViewModelList, function(addable) {
-			return new AddableViewModel(addable, crewList);
+			return new AddableViewModel(addable, self.multipleCrewsViewModel.defaultCrew);
 		}));
 	};
 		
@@ -95,5 +97,9 @@ var IndexViewModel = function(crewList, criteriaList) {
 		currentSort = fieldName;
 	};
 
-	self.multipleCrewsViewModel = new MultipleCrewsViewModel(crewList);
+
+	self.newTab = function(viewModel, event) {
+		self.multipleCrewsViewModel.addNewCrew();
+		TabsManager.refresh();
+	};
 };

@@ -1,16 +1,15 @@
-- save and load rosters
-- ability to track wounds
-- ability to track schemes, announced or not, track points gained on them
-- ability to track conditions
-
-
 Done:
-- fixed 2 typos
-- reloading now saves new position of moved models
+- Fixed 2 typos
+- Reloading now saves new position of moved models
+- Can now keep multiple crews going at once
+- Nexus 7 is treated as a mobile device
 
 
 TODO:
-- middle of adding "crew lists"
-	- AddableViewModel.addToCrew needs to add to a different tab (set to [0] presently)
+- rename tabs
+	- will need to save and restore names when reloading
+		
+	
+- uncomment GAnalytics code - commented out because it was to slow to load while testing
 - update PhoneGap and release changes to GPlay
 	

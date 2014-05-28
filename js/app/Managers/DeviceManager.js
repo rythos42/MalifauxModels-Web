@@ -1,7 +1,7 @@
 var DeviceManager = function() {
 	var self = this;
 
-	var mediaQuery = window.matchMedia('screen and (max-width: 480px)');
+	var mediaQuery = window.matchMedia('screen and (max-width: 800px)');
 	mediaQuery.addListener(function(mediaQuery) {
 		self.isFullScreenDevice(!mediaQuery.matches);
 	});

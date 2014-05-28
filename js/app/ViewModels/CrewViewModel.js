@@ -1,9 +1,31 @@
-var CrewViewModel = function(crew) {
+var CrewViewModel = function(crew, crewTabId) {
 	var self = this;
 	
+	self.crew = crew;
 	self.availableSoulstones = crew.availableSoulstones;
 	self.crewTotal = crew.totalCost;
-	self.crewViewModels = ko.observableArray();
+	self.crewMemberViewModels = ko.observableArray();
+	self.crewTabId = ko.observable(crewTabId);
+	self.hrefCrewTabId = ko.computed(function() { return '#' + self.crewTabId(); });
+	
+	var thisTabIndex = crewTabId.substring(crewTabId.lastIndexOf('-') + 1);
+	self.crewName = ko.observable('Crew ' + thisTabIndex);
+	
+	self.isMenuOpen = ko.observable(false);
+	self.openMenu = function() {
+		self.isMenuOpen(!self.isMenuOpen());
+	};
+	
+	self.isDefault = ko.observable(false);
+	self.setAsDefault = function() {
+		self.isDefault(true);
+		self.isMenuOpen(false);
+	};
+	
+	self.onDeleteTab = ko.observable(false);
+	self.deleteTab = function() {
+		self.onDeleteTab(true);
+	};
 	
 	function updateAddedCrewList(change) {
 		var crewList = crew.added();
@@ -11,12 +33,12 @@ var CrewViewModel = function(crew) {
 			case 'added':
 				// We always add to the end of the array.
 				var addedModel = change.value;
-				self.crewViewModels.push(new AddedViewModel(addedModel, crew));
+				self.crewMemberViewModels.push(new AddedViewModel(addedModel, crew));
 				break;
 			case 'deleted':
 				var addable = change.value;
-				var removedViewModel = _.findWhere(self.crewViewModels(), {addable: addable});
-				self.crewViewModels.remove(removedViewModel);
+				var removedViewModel = _.findWhere(self.crewMemberViewModels(), {addable: addable});
+				self.crewMemberViewModels.remove(removedViewModel);
 				
 				// Set a new leader if we just removed one
 				if(addable.isLeader && addable.isLeader()) {
@@ -69,6 +91,7 @@ var CrewViewModel = function(crew) {
 	
 	self.clearCrew = function() {
 		crew.added.removeAll();
+		TabsManager.refresh();
 	};
 	
 	self.updateModel = function(arg) {
@@ -92,7 +115,7 @@ var CrewViewModel = function(crew) {
 	
 		var crewText = '';
 		
-		_.each(self.crewViewModels(), function(addedViewModel) {
+		_.each(self.crewMemberViewModels(), function(addedViewModel) {
 			if(addedViewModel.isUpgrade)
 				crewText += '\t';
 		
