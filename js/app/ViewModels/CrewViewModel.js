@@ -41,6 +41,14 @@ var CrewViewModel = function(crew, crewTabId) {
 		}
 	};
 	
+	self.onCopyCrew = ko.observable(false);
+	self.copyCrew = function() {
+		self.isMenuOpen(false);
+		
+		self.onCopyCrew(true);
+		self.onCopyCrew(false);
+	};
+	
 	function updateAddedCrewList(change) {
 		var crewList = crew.added();
 		switch(change.status) {

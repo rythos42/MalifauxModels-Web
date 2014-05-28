@@ -1,15 +1,14 @@
 Done:
+- Can now keep multiple crews going at once
+	- Make a unique name for each tab.
+	- Duplicate tabs you want to make a variation of.
 - Fixed 2 typos
 - Reloading now saves new position of moved models
-- Can now keep multiple crews going at once
 - Nexus 7 is treated as a mobile device
 - Can share from web
 
 
 TODO:
-- moving stuff around is broken
-
-- uncomment GAnalytics code - commented out because it was to slow to load while testing
 - update PhoneGap and release changes to GPlay
 	- test rename for PhoneGap
 	

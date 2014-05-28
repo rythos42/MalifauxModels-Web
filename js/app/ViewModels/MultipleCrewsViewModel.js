@@ -69,6 +69,14 @@ var MultipleCrewsViewModel = function(crewList) {
 						TabsManager.refresh();
 					});
 					
+					crewViewModel.onCopyCrew.subscribe(function(copying) {
+						if(!copying)
+							return;
+							
+						crewList.push(addedCrew.clone());
+						TabsManager.refresh();
+					});
+					
 					self.crewViewModels.push(crewViewModel);
 				
 					break;

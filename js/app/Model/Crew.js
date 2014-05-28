@@ -5,6 +5,18 @@ var Crew = function() {
 	self.availableSoulstones = ko.observable(50);
 	self.added = ko.observableArray();
 	
+	self.clone = function() {
+		var clone = new Crew();
+		clone.name(self.name());
+		clone.availableSoulstones(self.availableSoulstones());
+		
+		_.each(self.added(), function(addable) {
+			clone.added.push(addable);
+		});
+		
+		return clone;
+	};
+	
 	self.getLeader = function() {
 		return _.find(self.added(), function(addable) {
 			if(!addable.isLeader)
