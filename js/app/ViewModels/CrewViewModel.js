@@ -130,7 +130,7 @@ var CrewViewModel = function(crew, crewTabId) {
 		// Ran into a problem where in the app, the crew was an older version compared to what was shared.
 		PersistenceManager.instance.save();
 	
-		var crewText = '';
+		var crewText = '-- ' + self.crewName() + ' --\r\n\r\n';
 		
 		_.each(self.crewMemberViewModels(), function(addedViewModel) {
 			if(addedViewModel.isUpgrade)
