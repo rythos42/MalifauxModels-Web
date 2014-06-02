@@ -9,6 +9,8 @@ Done:
 
 
 TODO:
+- click out of menu to close it
+
 - update PhoneGap and release changes to GPlay
 	- test rename for PhoneGap
 	

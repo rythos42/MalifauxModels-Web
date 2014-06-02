@@ -128,7 +128,7 @@
 					</ul>
 				</li>
 				<!-- /ko -->
-				<li><a id="NewTabButton" href="#" data-bind="click: newTab">+</a></li>
+				<li><a id="NewTabButton" href="#" data-bind="click: newTab" title="Add new crew.">+</a></li>
 			</ul>
 									
 			<div id="full-list">
@@ -139,7 +139,7 @@
 					<!-- ko foreach: searchCriteriaList -->
 					<li>
 						<select class="search-field" data-bind="options: SearchOption.List, optionsText: 'displayName', value: selectedSearchOption"></select>
-						<select class="notOrIs" data-bind="value: notOrIs">
+						<select class="notOrIs" data-bind="value: notOrIs, visible: isTextFieldSearch">
 							<option value="is">Is</option>
 							<option value="not">Not</option>
 						</select>
