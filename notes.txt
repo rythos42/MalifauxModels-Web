@@ -14,3 +14,9 @@ TODO:
 - update PhoneGap and release changes to GPlay
 	- test rename for PhoneGap
 	
+
+
+- Add attribute of "Wp4 or less" for Zoraida crews.
+- Adding model failed in dolphin
+- Save/Load rosters
+- Track wounds/schemes/announced/points/conditions

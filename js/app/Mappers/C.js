@@ -40,6 +40,8 @@ var C = {
 	Neverborn: 'Neverborn',
 	Nightmare: 'Nightmare',
 	Nihilist: 'Nihilist',
+	NonLeader: 'Non-Leader',
+	NonMaster: 'Non-Master',
 	Oni: 'Oni',
 	Outcast: 'Outcast',
 	Peon: 'Peon',
