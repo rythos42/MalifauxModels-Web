@@ -21,27 +21,7 @@ var PersistenceManager = function(crewList, criteriaList) {
 			
 			var newCrewList = [];
 			_.each(crewListFromStorage, function(crewFromStorage, index) {
-				var crew = new Crew();
-				crew.availableSoulstones(crewFromStorage.availableSoulstones);
-				crew.name(crewFromStorage.name);
-			
-				var newCrew = [];
-				_.each(crewFromStorage.added, function(modelOrUpgrade) {
-					switch(modelOrUpgrade.type) {
-						case "Model":
-							var model = new Model(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.characteristicList, modelOrUpgrade.cost, modelOrUpgrade.cache);
-							model.isLeader(modelOrUpgrade.isLeader);
-							newCrew.push(model);
-							break;
-						case "Upgrade":
-							var upgrade = new Upgrade(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.restrictionsList, modelOrUpgrade.cost);
-							newCrew.push(upgrade);
-							break;
-					}
-					
-				});
-				crew.added.removeAll();
-				crew.added.push.apply(crew.added, newCrew);
+				var crew = CrewAssembler.createFromJson(crewFromStorage);
 				newCrewList.push(crew);
 			});
 

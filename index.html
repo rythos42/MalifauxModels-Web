@@ -26,6 +26,7 @@
 		<script type="text/javascript" src="js/app/Model/Upgrade.js"></script>
 		<script type="text/javascript" src="js/app/Model/SearchCriteria.js"></script>
 		<script type="text/javascript" src="js/app/Model/NotOrIs.js"></script>
+		<script type="text/javascript" src="js/app/Model/Assemblers/CrewAssembler.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/C.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/ModelList.js"></script>
 		<script type="text/javascript" src="js/app/Mappers/UpgradeList.js"></script>
@@ -49,6 +50,7 @@
 		<script type="text/javascript" src="js/app/CustomBinders/LoadMoreCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/MenuCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/SelectOnFocusCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/SelectFileCustomBinder.js"></script>
 				
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -230,9 +232,13 @@
 				<div data-bind="visible: !hasCrew()">
 					Add models from the Models tab!
 				</div>
-				<div class="crew-buttons" data-bind="visible: hasCrew">
-					<button data-bind="click: shareCrew">Share</button>
-					<button data-bind="click: clearCrew">Clear</button>
+				<div class="crew-buttons">
+					<button data-bind="visible: hasCrew, click: shareCrew">Share</button>
+					<button data-bind="visible: hasCrew, click: saveCrew">Save</button>
+					<form>
+						<label>Load<input type="file" class="file-input" data-bind="onSelectFile: onUploadCrew"></label>
+					</form>
+					<button data-bind="visible: hasCrew, click: clearCrew">Clear</button>
 				</div>
 				<div data-bind="visible: showPlainText">
 					<button data-bind="click: hidePlainText">Hide</button>

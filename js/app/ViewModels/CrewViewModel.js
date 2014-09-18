@@ -167,4 +167,17 @@ var CrewViewModel = function(crew, crewTabId) {
 			self.plainTextCrew(crewText);
 		}
 	};
+	
+	self.saveCrew = function() {
+		var crewString = encodeURIComponent(ko.toJSON(crew));
+		
+		var pom = document.createElement('a');
+		pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + crewString);
+		pom.setAttribute('download', self.crewName() + '.json');
+		pom.click();
+	};
+	
+	self.onUploadCrew = function(crewJsonString) {
+		CrewAssembler.fromJson(self.crew, JSON.parse(crewJsonString));
+	};
 };

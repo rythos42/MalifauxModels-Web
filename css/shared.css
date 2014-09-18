@@ -261,3 +261,22 @@ select.search-field {
 	height: 250px;
 }
 
+input[type="file"] {
+	display: none;
+}
+
+.crew-buttons label {
+	background-color: buttonface;
+	border: 2px outset buttonface;
+	color: buttontext;
+	text-align: center;
+	padding: 1px 6px;
+	-webkit-appearance: button;
+	font: -webkit-small-control;
+	font-size: 1em;
+	font-family: inherit;
+}
+
+.crew-buttons form {
+	display: inline;
+}
