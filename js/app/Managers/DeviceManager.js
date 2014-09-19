@@ -9,7 +9,7 @@ var DeviceManager = function() {
 	});
 	
 	self.isFullScreenDevice = ko.observable(!mediaQuery.matches);
-	self.isCordova = ko.observable(false);	
+	self.isCordova = ko.observable(false);
 	
 	self.onCordovaReady = function() {
 		self.isCordova(true);

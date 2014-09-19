@@ -59,7 +59,7 @@ var Crew = function() {
 				return currentTotal;
 		
 			return (addable.cost 
-				? currentTotal + addable.cost 
+				? currentTotal + addable.cost
 				: currentTotal);
 		}, 0);
 	});

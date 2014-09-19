@@ -24,7 +24,7 @@ var SearchCriteriaViewModel = function(searchCriteria, criteriaList) {
 	
 	self.isMatch = function(addable) {
 		return self.selectedSearchOption().isMatch(addable, searchCriteria);
-	};	
+	};
 	
 	self.removeCriteria = function() {
 		criteriaList.remove(searchCriteria);

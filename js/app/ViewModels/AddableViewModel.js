@@ -11,7 +11,7 @@ var AddableViewModel = function(addable, defaultCrew) {
 		var name = addable.name,
 			factions = self.factions();
 	
-		if(DeviceManager.instance.isFullScreenDevice()) 
+		if(DeviceManager.instance.isFullScreenDevice())
 			return name;
 			
 		return name + ' (' + factions + ')';

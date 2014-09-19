@@ -25,7 +25,7 @@ var AddableListManager = {
 		return list;
 	},
 	
-	_searchTextList: null,	
+	_searchTextList: null,
 	searchTextList: function() {
 		var self = this;
 		

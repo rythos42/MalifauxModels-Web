@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 	'use strict';
 
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'), 
+		pkg: grunt.file.readJSON('package.json'),
 		jshint: {
 			all: [
 				'Gruntfile.js',
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 				'js/test/**/*.js'
 			],
 			options: {
-			  jshintrc: '.jshintrc'
+				jshintrc: '.jshintrc'
 			},
 		},
 		jasmine: {

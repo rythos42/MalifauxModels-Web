@@ -17,7 +17,6 @@
 	"nonew": true,
 	"undef": true,
 	"unused": true,
-	"trailing": true,
 	"eqnull": true,
 	"globals": { 
 	}

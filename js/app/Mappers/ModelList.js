@@ -44,7 +44,7 @@ var ModelList = {
 		new Model('Brutal Effigy', [C.Guild], [C.Minion, C.Construct, C.Puppet, C.Effigy, C.Rare1, C.Wave2], 4),
 		new Model('Guild Rifleman', [C.Guild], [C.Minion, C.Living, C.Rare3, C.Guardsman, C.Wave2], 5),
 		new Model('Clockwork Trap', [C.Guild, C.TenThunders], [C.Peon, C.Rare4, C.Wave2], 2),
-		new Model('Guild Pathfinder', [C.Guild, C.TenThunders], [C.Minion, C.Living, C.Guardsman, C.Wave2], 6),		
+		new Model('Guild Pathfinder', [C.Guild, C.TenThunders], [C.Minion, C.Living, C.Guardsman, C.Wave2], 6),
 		
 		new Model('Seamus', [C.Resurrectionist], [C.Master, C.Living, C.Wave1], undefined, 3),
 		new Model('McMourning', [C.Resurrectionist, C.Guild], [C.Master, C.Living, C.Wave1], undefined, 4),

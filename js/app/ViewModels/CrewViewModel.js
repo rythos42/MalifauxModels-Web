@@ -35,7 +35,7 @@ var CrewViewModel = function(crew, crewTabId) {
 	self.renameCrew = function() {
 		if(DeviceManager.instance.isCordova()) {
 			navigator.notification.prompt('New name:', doRenameCrew, 'Rename Crew', ['Ok','Cancel']);
-		} 
+		}
 		else {
 			var newName = prompt('New name:');
 			if(newName)
@@ -70,7 +70,7 @@ var CrewViewModel = function(crew, crewTabId) {
 						if(crewModel.canBeLeader && crewModel.canBeLeader())
 							crewModel.isLeader(true);
 					});
-				}	
+				}
 				break;
 		}
 	}
@@ -86,7 +86,7 @@ var CrewViewModel = function(crew, crewTabId) {
 			updateAddedCrewList({
 				status: 'added',
 				value: member
-			});			
+			});
 		});
 	}
 
@@ -163,7 +163,7 @@ var CrewViewModel = function(crew, crewTabId) {
 		if(DeviceManager.instance.isCordova()) {
 			// Use the Share mobile feature
 			window.plugins.socialsharing.share(crewText);
-		} 
+		}
 		else {
 			self.plainTextCrew(crewText);
 		}

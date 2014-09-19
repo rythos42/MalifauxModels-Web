@@ -87,13 +87,13 @@ var IndexViewModel = function(crewList, criteriaList) {
 		
 		if(fieldName === currentSort)
 			self.addableList(self.addableList().reverse());
-		else 		
-			self.addableList(_.sortBy(list, function(addableViewModel) { 
+		else
+			self.addableList(_.sortBy(list, function(addableViewModel) {
 				var fieldValue = addableViewModel[fieldName];
 				if(ko.isObservable(fieldValue))
 					fieldValue = fieldValue();
 			
-				return fieldValue; 
+				return fieldValue;
 			}));
 			
 		currentSort = fieldName;
