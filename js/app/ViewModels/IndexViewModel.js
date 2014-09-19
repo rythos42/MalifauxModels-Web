@@ -1,3 +1,5 @@
+/*globals _, ko, AddableListManager, ModelListMapper, UpgradeListMapper, AddableViewModel, SearchCriteria, SearchCriteriaViewModel, TabsManager, MultipleCrewsViewModel */
+/*exported IndexViewModel */
 var IndexViewModel = function(crewList, criteriaList) {
 	var self = this;
 		
@@ -32,7 +34,7 @@ var IndexViewModel = function(crewList, criteriaList) {
 					newCriteria.searchBoolean.subscribe(criteriaListHasChanged);
 					newCriteria.notOrIs.subscribe(criteriaListHasChanged);
 					
-					newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria, criteriaList);
+					var newCriteriaViewModel = new SearchCriteriaViewModel(newCriteria, criteriaList);
 					
 					self.searchCriteriaList.push(newCriteriaViewModel);
 
@@ -49,7 +51,7 @@ var IndexViewModel = function(crewList, criteriaList) {
 					break;
 			}
 		});
-	}, null, "arrayChange");
+	}, null, 'arrayChange');
 
 	self.addBlankCriteria();
 	
@@ -57,7 +59,7 @@ var IndexViewModel = function(crewList, criteriaList) {
 	
 	var currentModelList = [];
 	self.searchCriteriaList.subscribe(function(criteria) {
-		currentModelList = AddableListManager.search(criteria)
+		currentModelList = AddableListManager.search(criteria);
 		
 		var viewModelList = _.first(currentModelList, 100);
 		self.addableList(_.map(viewModelList, function(addable) {
@@ -98,7 +100,7 @@ var IndexViewModel = function(crewList, criteriaList) {
 	};
 
 
-	self.newTab = function(viewModel, event) {
+	self.newTab = function() {
 		self.multipleCrewsViewModel.addNewCrew();
 		TabsManager.refresh();
 	};

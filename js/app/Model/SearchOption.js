@@ -1,3 +1,5 @@
+/*globals MultipleTextFieldSearchOption, TextFieldSearchOption, BooleanSearchOption */
+/*exported SearchOption */
 var SearchOption = {};
 
 SearchOption.Default = new MultipleTextFieldSearchOption('Any', ['name', 'factionList', 'characteristicList', 'restrictionsList', 'cost', 'cache']);

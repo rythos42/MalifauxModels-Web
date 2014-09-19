@@ -1,3 +1,5 @@
+/*globals _, ko, TextFieldSearchOption, MultipleTextFieldSearchOption, BooleanSearchOption */
+/*exported SearchCriteriaViewModel */
 var SearchCriteriaViewModel = function(searchCriteria, criteriaList) {
 	var self = this;
 	

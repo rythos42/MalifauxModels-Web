@@ -1,3 +1,4 @@
+/*globals ko */
 ko.bindingHandlers.sortHeader = {
 	init: function(elementDom, valueAccessor, allBindingsAccessor, viewModel) {
 		var element = $(elementDom);

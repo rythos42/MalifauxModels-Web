@@ -1,3 +1,5 @@
+/*globals _, ko */
+/*exported Crew */
 var Crew = function() {
 	var self = this;
 	

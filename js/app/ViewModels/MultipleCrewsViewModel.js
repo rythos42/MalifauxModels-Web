@@ -1,3 +1,5 @@
+/*globals _, ko, Crew, CrewViewModel, TabsManager */
+/*exported MultipleCrewsViewModel*/
 var MultipleCrewsViewModel = function(crewList) {
 	var self = this,
 		lastAddedIndex = 0;
@@ -95,7 +97,7 @@ var MultipleCrewsViewModel = function(crewList) {
 					break;
 			}
 		});
-	}, null, "arrayChange");
+	}, null, 'arrayChange');
 	
 	self.addNewCrew = function() {
 		crewList.push(new Crew());

@@ -1,3 +1,5 @@
+/*globals _, ko, AddedViewModel, DeviceManager, TabsManager, PersistenceManager, CrewAssembler */
+/*exported CrewViewModel */
 var CrewViewModel = function(crew, crewTabId) {
 	var self = this;
 	
@@ -77,7 +79,7 @@ var CrewViewModel = function(crew, crewTabId) {
 	crew.added.subscribe(function(changes) {
 		if(!preventCrewAddedSubscription)
 			_.each(changes, updateAddedCrewList);
-	}, null, "arrayChange");
+	}, null, 'arrayChange');
 	
 	if(crew.added().length !== 0) {
 		_.each(crew.added(), function(member) {
@@ -98,11 +100,10 @@ var CrewViewModel = function(crew, crewTabId) {
 	
 	self.remainingSoulstonesWithMaximumPool = ko.computed(function() {
 		var leader = crew.getLeader(),
-			cache = (leader ? leader.cache : 0),
-			remaining = self.remainingSoulstones();
+			cache = (leader ? leader.cache : 0);
 			
 		var available = parseInt(crew.availableSoulstones(), 10);
-		return available - crew.totalCost() - (7 - cache)
+		return available - crew.totalCost() - (7 - cache);
 	});
 	
 	self.soulstonePool = ko.computed(function() {

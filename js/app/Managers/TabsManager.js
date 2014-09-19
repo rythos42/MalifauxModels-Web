@@ -1,3 +1,4 @@
+/*exported TabsManager */
 var TabsManager = {
 	setId: function(id) {
 		this.id = id;
@@ -22,7 +23,7 @@ var TabsManager = {
 	},
 	
 	onActivate: function(eventHandler) {
-		this.getTab().tabs().on('tabsbeforeactivate', function(event, ui) {
+		this.getTab().tabs().on('tabsbeforeactivate', function() {
 			eventHandler();
 		});
 	}

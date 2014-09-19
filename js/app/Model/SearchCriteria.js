@@ -1,3 +1,5 @@
+/*globals ko, NotOrIs, SearchOption */
+/*exported SearchCriteria */
 var SearchCriteria = function(selectedSearchOption, searchText, searchBoolean, notOrIs) {
 	var self = this;
 	

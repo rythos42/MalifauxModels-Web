@@ -1,5 +1,6 @@
+/*globals C, Model */
+/*exported ModelList */
 var ModelList = {
-// Lenny cost
 	data: [
 		new Model('Lady Justice', [C.Guild], [C.Master, C.Living, C.GuildMarshal, C.Wave1], undefined, 4),
 		new Model('Sonnia Criid', [C.Guild], [C.Master, C.Living, C.WitchHunter, C.Wave1], undefined, 3),
@@ -249,7 +250,7 @@ var ModelList = {
 		new Model('Fingers', [C.Gremlin], [C.Henchman, C.Living, C.Rare1, C.Gremlin, C.TriChi, C.Wave1], 10, 3),
 		new Model('Lenny', [C.Gremlin], [C.Enforcer, C.Living, C.Rare1, C.Gremlin, C.Wave1], 9),
 		new Model('Whiskey Golem', [C.Gremlin], [C.Enforcer, C.Construct, C.Rare1, C.TriChi, C.Wave1], 10),
-		new Model('Skeeter', [C.Gremlin], [C.Peon, C.Living, C.TotemFor('Som\er Teeth Jones'), C.Wave1], 2),
+		new Model('Skeeter', [C.Gremlin], [C.Peon, C.Living, C.TotemFor('Som\'er Teeth Jones'), C.Wave1], 2),
 		new Model('Young LaCroix', [C.Gremlin], [C.Peon, C.Living, C.TotemFor('Ophelia LaCroix'), C.Gremlin, C.Kin, C.Wave1], 2),
 		new Model('Apprentice Wesley', [C.Gremlin], [C.Minion, C.Living, C.TotemFor('The Brewmaster'), C.Gremlin, C.TriChi, C.Wave1], 3),
 		new Model('Bayou Gremlin', [C.Gremlin], [C.Minion, C.Living, C.Gremlin, C.Wave1], 3),

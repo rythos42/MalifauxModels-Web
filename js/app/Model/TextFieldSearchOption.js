@@ -1,3 +1,5 @@
+/*globals _ */
+/*exported TextFieldSearchOption */
 var TextFieldSearchOption = function(displayName, fieldName) {
 	var self = this;
 	

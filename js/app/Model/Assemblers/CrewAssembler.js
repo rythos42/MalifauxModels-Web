@@ -1,3 +1,5 @@
+/*globals _, Model, Upgrade, Crew */
+/*exported CrewAssembler */
 var CrewAssembler = {
 	createFromJson: function(jsonCrew) {
 		var crew = new Crew();
@@ -10,12 +12,12 @@ var CrewAssembler = {
 		var newCrew = [];
 		_.each(jsonCrew.added, function(modelOrUpgrade) {
 			switch(modelOrUpgrade.type) {
-				case "Model":
+				case 'Model':
 					var model = new Model(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.characteristicList, modelOrUpgrade.cost, modelOrUpgrade.cache);
 					model.isLeader(modelOrUpgrade.isLeader);
 					newCrew.push(model);
 					break;
-				case "Upgrade":
+				case 'Upgrade':
 					var upgrade = new Upgrade(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.restrictionsList, modelOrUpgrade.cost);
 					newCrew.push(upgrade);
 					break;

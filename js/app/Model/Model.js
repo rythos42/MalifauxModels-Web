@@ -1,3 +1,5 @@
+/*globals ko */
+/*exported Model */
 var Model = function(name, factionList, characteristicList, cost, cache) {
 	var self = this;
 	
@@ -17,5 +19,5 @@ var Model = function(name, factionList, characteristicList, cost, cache) {
 		return new Model(name, factionList, characteristicList, cost, cache);
 	};
 	
-	self.type = "Model";
-}
+	self.type = 'Model';
+};

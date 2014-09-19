@@ -1,3 +1,5 @@
+/*globals ko */
+/*exported DeviceManager */
 var DeviceManager = function() {
 	var self = this;
 
@@ -12,6 +14,6 @@ var DeviceManager = function() {
 	self.onCordovaReady = function() {
 		self.isCordova(true);
 		
-		navigator.splashscreen.hide()
+		navigator.splashscreen.hide();
 	};
 };

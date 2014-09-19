@@ -1,3 +1,4 @@
+/*globals _, ko */
 ko.bindingHandlers.loadMore = {
 	init: function(elementDom, valueAccessor, allBindings, viewModel) {
 		var window = $(document);

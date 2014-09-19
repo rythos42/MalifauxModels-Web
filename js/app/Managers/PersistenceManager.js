@@ -1,3 +1,5 @@
+/*globals _, ko, CrewAssembler, SearchCriteria, SearchOption */
+/*exported PersistenceManager */
 var PersistenceManager = function(crewList, criteriaList) {
 	var self = this,
 		crewKey = 'CREW',
@@ -20,7 +22,7 @@ var PersistenceManager = function(crewList, criteriaList) {
 			}
 			
 			var newCrewList = [];
-			_.each(crewListFromStorage, function(crewFromStorage, index) {
+			_.each(crewListFromStorage, function(crewFromStorage) {
 				var crew = CrewAssembler.createFromJson(crewFromStorage);
 				newCrewList.push(crew);
 			});
@@ -35,7 +37,7 @@ var PersistenceManager = function(crewList, criteriaList) {
 				newCriteriaList = [];
 				
 			_.each(criteriaFromStorage, function(criteria) {
-				var searchBoolean = criteria.searchBoolean === "true";
+				var searchBoolean = criteria.searchBoolean === 'true';
 				var selectedSearchOption = _.findWhere(SearchOption.List, {displayName: criteria.selectedSearchOption.displayName});
 				
 				newCriteriaList.push(new SearchCriteria(selectedSearchOption, criteria.searchText, searchBoolean, criteria.notOrIs));

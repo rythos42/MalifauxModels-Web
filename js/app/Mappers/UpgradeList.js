@@ -1,3 +1,5 @@
+/*globals C, Upgrade */
+/*exported UpgradeList */
 var UpgradeList = {
 	data: [
 		new Upgrade('Plant Evidence', [C.Guild], [C.Upgrade, C.Rare3, C.Wave1], 1),
@@ -115,7 +117,7 @@ var UpgradeList = {
 		new Upgrade('Born of Fire', [C.Arcanist], [C.Upgrade, 'Kaeris', C.Wave2], 2),
 		new Upgrade('Blinding Flame', [C.Arcanist], [C.Upgrade, 'Kaeris', C.Wave2], 1),
 		new Upgrade('Powered by Flame', [C.Arcanist], [C.Upgrade, C.Msu, C.Rare1, C.Wave2], 2),
-		new Upgrade('Patron\s Blessing', [C.Arcanist], [C.Upgrade, 'The Captain', C.Wave2], 2),
+		new Upgrade('Patron\'s Blessing', [C.Arcanist], [C.Upgrade, 'The Captain', C.Wave2], 2),
 		new Upgrade('Cabaret Choreography', [C.Arcanist], [C.Upgrade, 'Colette', C.Wave2], 2),
 		new Upgrade('A Ladys Secret', [C.Arcanist], [C.Upgrade, 'Colette', C.Wave2], 2),
 		new Upgrade('Nothing Up My Sleeve', [C.Arcanist], [C.Upgrade, 'Colette', C.Wave2], 1),

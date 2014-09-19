@@ -145,7 +145,7 @@
 							<option value="is">Is</option>
 							<option value="not">Not</option>
 						</select>
-						<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Search for...', leftElementSelector: '.notOrIs', visibleCheck: isTextFieldSearch}" />
+						<input type="text" data-bind="visible: isTextFieldSearch, hasFocus: hasFocus, value: searchText, autocomplete: {source: $parent.searchTextSuggestions, textField: searchText}, promptText: {text: 'Search for...', visibleCheck: isTextFieldSearch}" />
 						<select data-bind="visible: isBooleanSearch, value: searchBoolean">
 							<option value="true">Yes</option>
 							<option value="false">No</option>

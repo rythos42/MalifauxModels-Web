@@ -1,3 +1,5 @@
+/*globals TabsManager, Upgrade */
+/*exported AddedViewModel */
 var AddedViewModel = function(addable, crew) {
 	var self = this;
 	

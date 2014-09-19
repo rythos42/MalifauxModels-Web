@@ -1,3 +1,5 @@
+/*globals _ */
+/*exported AddableListManager */
 var AddableListManager = {
 	addSearchData: function(data) {
 		if(!this._searchData)
@@ -7,8 +9,7 @@ var AddableListManager = {
 	},
 
 	search: function(searchCriteriaList) {
-		var searchList = [],
-			data = this._searchData;
+		var data = this._searchData;
 			
 		function isMatch(addable) {
 			// if we ever return a truthy value from the find, it is NOT a match
@@ -41,7 +42,7 @@ var AddableListManager = {
 			
 		self._searchTextList = [];
 		_.each(data, function(addable) {
-			_.each(addable, function(value, name) {
+			_.each(addable, function(value) {
 				if(value !== 0 && !value)
 					return;
 			
@@ -50,7 +51,7 @@ var AddableListManager = {
 						self._searchTextList.push.apply(self._searchTextList, split(value));
 						break;
 					case 'number':
-						self._searchTextList.push(value + "");
+						self._searchTextList.push(value + '');
 						break;
 					case 'object':
 						_.each(value, function(arrayItem) {

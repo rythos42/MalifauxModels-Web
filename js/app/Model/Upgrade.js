@@ -1,3 +1,4 @@
+/*exported Upgrade */
 var Upgrade = function(name, factionList, restrictionsList, cost) {
 	var self = this;
 	
@@ -10,5 +11,5 @@ var Upgrade = function(name, factionList, restrictionsList, cost) {
 		return new Upgrade(name, factionList, restrictionsList, cost);
 	};
 	
-	self.type = "Upgrade";
+	self.type = 'Upgrade';
 };

@@ -272,6 +272,7 @@ input[type="file"] {
 	text-align: center;
 	padding: 1px 6px;
 	-webkit-appearance: button;
+	-moz-appearance: button;
 	font: -webkit-small-control;
 	font-size: 1em;
 	font-family: inherit;

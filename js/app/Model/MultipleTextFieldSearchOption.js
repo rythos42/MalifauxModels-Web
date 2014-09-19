@@ -1,3 +1,5 @@
+/*globals _, TextFieldSearchOption */
+/*exported MultipleTextFieldSearchOption */
 var MultipleTextFieldSearchOption = function(displayName, multipleFieldsList) {
 	var self = this;
 	

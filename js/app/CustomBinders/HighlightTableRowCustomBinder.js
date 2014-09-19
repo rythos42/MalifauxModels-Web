@@ -1,3 +1,4 @@
+/*globals ko */
 ko.bindingHandlers.highlight = {
 	update: function(elementDom, valueAccessor) {
 		var element = $(elementDom),

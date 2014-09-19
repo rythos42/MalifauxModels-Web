@@ -1,3 +1,4 @@
+/*globals _, ko */
 ko.bindingHandlers.autocomplete = {
 	init: function(elementDom, valueAccessor) {
 		var options = valueAccessor(),

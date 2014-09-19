@@ -1,3 +1,4 @@
+/*exported BooleanSearchOption */
 var BooleanSearchOption = function(displayName, booleanFunction) {
 	var self = this;
 	
@@ -6,6 +7,6 @@ var BooleanSearchOption = function(displayName, booleanFunction) {
 	self.isMatch = function(addable, searchCriteria) {
 		var searchBoolean = searchCriteria.searchBoolean();
 		
-		return (booleanFunction(addable) + "") === searchBoolean;
+		return (booleanFunction(addable) + '') === searchBoolean;
 	};
 };

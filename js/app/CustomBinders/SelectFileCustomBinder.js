@@ -1,3 +1,4 @@
+/*globals ko */
 ko.bindingHandlers.onSelectFile = {
 	init: function(elementDom, valueAccessor) {
 		var fileElement = $(elementDom);

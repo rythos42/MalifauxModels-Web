@@ -1,3 +1,5 @@
+/*globals ko, DeviceManager, TabsManager */
+/*exported AddableViewModel */
 var AddableViewModel = function(addable, defaultCrew) {
 	var self = this;
 	
@@ -35,4 +37,4 @@ var AddableViewModel = function(addable, defaultCrew) {
 		defaultCrew().addToCrew(addable.clone());
 		TabsManager.refresh();
 	};
-}
+};

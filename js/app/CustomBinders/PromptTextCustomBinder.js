@@ -3,7 +3,6 @@ ko.bindingHandlers.promptText = {
     init: function(inputElementDom, valueAccessor) {
         var inputElement = $(inputElementDom),
             options = ko.utils.unwrapObservable(valueAccessor()),
-            leftElement = inputElement.siblings(options.leftElementSelector),
             promptTextElement;
 
         function hidePrompt() {
