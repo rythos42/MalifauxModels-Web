@@ -1,14 +1,17 @@
 ﻿{
-  "scripts": {
-    "test": "grunt test"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jasmine": "~0.4.0",
-    "grunt-contrib-jshint": "~0.6.0"
-  },
-  "repository": {
-	"type": "git",
-	"url": "https://github.com/rythos42/MalifauxCrossReference.git"
-  }
+	"name": "MalifauxCrossReference",
+	"description": "A web-based cross-reference and mini crew creator for Malifaux",
+	"author": "Craig Fleming <craig.fleming.42@gmail.com>",
+	"scripts": {
+		"test": "grunt test"
+	},
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-contrib-jasmine": "~0.4.0",
+		"grunt-contrib-jshint": "~0.6.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rythos42/MalifauxCrossReference.git"
+	}
 }
