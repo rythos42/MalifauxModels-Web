@@ -40,9 +40,10 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', ['test']);
 	
 	grunt.registerTask('deploy', 'deploy', function() {
-		var ftpUsername = grunt.option('ftpUsername'),
+		/*var ftpUsername = grunt.option('ftpUsername'),
 			ftpPassword = grunt.option('ftpPassword'),
-			ftpServer = grunt.option('ftpServer');
-
+			ftpServer = grunt.option('ftpServer');*/
+			
+		//grunt.log.write(ftpUsername + ' ' + ftpPassword + ' ' + ftpServer);
 	});
 };
