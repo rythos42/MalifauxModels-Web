@@ -1,5 +1,12 @@
 language: node_js
 node_js:
-  - 0.10
+- 0.1
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+after_success:
+- grunt deploy --ftpUsername=$FTP_USERNAME --ftpPassword=$FTP_PASSWORD --ftpServer=$FTP_SERVER
+env:
+  global:
+  - secure: hqfTz2XuqAcm3d/fxkcJFheYm9zFyaGxtjcsMYwUXHDJGeq9ntzekwdZ2E+lIWyx855Re3JMivt2MEGBkHkEN+GybXEAuZybQ1Qn+DGdL6wpsCqNqFNsa8MoNR6UMIPNxcryIRiVbqCllibujOKslNP4XTI6Q/of1iB6l/zR48Q=
+  - secure: fRuy3SC/cdNn9YjbzNkR2CCjsIYs3Wpzzg7cnr2q18oBOuwNtc+hRlxSyeuwymcgDaUe6xTTlHllXZRjAr1A7eK9BMCUK/lXxoDQ1/661RyMaQROHpoujO9t7cUv0/UtH4QwmBLA7+eD/RKEsqj1n23WNAoLz9VJI94gl8KDvD4=
+  - secure: Gx1Cc2Hcv26ealO/fooO3pexTAl5Ib5358uWFQhu4T/ywt/BMxsxtKpjRg10a6Jc+2ova2EaeC3Ast2GW2OEfQALGuV3TG3w+cCOafIeb2uFimY/Mer6eeQDujE2Dx7z8NaW4Fh1A7VMucd4yYiptujmpV3UBfGQGl+B7zM3XcU=

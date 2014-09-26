@@ -3,7 +3,8 @@
 	"description": "A web-based cross-reference and mini crew creator for Malifaux",
 	"author": "Craig Fleming <craig.fleming.42@gmail.com>",
 	"scripts": {
-		"test": "grunt test"
+		"test": "grunt test",
+		"deploy": "grunt deploy"
 	},
 	"devDependencies": {
 		"grunt": "^0.4.5",

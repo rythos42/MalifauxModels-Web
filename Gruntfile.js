@@ -26,7 +26,9 @@ module.exports = function (grunt) {
 			],
 			options: {
 				specs: 'js/test/**/*.js',
-				vendor: 'js/lib/**/*.js'
+				vendor: 'js/lib/**/*.js',
+				display: 'short',
+				summary: true
 			}
 		}
 	});
@@ -36,4 +38,12 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', ['jshint', 'jasmine']);
 	grunt.registerTask('default', ['test']);
+	
+	grunt.registerTask('deploy', 'deploy', function() {
+		var ftpUsername = grunt.option('ftpUsername'),
+			ftpPassword = grunt.option('ftpPassword'),
+			ftpServer = grunt.option('ftpServer');
+			
+		grunt.log.write(ftpUsername + ' ' + ftpPassword + ' ' + ftpServer);
+	});
 };
