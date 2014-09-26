@@ -43,7 +43,6 @@ module.exports = function (grunt) {
 		var ftpUsername = grunt.option('ftpUsername'),
 			ftpPassword = grunt.option('ftpPassword'),
 			ftpServer = grunt.option('ftpServer');
-			
-		grunt.log.write(ftpUsername + ' ' + ftpPassword + ' ' + ftpServer);
+
 	});
 };
