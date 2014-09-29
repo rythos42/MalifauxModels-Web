@@ -30,19 +30,38 @@ module.exports = function (grunt) {
 				display: 'short',
 				summary: true
 			}
+		},
+		'ftp-deploy': {
+			build: {
+				auth: {
+					host: 'ftp.geeksong.com',
+					port: 21,
+					authKey: 'key1'
+				},
+				src: '.',
+				dest: 'public_html/Malifaux',
+				exclusions: ['.gitignore', '.jshintrc', '.travis.yml', 'config.xml', 'Gruntfile.js', 'notes.txt', 'package.json', 'README.md', '.ftppass', 'LICENSE',
+					'node_modules', 'drawable-hdpi', '.git', 'test']
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
+	grunt.loadNpmTasks('grunt-ftp-deploy');
 
 	grunt.registerTask('test', ['jshint', 'jasmine']);
 	grunt.registerTask('default', ['test']);
+	grunt.registerTask('deploy', ['create-ftp-file', 'ftp-deploy']);
 	
-	grunt.registerTask('deploy', 'deploy', function() {
-		/*var ftpUsername = grunt.option('ftpUsername'),
+	grunt.registerTask('create-ftp-file', 'Create an authentication file for FTP', function() {
+		var ftpUsername = grunt.option('ftpUsername'),
 			ftpPassword = grunt.option('ftpPassword'),
-			ftpServer = grunt.option('ftpServer');*/
+			ftpServer = grunt.option('ftpServer');
+			
+		var contents = '{"key1":{"username":"' + ftpUsername + '", "password":"' + ftpPassword + '"}}';
+			
+		grunt.file.write('.ftppass', contents);
 			
 		//grunt.log.write(ftpUsername + ' ' + ftpPassword + ' ' + ftpServer);
 	});

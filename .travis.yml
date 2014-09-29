@@ -4,7 +4,7 @@ node_js:
 before_script:
 - npm install -g grunt-cli
 after_success:
-- grunt deploy --ftpUsername=$FTP_USERNAME --ftpPassword=$FTP_PASSWORD --ftpServer=$FTP_SERVER
+- grunt deploy --ftpUsername=$FTP_USERNAME --ftpPassword=$FTP_PASSWORD
 env:
   global:
   - secure: hqfTz2XuqAcm3d/fxkcJFheYm9zFyaGxtjcsMYwUXHDJGeq9ntzekwdZ2E+lIWyx855Re3JMivt2MEGBkHkEN+GybXEAuZybQ1Qn+DGdL6wpsCqNqFNsa8MoNR6UMIPNxcryIRiVbqCllibujOKslNP4XTI6Q/of1iB6l/zR48Q=
