@@ -56,13 +56,11 @@ module.exports = function (grunt) {
 	
 	grunt.registerTask('create-ftp-file', 'Create an authentication file for FTP', function() {
 		var ftpUsername = grunt.option('ftpUsername'),
-			ftpPassword = grunt.option('ftpPassword'),
-			ftpServer = grunt.option('ftpServer');
-			
+			ftpPassword = grunt.option('ftpPassword');		
+		
 		var contents = '{"key1":{"username":"' + ftpUsername + '", "password":"' + ftpPassword + '"}}';
 			
+		// Create a file to supply the authentication parameters to the deployment
 		grunt.file.write('.ftppass', contents);
-			
-		//grunt.log.write(ftpUsername + ' ' + ftpPassword + ' ' + ftpServer);
 	});
 };
