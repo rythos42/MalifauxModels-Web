@@ -96,7 +96,7 @@ var ModelList = {
 				
 		new Model('Rasputina', [C.Arcanist], [C.Master, C.Living, C.Wave1], undefined, 3),
 		new Model('Marcus', [C.Arcanist], [C.Master, C.Living, C.Wave1], undefined, 4),
-		new Model('Ramos', [C.Arcanist], [C.Master, C.Living, C.Construct, C.Wave1], undefined, 3),
+		new Model('Ramos', [C.Arcanist], [C.Master, C.Living, C.Construct, C.Msu, C.Wave1], undefined, 3),
 		new Model('Myranda', [C.Arcanist], [C.Henchman, C.Living, C.Rare1, C.Beast, C.Wave1], 8, 5),
 		new Model('Joss', [C.Arcanist], [C.Henchman, C.Living, C.Construct, C.Rare1, C.Msu, C.Wave1], 10, 3),
 		new Model('Cojo', [C.Arcanist], [C.Enforcer, C.Living, C.Rare1, C.Beast, C.Wave1], 8),
