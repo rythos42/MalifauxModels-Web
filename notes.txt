@@ -1,3 +1,8 @@
+4/23/2015:
+	- "Wastel" -> "Wastrel"
+	- Marcus now has characteristic of "Beast"
+	- removed errors upon loading in IE9
+
 Done:
 - Can now keep multiple crews going at once
 	- Make a unique name for each tab.

@@ -6,19 +6,11 @@ var PersistenceManager = function(crewList, criteriaList) {
 		criteriaListKey = 'CRITERIALIST';
 	
 	self.save = function() {
-		// No saving/loading for older devices and browsers
-		if(!window.localStorage)
-			return;
-		
 		window.localStorage.setItem(crewKey, ko.toJSON(crewList));
 		window.localStorage.setItem(criteriaListKey, ko.toJSON(criteriaList()));
 	};
 	
 	self.load = function() {
-		// No saving/loading for older devices and browsers
-		if(!window.localStorage)
-			return;
-
 		var crewListFromStorageJson = window.localStorage.getItem(crewKey);
 		if(crewListFromStorageJson) {
 			var crewListFromStorage = JSON.parse(crewListFromStorageJson);
