@@ -71,34 +71,89 @@ describe('Crew', function() {
 		
 		expect(crew.added().length).toBe(0);
 	});
-});
+	
+	it('can set a model as a leader', function() {
+		var model = {isLeader: ko.observable(true)};
+		crew.added.push(model);
 
-/*	
-	self.setAsLeader = function(addable) {
-		_.each(self.added(), function(addable) {
-			if(!addable.isLeader)
-				return;
-				
-			addable.isLeader(false);
-		});
-		addable.isLeader(true);
-	};
-	
-	self.addToCrew = function(addable) {
-		if(!self.hasLeader() && addable.canBeLeader && addable.canBeLeader())
-			addable.isLeader(true);
-	
-		self.added.push(addable);
-	};
+		var newLeader = {isLeader: ko.observable(false)};
+		crew.added.push(newLeader);
 		
-	self.totalCost = ko.computed(function() {
-		return _.reduce(self.added(), function(currentTotal, addable) {
-			if(addable.isLeader && addable.isLeader())
-				return currentTotal;
+		crew.setAsLeader(newLeader);
 		
-			return (addable.cost 
-				? currentTotal + addable.cost
-				: currentTotal);
-		}, 0);
+		expect(crew.getLeader()).toBe(newLeader);
+		expect(model.isLeader()).toBe(false);
+		expect(newLeader.isLeader()).toBe(true);
 	});
-};*/
+	
+	it('can add a model to the crew', function() {
+		var model = {isLeader: ko.observable(true)};
+		crew.addToCrew(model);
+		
+		expect(crew.added().length).toBe(1);
+	});
+	
+	it('sets the leader if there is none when adding new member', function() {
+		var model = {
+			isLeader: ko.observable(false),
+			canBeLeader: ko.observable(true)
+		};
+		
+		crew.addToCrew(model);
+		expect(crew.getLeader()).toBe(model);	
+		expect(model.isLeader()).toBe(true);	
+	});
+	
+	it('does not set the leader if there is a leader already', function() {
+		var model = {
+			isLeader: ko.observable(false),
+			canBeLeader: ko.observable(true)
+		};
+
+		var modelTwo = {
+			isLeader: ko.observable(false),
+			canBeLeader: ko.observable(true)
+		};
+		
+		crew.addToCrew(model);
+		crew.addToCrew(modelTwo);
+		
+		expect(crew.getLeader()).toBe(model);	
+		expect(model.isLeader()).toBe(true);
+	});
+	
+	it('does not set the leader if the new added model can not be the leader', function() {
+		var model = {
+			isLeader: ko.observable(false),
+			canBeLeader: ko.observable(false)
+		};
+		
+		crew.addToCrew(model);
+		
+		expect(crew.hasLeader()).toBe(false);	
+	});
+	
+	it('can calculate the cost of a crew', function() {
+		crew.addToCrew({cost: 1});
+		crew.addToCrew({cost: 2});
+		crew.addToCrew({cost: 3});
+		
+		expect(crew.totalCost()).toEqual(6);
+	});
+	
+	it('ignores models with no cost in calculation', function() {
+		crew.addToCrew({cost: 1});
+		crew.addToCrew({cost: 2});
+		crew.addToCrew({});
+		
+		expect(crew.totalCost()).toEqual(3);
+	});	
+	
+	it('ignores leader models in calculation', function() {
+		crew.addToCrew({cost: 1});
+		crew.addToCrew({cost: 2});
+		crew.addToCrew({isLeader: ko.observable(true), cost: 3});
+		
+		expect(crew.totalCost()).toEqual(3);
+	});
+});
