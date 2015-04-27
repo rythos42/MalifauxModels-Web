@@ -1,4 +1,4 @@
-/*globals describe, it, expect, BooleanSearchOption */
+/*globals describe, it, expect, BooleanSearchOption, Upgrade, Model */
 describe('BooleanSearchOption', function() {
 	it('has a displayName', function() {
 		var displayName = 'display name';
@@ -47,5 +47,37 @@ describe('BooleanSearchOption', function() {
 		};
 		
 		expect(option.isMatch('', searchCriteria)).toBe(false);		
+	});
+	
+	it('matches the Is Upgrade function with an Upgrade', function() {
+		// Test that this specific configuration from the SearchOption list works
+		var option = new BooleanSearchOption('Is Upgrade', function(addable) {
+			return addable.restrictionsList !== undefined;
+		});
+		var searchCriteria = {
+			searchBoolean: function() {
+				return 'true';	// this comes from the UI drop down list
+			}
+		};
+		
+		var upgrade = new Upgrade('name', ['Guild'], ['Living'], 3);
+			
+		expect(option.isMatch(upgrade, searchCriteria)).toBe(true);
+	});	
+	
+	it('does not match the Is Upgrade function with a Model', function() {
+		// Test that this specific configuration from the SearchOption list works
+		var option = new BooleanSearchOption('Is Upgrade', function(addable) {
+			return addable.restrictionsList !== undefined;
+		});
+		var searchCriteria = {
+			searchBoolean: function() {
+				return 'true';	// this comes from the UI drop down list
+			}
+		};
+		
+		var model = new Model('name', ['Guild'], ['Living'], 3);
+			
+		expect(option.isMatch(model, searchCriteria)).toBe(false);
 	});
 });

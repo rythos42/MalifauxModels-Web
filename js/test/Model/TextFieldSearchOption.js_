@@ -1,5 +1,9 @@
-/*globals _ */
-/*exported TextFieldSearchOption */
+/*
+	new TextFieldSearchOption('Name', 'name'),
+	new TextFieldSearchOption('Faction', 'factionList'),
+	new TextFieldSearchOption('Cost', 'cost'),
+	new TextFieldSearchOption('Cache', 'cache'),
+
 var TextFieldSearchOption = function(displayName, fieldName) {
 	var self = this;
 	
@@ -34,3 +38,4 @@ var TextFieldSearchOption = function(displayName, fieldName) {
 		return searchCriteria.isIs() ? isTextMatch : !isTextMatch;
 	};
 };
+*/
