@@ -1,5 +1,8 @@
-/*globals _, TextFieldSearchOption */
-/*exported MultipleTextFieldSearchOption */
+/*
+SearchOption.Default = new MultipleTextFieldSearchOption('Any', ['name', 'factionList', 'characteristicList', 'restrictionsList', 'cost', 'cache']);
+new MultipleTextFieldSearchOption('Extras', ['characteristicList', 'restrictionsList']),
+
+
 var MultipleTextFieldSearchOption = function(displayName, multipleFieldsList) {
 	var self = this;
 	
@@ -26,3 +29,4 @@ var MultipleTextFieldSearchOption = function(displayName, multipleFieldsList) {
 	
 	};
 };
+*/
