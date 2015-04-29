@@ -21,8 +21,7 @@ var MultipleTextFieldSearchOption = function(displayName, multipleFieldsList) {
 		else {
 			return _.find(textSearchList, function(textSearch) {
 				return textSearch.isMatch(addable, searchCriteria);
-			});
+			}) !== undefined;
 		}
-	
 	};
 };

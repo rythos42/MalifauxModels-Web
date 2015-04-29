@@ -22,7 +22,7 @@ describe('TextFieldSearchOption', function() {
 		expect(option.isMatch(addable, searchCriteria)).toBe(false);
 	});
 			
-	it('can match NOT a number', function() {
+	it('can match not a number', function() {
 		var option = new TextFieldSearchOption('Name', 'name'),
 			addable = { name: 3 },
 			searchCriteria = new SearchCriteria(option, '4', true, NotOrIs.Not);
