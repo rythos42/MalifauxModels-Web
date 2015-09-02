@@ -3,13 +3,11 @@
 var AddedViewModel = function(addable, crew) {
 	var self = this;
 	
-	self.name = ko.computed(function() {
-		if(addable.isMercenary && addable.isMercenary() && !crew.isModelInLeaderFaction(addable))
-			return addable.name + " (Mercenary)";
-		
-		return addable.name; 
-	});
+	self.name = addable.name;
 	
+	if(addable.isMercenary && addable.isMercenary() && !crew.isModelInLeaderFaction(addable))
+		self.name += " (Mercenary)";
+
 	self.cost = addable.cost;
 	self.cache = addable.cache;
 	self.isLeader = addable.isLeader;
