@@ -27,5 +27,9 @@ var Model = function(name, factionList, characteristicList, cost, cache) {
 		return _.find(self.characteristicList, function(characteristic) { return characteristic === C.Henchman; }) !== undefined;
 	});
 	
+	self.isMercenary = ko.computed(function() {
+		return _.find(self.characteristicList, function(characteristic) { return characteristic === C.Mercenary; }) !== undefined;
+	});
+		
 	self.type = 'Model';
 };

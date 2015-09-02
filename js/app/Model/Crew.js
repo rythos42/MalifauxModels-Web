@@ -53,9 +53,25 @@ var Crew = function() {
 	
 		self.added.push(addable);
 	};
+	
+	self.isModelInLeaderFaction = function(model) {
+		var leader = self.getLeader();
+		if(!leader)
+			return true;
+		
+		return _.find(model.factionList, function(modelFaction) {
+			return _.find(leader.factionList, function(leaderFaction) {
+				return leaderFaction === modelFaction;
+			}) !== undefined;
+		}) !== undefined;
+	}
 		
 	self.totalCost = ko.computed(function() {
 		return _.reduce(self.added(), function(currentTotal, addable) {
+			if(addable.isMercenary && addable.isMercenary() && !self.isModelInLeaderFaction(addable)) {
+				currentTotal++; // Add 1 cost for Mercenaries not in the Leader faction
+			}
+			
 			if(addable.isLeader && addable.isLeader()) {
 				 if(self.isCampaign()) {
 					 if(addable.isMaster && addable.isMaster())
