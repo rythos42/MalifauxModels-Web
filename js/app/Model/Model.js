@@ -19,5 +19,13 @@ var Model = function(name, factionList, characteristicList, cost, cache) {
 		return new Model(name, factionList, characteristicList, cost, cache);
 	};
 	
+	self.isMaster = ko.computed(function() {
+		return _.find(self.characteristicList, function(characteristic) { return characteristic === C.Master; }) !== undefined;
+	});
+	
+	self.isHenchman = ko.computed(function() {
+		return _.find(self.characteristicList, function(characteristic) { return characteristic === C.Henchman; }) !== undefined;
+	});
+	
 	self.type = 'Model';
 };

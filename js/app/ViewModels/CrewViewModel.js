@@ -7,6 +7,7 @@ var CrewViewModel = function(crew, crewTabId) {
 	self.availableSoulstones = crew.availableSoulstones;
 	self.crewTotal = crew.totalCost;
 	self.crewName = crew.name;
+	self.isCampaign = crew.isCampaign;
 	self.crewMemberViewModels = ko.observableArray();
 	self.crewTabId = ko.observable(crewTabId);
 	self.hrefCrewTabId = ko.computed(function() { return '#' + self.crewTabId(); });

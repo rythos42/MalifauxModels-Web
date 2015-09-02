@@ -135,7 +135,7 @@ select.search-field {
 	padding-right: 5px;
 }
 
-.crew-list .total input {
+.crew-list .total input[type="number"] {
 	width: 40px;
 	padding: 2px;
 	margin-bottom: 0;
