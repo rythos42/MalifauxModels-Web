@@ -58,7 +58,7 @@ var ModelList = {
 		new Model('Graveyard Spirit', [C.Resurrectionist], [C.Peon, C.Totem, C.Spirit, C.Wave1], 3),
 		new Model('Bete Noire', [C.Resurrectionist], [C.Enforcer, C.Undead, C.Rare1, C.Wave1], 8),
 		new Model('Canine Remains', [C.Resurrectionist], [C.Minion, C.Undead, C.Beast, C.Hound, C.Wave1], 4),
-		new Model('Crooked Man', [C.Resurrectionist], [C.Minion, C.Undead, C.Wave1], 5),
+		new Model('Crooked Man', [C.Resurrectionist], [C.Minion, C.Undead, C.Tormented, C.Wave1], 5),
 		new Model('Flesh Construct', [C.Resurrectionist], [C.Minion, C.Undead, C.Construct, C.Wave1], 6),
 		new Model('Mindless Zombie', [C.Resurrectionist], [C.Peon, C.Undead, C.Wave1], 2),
 		new Model('Necropunk', [C.Resurrectionist], [C.Minion, C.Undead, C.Construct, C.Wave1], 5),
