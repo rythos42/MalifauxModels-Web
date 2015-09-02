@@ -324,6 +324,67 @@ var UpgradeList = {
 		new Upgrade('Favor of Earth', [C.TenThunders], [C.Upgrade, C.Rare1, 'Samurai', C.Wave2], 0),
 		new Upgrade('Favor of Jigoku', [C.TenThunders], [C.Upgrade, C.Rare1, 'Samurai', C.Wave2], 0),
 		
-		new Upgrade('Mercenary', [], [C.Upgrade], 1)
+		new Upgrade('Mercenary', [], [C.Upgrade], 1),
+		
+		new Upgrade('Research Grant', [C.Guild], [C.Upgrade, 'Dr. Grimwell', C.Wave3], 1),
+		new Upgrade('Conflux of Judgement', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Incineration', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of The Hunt', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Amalgamation', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Tyranny', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Brutal Conflux', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		
+		new Upgrade('Conflux of Infamy', [C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Death', [C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Forbidden Knowledge', [C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Spirit', [C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Horror', [C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Carrion Conflux', [C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		
+		new Upgrade('Elemental Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Raging Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Illusive Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Ironclad Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Mechanical Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Flaming Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Arcane Conflux', [C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		
+		new Upgrade('Strange Alliances', [C.Neverborn], [C.Upgrade, 'Angel Eyes', C.Wave3], 1),
+		new Upgrade('Deal at the Crossroads', [C.Neverborn], [C.Upgrade, 'Wrath', C.Wave3], 0),
+		new Upgrade('Conflux of Sorrow', [C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Blood', [C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Fate', [C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Music', [C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Nightmare', [C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Mysterious Conflux', [C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		
+		new Upgrade('Conflux of Avarice', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Nothingness', [C.Outcast, C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Plague', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Conflict', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Aethereal Conflux', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Hodgepodge Conflux', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of the Damned', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('The Soffocating Injustice', [C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Cursed, C.Wave3], 0),
+		new Upgrade('The Monkey\'s Paw', [C.Outcast], [C.Upgrade, C.Trinket, C.Wave3], 0),
+		new Upgrade('Vitality Potion', [C.Outcast], [C.Upgrade, C.Trinket, C.Wave3], 0),
+		new Upgrade('Memento', [C.Outcast], [C.Upgrade, C.Trinket, C.Wave3], 0),
+		new Upgrade('Pretty Floral Bonnet', [C.Outcast], [C.Upgrade, C.Trinket, C.Wave3], 0),
+		
+		new Upgrade('Conflux of Misfortune', [C.Gremlin], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Inebriation', [C.Gremlin, C.TenThunders], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Blood Ties', [C.Gremlin], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Bacon', [C.Gremlin], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Explosive Force', [C.Gremlin], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Bushwhacking', [C.Gremlin], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Lucky Conflux', [C.Gremlin], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		
+		new Upgrade('Conflux of Combat', [C.TenThunders, C.Arcanist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Hunger', [C.TenThunders, C.Neverborn], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Exploration', [C.TenThunders, C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of The Dawn', [C.TenThunders], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Conflux of Thunder', [C.TenThunders, C.Outcast], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Ancestral Conflux', [C.TenThunders, C.Resurrectionist], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
+		new Upgrade('Shadow Conflux', [C.TenThunders], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0)
 	]
 };

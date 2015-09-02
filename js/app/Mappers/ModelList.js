@@ -332,6 +332,53 @@ var ModelList = {
 		new Model('The Lone Swordsman', [C.TenThunders], [C.Enforcer, C.Living, C.Rare1, C.Wave2], 8),
 		new Model('Kamaitachi', [C.TenThunders], [C.Minion, C.Totem, C.Oni, C.Wave2], 4),
 		new Model('Tengu', [C.TenThunders], [C.Minion, C.Spirit, C.Oni, C.Wave2], 4),
-		new Model('Katanaka Sniper', [C.TenThunders], [C.Minion, C.Living, C.Rare2, C.Wave2], 7)
+		new Model('Katanaka Sniper', [C.TenThunders], [C.Minion, C.Living, C.Rare2, C.Wave2], 7),
+		
+		new Model('Brutal Emissary', [C.Guild], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
+		new Model('Master Queeg', [C.Guild], [C.Henchman, C.Living, C.Rare1, C.Guardsman, C.BlackSheep, C.Wave3], 7, 6),
+		new Model('Dr. Grimwell', [C.Guild], [C.Henchman, C.Living, C.Mercenary, C.Rare1, C.WitchHunter, C.Wave3], 9, 4),
+		new Model('Nurse Heartsbane', [C.Guild], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.WitchHunter, C.Wave3], 8),
+		new Model('Greed', [C.Guild], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8),
+		new Model('Sanctioned Spellcaster', [C.Guild], [C.Minion, C.Living, C.Academic, C.Wave3], 5),
+		new Model('Orderly', [C.Guild], [C.Minion, C.Living, C.Mercenary, C.Rare2, C.WitchHunter, C.Wave3], 5),
+		new Model('Mounted Guard', [C.Guild], [C.Minion, C.Living, C.Guardsman, C.Wave3], 7),
+		
+		new Model('Carrion Emissary', [C.Resurrectionist], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
+		new Model('Anna Lovelace', [C.Resurrectionist], [C.Henchman, C.Living, C.Mercenary, C.Rare1, C.Wave3], 9, 4),
+		new Model('Sloth', [C.Resurrectionist], [C.Enforcer, C.Undead, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Horror, C.Wave3], 8),
+		new Model('The Forgotten Marshal', [C.Resurrectionist], [C.Enforcer, C.Living, C.Rare1, C.Wave3], 7),
+		new Model('Hayreddin', [C.Resurrectionist], [C.Enforcer, C.Living, C.Rare1, C.Nephilim, C.Wave3], 7),
+		
+		new Model('Arcane Emissary', [C.Arcanist], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
+		new Model('Wind Gamin', [C.Arcanist], [C.Minion, C.Living, C.Gamin, C.Wave3], 4),
+		new Model('The Scorpius', [C.Arcanist], [C.Minion, C.Living, C.Construct, C.Rare1, C.Beast, C.Wave3], 6),
+		new Model('Ice Dancer', [C.Arcanist], [C.Minion, C.Living, C.Showgirl, C.Wave3], 6),
+		new Model('Envy', [C.Arcanist], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8),
+		
+		new Model('Mysterious Emissary', [C.Neverborn], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
+		new Model('Wrath', [C.Neverborn], [C.Henchman, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8, 5),
+		new Model('Scion of Black Blood', [C.Neverborn], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.Nephilim, C.Wave3], 8),
+		new Model('Corrupted Hound', [C.Neverborn], [C.Minion, C.Living, C.Rare4, C.Beast, C.Hound, C.Wave3], 3),
+		new Model('Changeling', [C.Neverborn], [C.Minion, C.Living, C.Rare3, C.Mimic, C.Wave3], 4),
+		new Model('Bloodwretch', [C.Neverborn], [C.Minion, C.Living, C.Mercenary, C.Rare2, C.Nephilim, C.Wave3], 5),
+		new Model('Bunraku', [C.Neverborn, C.TenThunders], [C.Minion, C.Construct, C.Puppet, C.Wave3], 6),
+		
+		new Model('Hodgepodge Emissary', [C.Outcast], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Cursed, C.Wave3], 10),
+		new Model('Scion of the Void', [C.Outcast], [C.Henchman, C.Rare1, C.Wave3], 8, 5),
+		new Model('Pride', [C.Outcast], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8),
+		new Model('Big Jake', [C.Outcast], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.Wave3], 5),
+		new Model('The Winged Plague', [C.Outcast], [C.Minion, C.Living, C.Vermin, C.Wave3], 4),
+		
+		new Model('Lucky Emissary', [C.Gremlin], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
+		new Model('Sparks', [C.Gremlin], [C.Henchman, C.Living, C.Rare1, C.Gremlin, C.Foundry, C.Wave3], 7, 6),
+		new Model('Gluttony', [C.Gremlin], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8),
+		new Model('Survivor', [C.Gremlin], [C.Minion, C.Living, C.Construct, C.Gremlin, C.Wave3], 5),
+		new Model('Mechanized Porkchop', [C.Gremlin], [C.Minion, C.Construct, C.Pig, C.Foundry, C.Wave3], 7),
+		
+		new Model('Shadow Emissary', [C.TenThunders], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
+		new Model('Lust', [C.TenThunders], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8),
+		new Model('Wandering River Monk', [C.TenThunders], [C.Minion, C.Living, C.Wave3], 7),
+		new Model('Obsidian Oni', [C.TenThunders], [C.Minion, C.Oni, C.Wave3], 6),
+		new Model('Jorogumo', [C.TenThunders], [C.Minion, C.Oni, C.LastBlossom, C.Wave3], 9)
 	]
 };

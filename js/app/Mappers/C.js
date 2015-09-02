@@ -7,10 +7,12 @@ var C = {
 	BlackSheep: 'Black Sheep',
 	Brilliance: 'Brilliance',
 	Construct: 'Construct',
+	CrossroadsSeven: 'Crossroads Seven',
 	Cursed: 'Cursed',
 	Darkened: 'Darkened',
 	Effigy: 'Effigy',
 	Enforcer: 'Enforcer',
+	EmissaryOfFate: 'Emissary of Fate',
 	Family: 'Family',
 	Foundry: 'Foundry',
 	Freikorps: 'Freikorps',
@@ -65,6 +67,7 @@ var C = {
 	Tormented: 'Tormented',
 	Totem: 'Totem',
 	TriChi: 'TriChi',
+	Trinket: 'Trinket',
 	Tyrant: 'Tyrant',
 	Undead: 'Undead',
 	Upgrade: 'Upgrade',
@@ -72,6 +75,7 @@ var C = {
 	Vermin: 'Vermin',
 	Wave1: 'Wave 1',
 	Wave2: 'Wave 2',
+	Wave3: 'Wave 3',
 	Woe: 'Woe',
 	
 	TotemFor: function(name) {
