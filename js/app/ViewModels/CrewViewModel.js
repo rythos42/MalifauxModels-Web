@@ -157,7 +157,10 @@ var CrewViewModel = function(crew, crewTabId) {
 		crewText += '\r\n';
 		crewText += 'Available Soulstones: ' + self.availableSoulstones() + '\r\n';
 		crewText += 'Total: ' + self.crewTotal() + '\r\n';
-		crewText += 'Pool: ' + self.soulstonePool() + '\r\n';
+		
+		if(!crew.isCampaign())
+			crewText += 'Pool: ' + self.soulstonePool() + '\r\n';
+		
 		crewText += '\r\n';
 		crewText += 'Shared from MalifauxModels (geeksong.com/Malifaux, or Google Play).\r\n';
 
