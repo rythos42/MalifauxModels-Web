@@ -324,8 +324,6 @@ var UpgradeList = {
 		new Upgrade('Favor of Earth', [C.TenThunders], [C.Upgrade, C.Rare1, 'Samurai', C.Wave2], 0),
 		new Upgrade('Favor of Jigoku', [C.TenThunders], [C.Upgrade, C.Rare1, 'Samurai', C.Wave2], 0),
 		
-		new Upgrade('Mercenary', [], [C.Upgrade], 1),
-		
 		new Upgrade('Research Grant', [C.Guild], [C.Upgrade, 'Dr. Grimwell', C.Wave3], 1),
 		new Upgrade('Conflux of Judgement', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
 		new Upgrade('Conflux of Incineration', [C.Guild], [C.Upgrade, C.EmissaryOfFate, C.Wave3], 0),
