@@ -357,6 +357,7 @@ var ModelList = {
 		
 		new Model('Mysterious Emissary', [C.Neverborn], [C.Enforcer, C.Rare1, C.EmissaryOfFate, C.Wave3], 10),
 		new Model('Wrath', [C.Neverborn], [C.Henchman, C.Living, C.Mercenary, C.Rare1, C.CrossroadsSeven, C.Tormented, C.Wave3], 8, 5),
+		new Model('Angel Eyes', [C.Neverborn], [C.Henchman, C.Living, C.Mercenary, C.Rare1, C.Nephilim, C.Wave3], 9, 4),
 		new Model('Scion of Black Blood', [C.Neverborn], [C.Enforcer, C.Living, C.Mercenary, C.Rare1, C.Nephilim, C.Wave3], 8),
 		new Model('Corrupted Hound', [C.Neverborn], [C.Minion, C.Living, C.Rare4, C.Beast, C.Hound, C.Wave3], 3),
 		new Model('Changeling', [C.Neverborn], [C.Minion, C.Living, C.Rare3, C.Mimic, C.Wave3], 4),
