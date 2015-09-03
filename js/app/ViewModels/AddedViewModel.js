@@ -6,7 +6,7 @@ var AddedViewModel = function(addable, crew) {
 	self.name = addable.name;
 	
 	if(addable.isMercenary && addable.isMercenary() && !crew.isModelInLeaderFaction(addable))
-		self.name += " (Mercenary)";
+		self.name += ' (Mercenary)';
 
 	self.cost = addable.cost;
 	self.cache = addable.cache;

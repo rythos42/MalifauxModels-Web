@@ -1,4 +1,4 @@
-/*globals ko */
+/*globals _, ko, C */
 /*exported Model */
 var Model = function(name, factionList, characteristicList, cost, cache) {
 	var self = this;

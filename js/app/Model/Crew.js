@@ -64,7 +64,7 @@ var Crew = function() {
 				return leaderFaction === modelFaction;
 			}) !== undefined;
 		}) !== undefined;
-	}
+	};
 		
 	self.totalCost = ko.computed(function() {
 		return _.reduce(self.added(), function(currentTotal, addable) {
@@ -73,12 +73,12 @@ var Crew = function() {
 			}
 			
 			if(addable.isLeader && addable.isLeader()) {
-				 if(self.isCampaign()) {
-					 if(addable.isMaster && addable.isMaster())
-						 return currentTotal + 15;	// All Masters cost 15 in the Campaign
-					 if(addable.isHenchman && addable.isHenchman())
-						 return currentTotal + (13 - addable.cache); // All Henchmen cost 13-Cache in the Campaign
-				 }
+				if(self.isCampaign()) {
+					if(addable.isMaster && addable.isMaster())
+						return currentTotal + 15;	// All Masters cost 15 in the Campaign
+					if(addable.isHenchman && addable.isHenchman())
+						return currentTotal + (13 - addable.cache); // All Henchmen cost 13-Cache in the Campaign
+				}
 				return currentTotal;
 			}
 		
