@@ -8,7 +8,7 @@ var CrewAssembler = {
 	fromJson: function(crew, jsonCrew) {
 		crew.availableSoulstones(jsonCrew.availableSoulstones);
 		crew.name(jsonCrew.name);
-		crew.isCampaign(jsonCrew.isCampaign || false);
+		crew.isArsenal(jsonCrew.isArsenal || false);
 	
 		var newCrew = [];
 		_.each(jsonCrew.added, function(modelOrUpgrade) {

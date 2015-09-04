@@ -7,7 +7,7 @@ var CrewViewModel = function(crew, crewTabId) {
 	self.availableSoulstones = crew.availableSoulstones;
 	self.crewTotal = crew.totalCost;
 	self.crewName = crew.name;
-	self.isCampaign = crew.isCampaign;
+	self.isArsenal = crew.isArsenal;
 	self.crewMemberViewModels = ko.observableArray();
 	self.crewTabId = ko.observable(crewTabId);
 	self.hrefCrewTabId = ko.computed(function() { return '#' + self.crewTabId(); });
@@ -158,7 +158,7 @@ var CrewViewModel = function(crew, crewTabId) {
 		crewText += 'Available Soulstones: ' + self.availableSoulstones() + '\r\n';
 		crewText += 'Total: ' + self.crewTotal() + '\r\n';
 		
-		if(!crew.isCampaign())
+		if(!crew.isArsenal())
 			crewText += 'Pool: ' + self.soulstonePool() + '\r\n';
 		
 		crewText += '\r\n';
