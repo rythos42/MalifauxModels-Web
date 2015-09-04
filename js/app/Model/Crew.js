@@ -6,7 +6,8 @@ var Crew = function() {
 	self.name = ko.observable('');
 	self.availableSoulstones = ko.observable(50);
 	self.added = ko.observableArray();
-	self.isCampaign = ko.observable(false);
+	self.isArsenal = ko.observable(false);
+	self.scrip = ko.observable(0);
 	
 	self.clone = function() {
 		var clone = new Crew();
@@ -73,11 +74,11 @@ var Crew = function() {
 			}
 			
 			if(addable.isLeader && addable.isLeader()) {
-				if(self.isCampaign()) {
+				if(self.isArsenal()) {
 					if(addable.isMaster && addable.isMaster())
-						return currentTotal + 15;	// All Masters cost 15 in the Campaign
+						return currentTotal + 15;	// All Masters cost 15 in the Arsenal
 					if(addable.isHenchman && addable.isHenchman())
-						return currentTotal + (13 - addable.cache); // All Henchmen cost 13-Cache in the Campaign
+						return currentTotal + (13 - addable.cache); // All Henchmen cost 13-Cache in the Arsenal
 				}
 				return currentTotal;
 			}
