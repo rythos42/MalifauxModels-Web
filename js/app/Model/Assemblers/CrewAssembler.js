@@ -9,6 +9,7 @@ var CrewAssembler = {
 		crew.availableSoulstones(jsonCrew.availableSoulstones);
 		crew.name(jsonCrew.name);
 		crew.isArsenal(jsonCrew.isArsenal || false);
+		crew.scrip(jsonCrew.scrip || 0);
 	
 		var newCrew = [];
 		_.each(jsonCrew.added, function(modelOrUpgrade) {
