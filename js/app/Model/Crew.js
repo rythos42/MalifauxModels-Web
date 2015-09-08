@@ -73,6 +73,9 @@ var Crew = function() {
 				currentTotal++; // Add 1 cost for Mercenaries not in the Leader faction
 			}
 			
+			if(self.isArsenal() && addable instanceof Upgrade)
+				return currentTotal;	// Upgrades don't count in Arsenals
+			
 			if(addable.isLeader && addable.isLeader()) {
 				if(self.isArsenal()) {
 					if(addable.isMaster && addable.isMaster())
