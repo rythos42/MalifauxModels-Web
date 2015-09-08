@@ -1,4 +1,4 @@
-/*globals _, ko */
+/*globals _, ko, Upgrade */
 /*exported Crew */
 var Crew = function() {
 	var self = this;
@@ -8,6 +8,7 @@ var Crew = function() {
 	self.added = ko.observableArray();
 	self.isArsenal = ko.observable(false);
 	self.scrip = ko.observable(0);
+	self.makingCampaignCrew = ko.observable(false);
 	
 	self.clone = function() {
 		var clone = new Crew();
@@ -66,15 +67,59 @@ var Crew = function() {
 			}) !== undefined;
 		}) !== undefined;
 	};
-		
-	self.totalCost = ko.computed(function() {
+	
+	self.campaignRating = ko.computed(function() {
+		return _.reduce(self.added(), function(currentTotal, addable) {
+			if(!(addable instanceof Upgrade) || !addable.includeInCampaignCrew())
+				return currentTotal;
+			
+			if(addable.isInjury())
+				return currentTotal - 1;
+			
+			if(addable.isCampaign()) {
+				if(addable.isAvatar())
+					return currentTotal + 3;
+				return currentTotal + 1;
+			}
+			
+			return currentTotal;
+		}, 0);
+	});
+	
+	// Include all models, no upgrades, plus 5 stones.
+	self.maximumEncounterSize = ko.computed(function() {
 		return _.reduce(self.added(), function(currentTotal, addable) {
 			if(addable.isMercenary && addable.isMercenary() && !self.isModelInLeaderFaction(addable)) {
 				currentTotal++; // Add 1 cost for Mercenaries not in the Leader faction
 			}
 			
-			if(self.isArsenal() && addable instanceof Upgrade)
-				return currentTotal;	// Upgrades don't count in Arsenals
+			if(addable instanceof Upgrade)	// Don't include Upgrades
+				return currentTotal;
+			
+			if(addable.isLeader && addable.isLeader()) {
+				if(self.isArsenal()) {
+					if(addable.isMaster && addable.isMaster())
+						return currentTotal + 15;	// All Masters cost 15 in the Arsenal
+					if(addable.isHenchman && addable.isHenchman())
+						return currentTotal + (13 - addable.cache); // All Henchmen cost 13-Cache in the Arsenal
+				}
+				return currentTotal;
+			}
+		
+			return (addable.cost 
+				? currentTotal + addable.cost
+				: currentTotal);
+		}, 0) + 5;
+	});
+		
+	self.totalCost = ko.computed(function() {
+		return _.reduce(self.added(), function(currentTotal, addable) {
+			if(self.makingCampaignCrew() && !addable.includeInCampaignCrew())
+				return currentTotal;	// Don't include in the total.
+			
+			if(addable.isMercenary && addable.isMercenary() && !self.isModelInLeaderFaction(addable)) {
+				currentTotal++; // Add 1 cost for Mercenaries not in the Leader faction
+			}
 			
 			if(addable.isLeader && addable.isLeader()) {
 				if(self.isArsenal()) {

@@ -1,7 +1,8 @@
 var C = {
+	Academic: 'Academic',
 	Ancestor: 'Ancestor',
 	Arcanist: 'Arcanist',
-	Academic: 'Academic',
+	Avatar: 'Avatar', 
 	Beast: 'Beast',
 	Belle: 'Belle',
 	BlackSheep: 'Black Sheep',

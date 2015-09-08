@@ -205,18 +205,22 @@
 					<fieldset class="total">
 						<legend class="title">Soulstones</legend>
 						<div><span class="label">Arsenal: </span><input type="checkbox" data-bind="checked: isArsenal"/></div>
+						<div data-bind="visible: isArsenal"><span class="label">Campaign Crew: </span><input type="checkbox" data-bind="checked: makingCampaignCrew"/></div>
+						<div data-bind="visible: isArsenal"><span class="label">Max Encounter: </span><span data-bind="text: maximumEncounterSize"></span></div>
 						<div><span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a></div>
-						<div><span class="label">Scrip: </span><input type="number" data-bind="value: scrip"></a></div>
+						<div data-bind="visible: isArsenal"><span class="label">Scrip: </span><input type="number" data-bind="value: scrip"></a></div>
 						<div><span class="label">Total: </span><span data-bind="text: crewTotal"></span></div>
 						<div><span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span></div>
 						<div data-bind="visible: !isArsenal()"><span class="label">W/max pool: </span><span data-bind="text: remainingSoulstonesWithMaximumPool"></span></div>
 						<div data-bind="visible: !isArsenal()"><span class="label">Pool: </span><span data-bind="text: soulstonePool"></span></div>
+						<div data-bind="visible: makingCampaignCrew"><span class="label">Campaign Rating: </span><span data-bind="text: campaignRating"></span></div>
 					</fieldset>
 
 					<table>
 						<thead>
 							<tr>
 								<th class="action"></th>
+								<th class="action" data-bind="visible: makingCampaignCrew">Inc?</th>
 								<th class="name">Name</th>
 								<th class="number">Cost</th>
 								<th class="number">Cache</th>
@@ -228,6 +232,9 @@
 							<tr>
 								<td class="action">
 									<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
+								</td>
+								<td class="action" data-bind="visible: $parent.makingCampaignCrew">
+									<input type="checkbox" data-bind="checked: includeInCampaignCrew" />
 								</td>
 								<td class="name">
 									<span data-bind="text: name, css: {'upgrade': isUpgrade}"></span>

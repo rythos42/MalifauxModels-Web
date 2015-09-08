@@ -9,6 +9,7 @@ var Model = function(name, factionList, characteristicList, cost, cache) {
 	self.cost = cost;
 	self.cache = cache;
 	
+	self.includeInCampaignCrew = ko.observable(false);
 	self.isLeader = ko.observable(false);
 			
 	self.canBeLeader = ko.computed(function() {

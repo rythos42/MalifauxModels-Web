@@ -10,6 +10,7 @@ var CrewAssembler = {
 		crew.name(jsonCrew.name);
 		crew.isArsenal(jsonCrew.isArsenal || false);
 		crew.scrip(jsonCrew.scrip || 0);
+		crew.makingCampaignCrew(jsonCrew.makingCampaignCrew || false);
 	
 		var newCrew = [];
 		_.each(jsonCrew.added, function(modelOrUpgrade) {
@@ -17,10 +18,12 @@ var CrewAssembler = {
 				case 'Model':
 					var model = new Model(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.characteristicList, modelOrUpgrade.cost, modelOrUpgrade.cache);
 					model.isLeader(modelOrUpgrade.isLeader);
+					model.includeInCampaignCrew(modelOrUpgrade.includeInCampaignCrew);
 					newCrew.push(model);
 					break;
 				case 'Upgrade':
 					var upgrade = new Upgrade(modelOrUpgrade.name, modelOrUpgrade.factionList, modelOrUpgrade.restrictionsList, modelOrUpgrade.cost);
+					upgrade.includeInCampaignCrew(modelOrUpgrade.includeInCampaignCrew);
 					newCrew.push(upgrade);
 					break;
 			}

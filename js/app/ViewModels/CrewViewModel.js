@@ -6,13 +6,16 @@ var CrewViewModel = function(crew, crewTabId) {
 	self.crew = crew;
 	self.availableSoulstones = crew.availableSoulstones;
 	self.crewTotal = crew.totalCost;
+	self.maximumEncounterSize = crew.maximumEncounterSize;
 	self.crewName = crew.name;
 	self.isArsenal = crew.isArsenal;
 	self.scrip = crew.scrip;
+	self.makingCampaignCrew = crew.makingCampaignCrew;
+	self.campaignRating = crew.campaignRating;
 	self.crewMemberViewModels = ko.observableArray();
 	self.crewTabId = ko.observable(crewTabId);
 	self.hrefCrewTabId = ko.computed(function() { return '#' + self.crewTabId(); });
-	
+		
 	self.isMenuOpen = ko.observable(false);
 	self.openMenu = function() {
 		self.isMenuOpen(!self.isMenuOpen());
@@ -144,6 +147,9 @@ var CrewViewModel = function(crew, crewTabId) {
 		var crewText = '-- ' + self.crewName() + ' --\r\n\r\n';
 		
 		_.each(self.crewMemberViewModels(), function(addedViewModel) {
+			if(self.makingCampaignCrew() && !addedViewModel.includeInCampaignCrew())
+				return;
+			
 			if(addedViewModel.isUpgrade)
 				crewText += '\t';
 		
@@ -156,7 +162,14 @@ var CrewViewModel = function(crew, crewTabId) {
 		});
 		
 		crewText += '\r\n';
-		crewText += 'Available Soulstones: ' + self.availableSoulstones() + '\r\n';
+		
+		if(!self.makingCampaignCrew()) {
+			crewText += 'Available Soulstones: ' + self.availableSoulstones() + '\r\n';
+		} else {
+			crewText += 'Campaign Rating: ' + self.campaignRating() + '\r\n';
+			crewText += 'Pool: ' + self.remainingSoulstones() + '\r\n';
+		}
+		
 		crewText += 'Total: ' + self.crewTotal() + '\r\n';
 		
 		if(!crew.isArsenal())

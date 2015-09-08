@@ -31,7 +31,7 @@ var SkillList = {
 		new Upgrade('Instinctual', [], [C.Upgrade, C.Campaign, C.Skill, C.Wave3], 0),
 		new Upgrade('Fated', [], [C.Upgrade, C.Campaign, C.Skill, C.Wave3], 0),
 		
-		new Upgrade('Avatar', [], [C.Upgrade, C.Reward, C.Campaign, C.Skill, C.Wave3], 0),
+		new Upgrade('Avatar', [], [C.Upgrade, C.Avatar, C.Reward, C.Campaign, C.Skill, C.Wave3], 0),
 		new Upgrade('Brutal', [C.Guild], [C.Upgrade, C.Reward, C.Campaign, C.Skill, C.Wave3], 1),
 		new Upgrade('Blessings of Fate', [C.Neverborn], [C.Upgrade, C.Reward, C.Campaign, C.Skill, C.Wave3], 1),
 		new Upgrade('Well Trained', [C.Outcast], [C.Upgrade, C.Reward, C.Campaign, C.Skill, C.Wave3], 1),
