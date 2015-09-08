@@ -1,6 +1,7 @@
-/*globals describe, it, expect, UpgradeList, UpgradeListMapper */
+/*globals describe, it, expect, UpgradeList, EquipmentList, SkillList, InjuryList, UpgradeListMapper */
 describe('UpgradeListMapper', function() {
 	it('returns the model list', function() {
-		expect(UpgradeListMapper.get()).toBe(UpgradeList.data);
+		var list = UpgradeList.data.concat(EquipmentList.data, SkillList.data, InjuryList.data);
+		expect(UpgradeListMapper.get()).toEqual(list);
 	});
 });
