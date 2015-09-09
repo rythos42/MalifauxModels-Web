@@ -202,10 +202,10 @@
 			<!-- ko foreach: multipleCrewsViewModel.crewViewModels -->
 			<div data-bind="attr: {'id': crewTabId}">
 				<div class="crew-list" data-bind="visible: hasCrew">
+					<span class="label">Arsenal: </span><input type="checkbox" data-bind="checked: isArsenal"/>
+					<span data-bind="visible: isArsenal"><span class="label">Campaign Crew: </span><input type="checkbox" data-bind="checked: makingCampaignCrew"/></span>
 					<fieldset class="total">
 						<legend class="title">Soulstones</legend>
-						<div><span class="label">Arsenal: </span><input type="checkbox" data-bind="checked: isArsenal"/></div>
-						<div data-bind="visible: isArsenal"><span class="label">Campaign Crew: </span><input type="checkbox" data-bind="checked: makingCampaignCrew"/></div>
 						<div data-bind="visible: isArsenal"><span class="label">Max Encounter: </span><span data-bind="text: maximumEncounterSize"></span></div>
 						<div><span class="label">Available: </span><input type="number" data-bind="value: availableSoulstones"></a></div>
 						<div data-bind="visible: isArsenal"><span class="label">Scrip: </span><input type="number" data-bind="value: scrip"></a></div>
