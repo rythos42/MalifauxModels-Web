@@ -1,9 +1,9 @@
-/*globals describe, it, expect, Model */
+/*globals describe, it, expect, C, Model */
 describe('Model', function() {
 	it('sets properties on a Model from constructor', function() {
 		var name = 'name',
-			factionList = ['Guild'],
-			characteristicList = ['Living'],
+			factionList = [C.Guild],
+			characteristicList = [C.Living],
 			cost = 3,
 			cache = 1,
 			model = new Model(name, factionList, characteristicList, cost, cache);
@@ -57,5 +57,46 @@ describe('Model', function() {
 		var model = new Model();
 		
 		expect(model.type).toEqual('Model');
+	});
+	
+	it('can tell if it is included in a campaign crew', function() {
+		var model = new Model();
+		expect(model.includeInCampaignCrew()).toBe(false);
+	});
+	
+	it('can tell if it is a Master', function() {
+		var model = new Model(null, [], [C.Master], 0, 0);
+		
+		expect(model.isMaster()).toBe(true);
+	});
+	
+	it('can tell if it is not a Master', function() {
+		var model = new Model(null, [], [], 0, 0);
+		
+		expect(model.isMaster()).toBe(false);
+	});
+	
+	it('can tell if it is a Henchman', function() {
+		var model = new Model(null, [], [C.Henchman], 0, 0);
+		
+		expect(model.isHenchman()).toBe(true);
+	});
+	
+	it('can tell if it is not a Henchman', function() {
+		var model = new Model(null, [], [], 0, 0);
+		
+		expect(model.isHenchman()).toBe(false);
+	});
+	
+	it('can tell if it is a Mercenary', function() {
+		var model = new Model(null, [], [C.Mercenary], 0, 0);
+		
+		expect(model.isMercenary()).toBe(true);
+	});
+	
+	it('can tell if it is not a Mercenary', function() {
+		var model = new Model(null, [], [], 0, 0);
+		
+		expect(model.isMercenary()).toBe(false);
 	});
 });

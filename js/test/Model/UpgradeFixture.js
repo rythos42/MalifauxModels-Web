@@ -1,9 +1,9 @@
-/*globals describe, it, expect, Upgrade */
+/*globals describe, it, expect, C, Upgrade */
 describe('Upgrade', function() {
 	it('sets properties on a Upgrade from constructor', function() {
 		var name = 'name',
-			factionList = ['Guild'],
-			restrictionsList = ['Living'],
+			factionList = [C.Guild],
+			restrictionsList = [C.Living],
 			cost = 3,
 			upgrade = new Upgrade(name, factionList, restrictionsList, cost);
 			
@@ -17,8 +17,8 @@ describe('Upgrade', function() {
 	
 	it('can clone an upgrade', function() {
 		var name = 'name',
-			factionList = ['Guild'],
-			restrictionsList = ['Living'],
+			factionList = [C.Guild],
+			restrictionsList = [C.Living],
 			cost = 3,
 			upgrade = new Upgrade(name, factionList, restrictionsList, cost),
 			newUpgrade = upgrade.clone();
@@ -35,5 +35,46 @@ describe('Upgrade', function() {
 		var upgrade = new Upgrade();
 		
 		expect(upgrade.type).toEqual('Upgrade');
+	});
+	
+	it('can tell if it is included in a campaign crew', function() {
+		var upgrade = new Upgrade();
+		expect(upgrade.includeInCampaignCrew()).toBe(false);
+	});
+			
+	it('can tell if it is an Injury', function() {
+		var upgrade = new Upgrade(null, [], [C.Injury], 0, 0);
+		
+		expect(upgrade.isInjury()).toBe(true);
+	});
+	
+	it('can tell if it is not a Injury', function() {
+		var upgrade = new Upgrade(null, [], [], 0, 0);
+		
+		expect(upgrade.isInjury()).toBe(false);
+	});
+	
+	it('can tell if it is a Campaign upgrade', function() {
+		var upgrade = new Upgrade(null, [], [C.Campaign], 0, 0);
+		
+		expect(upgrade.isCampaign()).toBe(true);
+	});
+	
+	it('can tell if it is not a Campaign upgrade', function() {
+		var upgrade = new Upgrade(null, [], [], 0, 0);
+		
+		expect(upgrade.isCampaign()).toBe(false);
+	});
+	
+	it('can tell if it is an Avatar upgrade', function() {
+		var upgrade = new Upgrade(null, [], [C.Avatar], 0, 0);
+		
+		expect(upgrade.isAvatar()).toBe(true);
+	});
+	
+	it('can tell if it is not an Avatar upgrade', function() {
+		var upgrade = new Upgrade(null, [], [], 0, 0);
+		
+		expect(upgrade.isAvatar()).toBe(false);
 	});
 });
