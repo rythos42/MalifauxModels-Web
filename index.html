@@ -225,7 +225,7 @@
 								<th class="number">Cost</th>
 								<th class="number">Cache</th>
 								<th class="leader">Leader</th>
-								<th></th>
+								<th class="filler"></th>
 							</tr>
 						</thead>
 						<tbody data-bind="sortable: { data: crewMemberViewModels, afterMove: updateModel }">
@@ -244,7 +244,7 @@
 								<td class="leader" data-bind="css: { 'is-leader': isLeader }">
 									<a class="set-as-leader" href="#" data-bind="visible: canBeLeader, click: setAsLeader" title="Set as leader."></a>
 								</td>
-								<td></td>
+								<td class="filler"></td>
 							</tr>
 						</tbody>
 					</table>

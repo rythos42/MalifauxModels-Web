@@ -92,7 +92,7 @@ span.label {
 input[type="text"], select {
     border: 1px solid #ddd;
     padding: 3px 2px 3px 3px;
-	width: 139px;
+	width: 115px;
 }
 
 select.notOrIs {
@@ -129,7 +129,7 @@ select.search-field {
 }
 
 .crew-list .total span.label {
-	width: 90px;
+	width: 130px;
 	text-align: right;
 	display: inline-block;
 	padding-right: 5px;
@@ -198,9 +198,7 @@ select.search-field {
 	width: 16px;
 	height: 21px;
 	display: inline-block;
-	position: absolute;
-	top: 5px;
-	right: -20px;
+	float: right;
 }
 
 .crew-Buttons {

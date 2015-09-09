@@ -1,5 +1,5 @@
 td, th {
-	padding: 5px;
+	padding: 0px;
 }
 
 td.action, th.action {
@@ -12,6 +12,10 @@ td.name, th.name {
 
 td.number, th.number {
 	width: 20px;
+}
+
+td.filler, th.filler {
+	width: 0px;
 }
 
 td.faction, th.faction {
