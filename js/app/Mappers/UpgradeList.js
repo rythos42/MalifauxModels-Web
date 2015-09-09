@@ -159,7 +159,6 @@ var UpgradeList = {
 		new Upgrade('Tarot Reading', [C.Neverborn, C.Gremlin], [C.Upgrade, 'Zoraida', C.Wave1], 2),
 		new Upgrade('Hex Bag', [C.Neverborn, C.Gremlin], [C.Upgrade, 'Zoraida', C.Wave1], 1),
 		new Upgrade('Eternal Fiend', [C.Neverborn], [C.Upgrade, 'Bad Juju', C.Wave1], 2),
-		new Upgrade('Hexed Among You', [C.Neverborn, C.Gremlin], [C.Upgrade, C.Swampfiend, C.Rare1, C.Wave1], 1),
 		
 		new Upgrade('Otherworldly', [C.Neverborn], [C.Upgrade, 'The Dreamer', C.Wave2], 2),
 		new Upgrade('Restless Dreams', [C.Neverborn], [C.Upgrade, 'The Dreamer', C.Limited, C.Wave2], 1),
@@ -267,7 +266,7 @@ var UpgradeList = {
 		new Upgrade('Lead Lined Apron', [C.Gremlin], [C.Upgrade, 'Mah Tucket', C.Wave2], 2),
 		new Upgrade('Cute Critters', [C.Gremlin], [C.Upgrade, 'McTavish', C.Wave2], 1),
 		new Upgrade('A Gun For A Lady', [C.Gremlin], [C.Upgrade, 'Trixiebelle', C.Wave2], 1),
-		new Upgrade('Hexed Among You', [C.Gremlin, C.Neverborn], [C.Upgrade, C.Swampfiend, C.Wave2], 1),
+		new Upgrade('Hexed Among You', [C.Gremlin, C.Neverborn], [C.Upgrade, C.Swampfiend, C.Rare1, C.Wave1, C.Wave2], 1),
 		new Upgrade('On Yer Toes', [C.Gremlin], [C.Upgrade, C.Master, C.Henchman, C.Rare1, C.Wave2], 1),
 		new Upgrade('Hide in the Mud', [C.Gremlin], [C.Upgrade, C.Rare3, C.Wave2], 1),
 		
