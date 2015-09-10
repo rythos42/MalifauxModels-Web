@@ -213,14 +213,14 @@
 						<div><span class="label">Remaining: </span><span data-bind="text: remainingSoulstones"></span></div>
 						<div data-bind="visible: !isArsenal()"><span class="label">W/max pool: </span><span data-bind="text: remainingSoulstonesWithMaximumPool"></span></div>
 						<div data-bind="visible: !isArsenal()"><span class="label">Pool: </span><span data-bind="text: soulstonePool"></span></div>
-						<div data-bind="visible: makingCampaignCrew"><span class="label">Campaign Rating: </span><span data-bind="text: campaignRating"></span></div>
+						<div data-bind="visible: isCampaignCrew"><span class="label">Campaign Rating: </span><span data-bind="text: campaignRating"></span></div>
 					</fieldset>
 
 					<table>
 						<thead>
 							<tr>
 								<th class="action"></th>
-								<th class="action" data-bind="visible: makingCampaignCrew">Inc?</th>
+								<th class="action" data-bind="visible: isCampaignCrew">Inc?</th>
 								<th class="name">Name</th>
 								<th class="number">Cost</th>
 								<th class="number">Cache</th>
@@ -233,7 +233,7 @@
 								<td class="action">
 									<a class="remove" href="#" data-bind="click: removeFromCrew" title="Remove from crew."></a>
 								</td>
-								<td class="action" data-bind="visible: $parent.makingCampaignCrew">
+								<td class="action" data-bind="visible: $parent.isCampaignCrew">
 									<input type="checkbox" data-bind="checked: includeInCampaignCrew" />
 								</td>
 								<td class="name">

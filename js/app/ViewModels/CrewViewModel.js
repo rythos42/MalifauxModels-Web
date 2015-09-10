@@ -15,6 +15,10 @@ var CrewViewModel = function(crew, crewTabId) {
 	self.crewMemberViewModels = ko.observableArray();
 	self.crewTabId = ko.observable(crewTabId);
 	self.hrefCrewTabId = ko.computed(function() { return '#' + self.crewTabId(); });
+	
+	self.isCampaignCrew = ko.computed(function() {
+		return self.isArsenal() && self.makingCampaignCrew();
+	});
 		
 	self.isMenuOpen = ko.observable(false);
 	self.openMenu = function() {
