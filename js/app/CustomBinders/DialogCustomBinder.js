@@ -3,6 +3,8 @@ ko.bindingHandlers.dialog = {
     init: function(elementDom, valueAccessor) {
         var options = ko.utils.unwrapObservable(valueAccessor()),
             element = $(elementDom);
+			
+		options.closeText = '';
 
 		setTimeout(function() {
 			element.dialog(options);
