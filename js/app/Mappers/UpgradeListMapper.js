@@ -1,4 +1,4 @@
-/*globals UpgradeList, EquipmentList, SkillList, InjuryList */
+/*globals UpgradeList, EquipmentList, SkillList, InjuryList, LuckyMissList */
 /*exported UpgradeListMapper */
 var UpgradeListMapper = {
 	get: function() {
