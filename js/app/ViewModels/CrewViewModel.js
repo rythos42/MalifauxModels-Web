@@ -178,6 +178,8 @@ var CrewViewModel = function(crew, crewTabId) {
 		
 		if(!crew.isArsenal())
 			crewText += 'Pool: ' + self.soulstonePool() + '\r\n';
+        else
+            crewText += 'Scrip: ' + self.scrip() + '\r\n';
 		
 		crewText += '\r\n';
 		crewText += 'Shared from MalifauxModels (geeksong.com/Malifaux, or Google Play).\r\n';
