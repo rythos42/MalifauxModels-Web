@@ -1,5 +1,5 @@
 body {
-	background: #EFF5EE
+	background: #EFF5EE;
 }
 
 table {
@@ -65,6 +65,11 @@ ul {
 
 #FilterList {
 	max-width: 310px;
+}
+
+#full-list {
+    height: 88%;
+    overflow-y: scroll;
 }
 
 ul li {
