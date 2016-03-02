@@ -53,9 +53,7 @@ th.nosort {
 }
 
 tr.highlight {
-	background-color: red;
-	filter: alpha(opacity=20);
-	opacity: 0.2;
+	background-color: rgba(255,0,0,0.2);;
 }
 
 ul {
@@ -283,4 +281,18 @@ input[type="file"] {
 
 .crew-buttons form {
 	display: inline;
+}
+
+.added-to-crew {
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #ddd;
+    padding: 7px;
+}
+
+.ui-tabs-nav li {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }

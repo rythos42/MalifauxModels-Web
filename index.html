@@ -55,6 +55,7 @@
 		<script type="text/javascript" src="js/app/CustomBinders/MenuCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/SelectOnFocusCustomBinder.js"></script>
 		<script type="text/javascript" src="js/app/CustomBinders/SelectFileCustomBinder.js"></script>
+		<script type="text/javascript" src="js/app/CustomBinders/ShowThenFadeCustomBinder.js"></script>
 				
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -189,6 +190,7 @@
 						<tr data-bind="highlight: shouldHighlight">
 							<td class="action">
 								<a class="add" href="#" data-bind="click: addToCrew" title="Add to crew."></a>
+                                <span class="added-to-crew" data-bind="showThenFade: showPopUp">Added to crew '<span data-bind="text: addedToCrewName"></span>'.</span>
 							</td>
 							<td class="name" data-bind="text: name"></td>
 							<td class="faction" data-bind="text: factions, visible: DeviceManager.instance.isFullScreenDevice()"></td>

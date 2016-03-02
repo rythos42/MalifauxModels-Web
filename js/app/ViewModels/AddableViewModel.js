@@ -2,6 +2,13 @@
 /*exported AddableViewModel */
 var AddableViewModel = function(addable, defaultCrew) {
 	var self = this;
+    
+	self.cost = addable.cost;
+	self.cache = addable.cache;
+	
+	self.shouldHighlight = ko.observable(false);
+    self.addedToCrewName = ko.observable('');
+    self.showPopUp = ko.observable(false);
 	
 	self.factions = ko.computed(function() {
 		return addable.factionList.join(', ');
@@ -27,14 +34,11 @@ var AddableViewModel = function(addable, defaultCrew) {
 		return '';
 	});
 
-	self.cost = addable.cost;
-	self.cache = addable.cache;
-	
-	self.shouldHighlight = ko.observable(false);
-
 	self.addToCrew = function() {
 		self.shouldHighlight(true);
 		defaultCrew().addToCrew(addable.clone());
+        self.addedToCrewName(defaultCrew().name());
+        self.showPopUp(true);
 		TabsManager.refresh();
 	};
 };
