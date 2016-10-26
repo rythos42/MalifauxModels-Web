@@ -433,7 +433,7 @@ var UpgradeList = {
         new Upgrade('Behold My Glory', [C.Neverborn], [C.Upgrade, 'Titania', C.Wave4], 1),
         new Upgrade('An Audience With The Queen', [C.Neverborn], [C.Upgrade, 'Titania', C.Wave4], 1),
         new Upgrade('The Forest Claims All', [C.Neverborn], [C.Upgrade, 'Titania', C.Wave4], 1),
-        new Upgrade('The Queen\s Champion', [C.Neverborn], [C.Upgrade, 'Titania', C.Wave4], 1),
+        new Upgrade('The Queen\'s Champion', [C.Neverborn], [C.Upgrade, 'Titania', C.Wave4], 1),
         new Upgrade('Taproot', [C.Neverborn], [C.Upgrade, C.Fae, C.Rare1, C.Wave4], 1),
         new Upgrade('Shadow Lair', [C.Neverborn], [C.Upgrade, C.Wave4], 0),
         new Upgrade('Satisfying Punishment', [C.Neverborn], [C.Upgrade, 'Lelu', C.Wave4], 0),
