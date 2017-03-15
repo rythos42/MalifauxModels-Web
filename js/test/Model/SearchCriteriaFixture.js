@@ -5,7 +5,7 @@ describe('SearchCriteria', function() {
 		
 		expect(searchCriteria.selectedSearchOption()).toBe(SearchOption.Default);
 		expect(searchCriteria.searchText()).toEqual('');
-		expect(searchCriteria.searchBoolean()).toBe(false);
+		expect(searchCriteria.searchBoolean()).toBe('false');
 		expect(searchCriteria.notOrIs()).toBe(NotOrIs.Is);
 		expect(searchCriteria.isNot()).toBe(false);
 		expect(searchCriteria.isIs()).toBe(true);
@@ -18,7 +18,7 @@ describe('SearchCriteria', function() {
 		
 		expect(searchCriteria.selectedSearchOption()).toBe(searchOption);
 		expect(searchCriteria.searchText()).toEqual(searchText);
-		expect(searchCriteria.searchBoolean()).toBe(true);
+		expect(searchCriteria.searchBoolean()).toBe('true');
 		expect(searchCriteria.notOrIs()).toBe(NotOrIs.Not);
 		expect(searchCriteria.isNot()).toBe(true);
 		expect(searchCriteria.isIs()).toBe(false);
