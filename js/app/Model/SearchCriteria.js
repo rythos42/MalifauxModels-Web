@@ -5,7 +5,7 @@ var SearchCriteria = function(selectedSearchOption, searchText, searchBoolean, n
 	
 	self.selectedSearchOption = ko.observable(selectedSearchOption || SearchOption.Default);
 	self.searchText = ko.observable(searchText || '');
-	self.searchBoolean = ko.observable(searchBoolean || false);
+	self.searchBoolean = ko.observable(searchBoolean ? "true" : "false");
 	self.notOrIs = ko.observable(notOrIs || NotOrIs.Is);
 	
 	self.isNot = function() {
